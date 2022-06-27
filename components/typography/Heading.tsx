@@ -1,12 +1,10 @@
 interface HeadingPropTypes {
-	content: string;
+	text: string;
 }
 
 const Heading = (props: HeadingPropTypes) => {
 	return (
-		<h2 className="text-center font-kalam text-3xl font-extrabold text-dark dark:text-light sm:text-4xl">
-			{props.content}
-		</h2>
+		<h2 className="px-5 text-center font-oswald text-3xl font-extrabold text-zinc-200 sm:text-4xl">{props.text}</h2>
 	);
 };
 

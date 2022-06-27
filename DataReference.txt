@@ -1,6 +1,6 @@
 Stats:
 
-Count
+Total Rides
 Distance
 Moving Time
 Elevation Gain

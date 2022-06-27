@@ -1,18 +1,33 @@
 import type { NextPage } from 'next';
+import fetcher from '../utils/fetcher';
+import useSWR from 'swr';
 
 import Layout from '../components/layout/Layout';
 import SEO from '../components/layout/SEO';
-import Data from '../components/strava/Data';
+import Hero from '../components/dashboard/Hero';
+import Stats from '../components/dashboard/Stats';
+import Loading from '../components/dashboard/Loading';
+
+// API Call
 
 const Home: NextPage = () => {
+	// const { data, error } = useSWR('/api/strava', fetcher);
+
+	// if (!data)
+	// 	return (
+	// 		<Layout>
+	// 			<SEO />
+	// 			<Hero />
+	// 			<Loading />
+	// 		</Layout>
+	// 	);
+
 	return (
 		<>
 			<Layout>
 				<SEO />
-				<div className="flex h-screen w-screen flex-col items-center justify-center">
-					<h2 className="py-20 text-5xl">Cycling Dashboard</h2>
-					<Data />
-				</div>
+				<Hero />
+				<Stats />
 			</Layout>
 		</>
 	);

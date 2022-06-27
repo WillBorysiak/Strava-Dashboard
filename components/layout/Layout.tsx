@@ -1,17 +1,9 @@
-import { useEffect } from 'react';
-
 interface LayoutPropTypes {
 	children: React.ReactNode;
 }
 
 const Layout = (props: LayoutPropTypes) => {
-	// Set dark mode on load
-	useEffect(() => {
-		const root = window.document.documentElement;
-		root.classList.add('dark');
-	});
-
-	return <div className="overflow-y-hidden">{props.children}</div>;
+	return <div className=" overflow-y-hidden bg-gradient-to-b from-[#3e4549] to-[#1a1b1c]">{props.children}</div>;
 };
 
 export default Layout;

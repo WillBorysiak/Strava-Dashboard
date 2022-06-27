@@ -1,4 +1,6 @@
-export default async (req, res) => {
+import { NextApiRequest, NextApiResponse } from 'next';
+
+export default async (req: NextApiRequest, res: NextApiResponse) => {
 	// Tokens and Authentication
 	const headers = {
 		Accept: 'application/json, text/plain, */*',
