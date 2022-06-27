@@ -1,0 +1,18 @@
+Stats:
+
+Count
+Distance
+Moving Time
+Elevation Gain
+Biggest Ride
+
+
+Workouts:
+
+Name
+Distance (distance / 1000 and two decimal places)
+Duration (moving time - use converter)
+Elevation Height (in metres)
+Average Watts
+Average Speed  (times by 3.6 for kmph)
+Average Heart Rate
