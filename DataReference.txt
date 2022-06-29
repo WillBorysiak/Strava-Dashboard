@@ -10,6 +10,7 @@ Biggest Ride
 Workouts:
 
 Name
+Date
 Distance (distance / 1000 and two decimal places)
 Duration (moving time - use converter)
 Elevation Height (in metres)

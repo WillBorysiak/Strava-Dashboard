@@ -7,6 +7,10 @@ module.exports = {
 			fontFamily: {
 				oswald: ['Oswald', 'san-serif'],
 			},
+			colors: {
+				orange: '#ea580c',
+				zinc: '#e4e4e7',
+			},
 		},
 	},
 	plugins: [],

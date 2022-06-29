@@ -1,0 +1,18 @@
+Workout Cards
+
+Name 
+Date
+Distance
+
+Click the card to open and show:
+Duration
+Elevation
+Average Watts
+Average Speed
+Average Heart Rate
+
+
+Filter the workouts based on:
+Distance (Shortest - Longest)
+Date (Earliest - Recent)
+

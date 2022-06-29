@@ -9,7 +9,7 @@ const Hero = () => {
 		<div>
 			<div>
 				<img className="h-32 w-full object-cover lg:h-48" src={profile.backgroundImage} alt="" />
-				<h1 className="mb-5 text-center font-oswald text-7xl font-extrabold text-zinc-200  sm:text-8xl md:mb-10">
+				<h1 className="mb-5 text-center font-oswald text-7xl font-extrabold text-zinc  sm:text-8xl md:mb-10">
 					Cycling Dashboard
 				</h1>
 			</div>

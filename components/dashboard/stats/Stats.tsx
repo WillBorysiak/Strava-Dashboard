@@ -23,7 +23,6 @@ interface StatsTypes {
 }
 
 const Stats = (props: StatsTypes) => {
-	console.log(props.data);
 	const rideTotals = props.data.all_ride_totals;
 	const biggestRide = props.data.biggest_ride_distance;
 	const biggestClimb = props.data.biggest_climb_elevation_gain;
@@ -46,7 +45,7 @@ const Stats = (props: StatsTypes) => {
 
 	return (
 		<Container>
-			<dl className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+			<dl className="mt-5 mb-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
 				{stats.map((item: any, index: number) => (
 					<div
 						key={index}
