@@ -1,9 +1,11 @@
-import { useState } from 'react';
-import { CalendarIcon, LocationMarkerIcon, UsersIcon } from '@heroicons/react/solid';
+import Activity from './Activity';
 
-const positions = [
+const activityArray = [
 	{
 		id: 1,
+		name: 'Random Workout',
+		date: '1st June 2022',
+		distance: 30,
 		duration: '1h 30m',
 		elevation: '1000m',
 		average_watts: '150',
@@ -12,6 +14,9 @@ const positions = [
 	},
 	{
 		id: 2,
+		name: 'Random Workout',
+		date: '1st June 2022',
+		distance: 30,
 		duration: '1h 30m',
 		elevation: '1000m',
 		average_watts: '150',
@@ -20,6 +25,9 @@ const positions = [
 	},
 	{
 		id: 3,
+		name: 'Random Workout',
+		date: '1st June 2022',
+		distance: 30,
 		duration: '1h 30m',
 		elevation: '1000m',
 		average_watts: '150',
@@ -30,33 +38,13 @@ const positions = [
 
 const ActivityList = () => {
 	return (
-		<div className="overflow-hidden bg-white shadow sm:rounded-md">
-			<ul role="list" className="divide-y divide-gray-200">
-				{positions.map(position => (
-					<li key={position.id}>
-						<a href="#" className="block hover:bg-gray-50">
-							<div className="px-4 py-4 sm:px-6">
-								<div className="flex items-center justify-between">
-									<p className="truncate text-sm font-medium text-orange">Name of Activity</p>
-								</div>
-								<div className="mt-2 sm:flex sm:justify-between">
-									<div className="sm:flex">
-										<p className="flex items-center text-sm text-gray-500">
-											<UsersIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-											Distance
-										</p>
-									</div>
-									<div className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-										<CalendarIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
-										<p>Date of Activity</p>
-									</div>
-								</div>
-							</div>
-						</a>
-					</li>
+		<section className="mx-5 overflow-hidden bg-gradient-to-b from-[#3e4549] to-[#4c5458]  shadow sm:rounded-md">
+			<ul role="list" className="divide-y divide-zinc">
+				{activityArray.map((activity, index: number) => (
+					<Activity key={index} data={activity} />
 				))}
 			</ul>
-		</div>
+		</section>
 	);
 };
 
