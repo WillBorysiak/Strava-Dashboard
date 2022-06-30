@@ -1,5 +1,0 @@
-Filter the workouts based on:
-Number: (How many are shown)
-Distance (Shortest - Longest)
-Date (Recent - Oldest)
-

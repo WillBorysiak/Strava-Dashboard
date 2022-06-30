@@ -1,6 +1,6 @@
-import { distanceConverter } from '../../../utils/distanceConverter';
-import { elevationConverter } from '../../../utils/elevationConverter';
-import { timeConverter } from '../../../utils/timeConverter';
+import { distanceConverter } from '../../utils/distanceConverter';
+import { elevationConverter } from '../../utils/elevationConverter';
+import { timeConverter } from '../../utils/timeConverter';
 import Container from '../../layout/Container';
 import { rideIcon } from './StatsIcons';
 import { distanceIcon } from './StatsIcons';
@@ -49,11 +49,11 @@ const Stats = (props: StatsTypes) => {
 				{stats.map((item: any, index: number) => (
 					<div
 						key={index}
-						className="relative overflow-hidden rounded-lg bg-white px-2 pt-5 font-oswald  shadow sm:px-6 sm:pt-6"
+						className="relative overflow-hidden rounded-lg bg-zinc px-2 pt-5 font-oswald  shadow sm:px-6 sm:pt-6"
 					>
 						<dt>
 							<div className="bg-orange-600 absolute rounded-md p-3">{item.icon}</div>
-							<p className="ml-20 truncate font-oswald text-sm font-medium text-gray-500">{item.name}</p>
+							<p className="text-md ml-20 truncate font-oswald font-medium text-gray-900 md:text-lg">{item.name}</p>
 						</dt>
 						<dd className="ml-20 flex items-baseline pb-6 sm:pb-7">
 							<p className="text-2xl font-semibold text-gray-900">{item.stat}</p>

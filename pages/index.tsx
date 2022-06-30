@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import fetcher from '../utils/fetcher';
+import fetcher from '../components/utils/fetcher';
 import useSWR from 'swr';
 
 import Layout from '../components/layout/Layout';
@@ -12,27 +12,24 @@ import ActivityList from '../components/dashboard/activities/ActivityList';
 // API Call
 
 const Home: NextPage = () => {
-	// const { data, error } = useSWR('/api/strava', fetcher);
+	const { data, error } = useSWR('/api/strava', fetcher);
 
-	// if (!data)
-	// 	return (
-	// 		<Layout>
-	// 			<SEO />
-	// 			<Hero />
-	// 			<Loading />
-	// 		</Layout>
-	// 	);
-
-	// console.log(data);
+	if (!data)
+		return (
+			<Layout>
+				<SEO />
+				<Hero />
+				<Loading />
+			</Layout>
+		);
 
 	return (
 		<>
 			<Layout>
 				<SEO />
 				<Hero />
-
 				{/* <Stats data={data.stats} /> */}
-				<ActivityList />
+				<ActivityList data={data.activities} />
 			</Layout>
 		</>
 	);
