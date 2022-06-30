@@ -1,45 +1,21 @@
-import Activity from './Activity';
+import { useState } from 'react';
 
-const activityArray = [
-	{
-		id: 1,
-		name: 'Random Workout',
-		date: '1st June 2022',
-		distance: 30,
-		duration: '1h 30m',
-		elevation: '1000m',
-		average_watts: '150',
-		average_speed: '25kmph',
-		average_heart_rate: '140BPM',
-	},
-	{
-		id: 2,
-		name: 'Random Workout',
-		date: '1st June 2022',
-		distance: 30,
-		duration: '1h 30m',
-		elevation: '1000m',
-		average_watts: '150',
-		average_speed: '25kmph',
-		average_heart_rate: '140BPM',
-	},
-	{
-		id: 3,
-		name: 'Random Workout',
-		date: '1st June 2022',
-		distance: 30,
-		duration: '1h 30m',
-		elevation: '1000m',
-		average_watts: '150',
-		average_speed: '25kmph',
-		average_heart_rate: '140BPM',
-	},
-];
+import Heading from '../../typography/Heading';
+import Activity from './Activity';
+import { activityArray } from '../../data/activityArray';
+
+import ActivityFilter from './ActivityFilter';
 
 const ActivityList = () => {
+	const [sortValue, setSortValue] = useState<null | number | string>(5);
+
 	return (
-		<section className="mx-5 overflow-hidden bg-gradient-to-b from-[#3e4549] to-[#4c5458]  shadow sm:rounded-md">
-			<ul role="list" className="divide-y divide-zinc">
+		<section className="mx-5 overflow-hidden shadow sm:rounded-md">
+			<Heading text="Workouts" />
+			<div className="mt-3 flex w-full flex-row justify-around">
+				<ActivityFilter sortSelection={setSortValue} />
+			</div>
+			<ul role="list" className="mt-3 rounded-md">
 				{activityArray.map((activity, index: number) => (
 					<Activity key={index} data={activity} />
 				))}

@@ -30,6 +30,7 @@ const Home: NextPage = () => {
 			<Layout>
 				<SEO />
 				<Hero />
+
 				{/* <Stats data={data.stats} /> */}
 				<ActivityList />
 			</Layout>

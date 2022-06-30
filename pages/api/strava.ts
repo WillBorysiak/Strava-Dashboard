@@ -25,11 +25,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 	// API Calls
 
 	// Stats
-	// const statsRequest = await fetch(
-	// 	'https://www.strava.com/api/v3/athletes/90122035/stats?access_token=' + accessJson.access_token,
-	// );
+	const statsRequest = await fetch(
+		'https://www.strava.com/api/v3/athletes/90122035/stats?access_token=' + accessJson.access_token,
+	);
 
-	// const stats = await statsRequest.json();
+	const stats = await statsRequest.json();
 
 	// Activities
 	const activitiesRequest = await fetch(
@@ -39,6 +39,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 	return res.status(200).json({
 		activities,
-		// stats,
+		stats,
 	});
 };

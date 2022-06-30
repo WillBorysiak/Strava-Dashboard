@@ -49,10 +49,10 @@ const Stats = (props: StatsTypes) => {
 				{stats.map((item: any, index: number) => (
 					<div
 						key={index}
-						className="relative overflow-hidden rounded-lg bg-white px-4 pt-5 font-oswald  shadow sm:px-6 sm:pt-6"
+						className="relative overflow-hidden rounded-lg bg-white px-2 pt-5 font-oswald  shadow sm:px-6 sm:pt-6"
 					>
 						<dt>
-							<div className="absolute rounded-md bg-orange-600 p-3">{item.icon}</div>
+							<div className="bg-orange-600 absolute rounded-md p-3">{item.icon}</div>
 							<p className="ml-20 truncate font-oswald text-sm font-medium text-gray-500">{item.name}</p>
 						</dt>
 						<dd className="ml-20 flex items-baseline pb-6 sm:pb-7">
