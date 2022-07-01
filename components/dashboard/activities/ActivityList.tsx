@@ -3,14 +3,14 @@ import { useState } from 'react';
 import Heading from '../../typography/Heading';
 import Activity from './Activity';
 import ActivityFilter from './ActivityFilter';
-import { Activity as ActivityModel } from '../../../models/activity.model';
+import { ActivityTypes as ActivityModel } from '../../../models/activity.model';
 import dayjs from 'dayjs';
 
-interface ActivityListTypes {
+interface ActivityTypes {
 	activities: ActivityModel[];
 }
 
-const ActivityList = ({ activities }: ActivityListTypes) => {
+const ActivityList = ({ activities }: ActivityTypes) => {
 	const [resultsValue, setResultsValue] = useState<number>(5);
 	const [sortValue, setSortValue] = useState<string>('recent');
 

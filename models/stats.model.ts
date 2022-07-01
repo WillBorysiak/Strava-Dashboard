@@ -1,10 +1,10 @@
-export interface Stats {
+export interface StatsTypes {
 	biggest_ride_distance: number;
 	biggest_climb_elevation_gain: number;
-	all_ride_totals: StatTotal;
+	all_ride_totals: StatRideTotals;
 }
 
-export interface StatTotal {
+export interface StatRideTotals {
 	count: number;
 	distance: number;
 	elevation_gain: number;

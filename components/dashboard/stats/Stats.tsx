@@ -1,6 +1,6 @@
 import { distanceConverter } from '../../utils/distanceConverter';
 import { elevationConverter } from '../../utils/elevationConverter';
-import { timeConverter } from '../../utils/timeConverter';
+import { hoursMinsConverter } from '../../utils/hoursMinsConverter';
 import Container from '../../layout/Container';
 import { rideIcon } from './StatsIcons';
 import { distanceIcon } from './StatsIcons';
@@ -9,10 +9,10 @@ import { elevationIcon } from './StatsIcons';
 import { longestRideIcon } from './StatsIcons';
 import { biggestClimbIcon } from './StatsIcons';
 import Heading from '../../typography/Heading';
-import { Stats } from '../../../models/stats.model';
+import { StatsTypes } from '../../../models/stats.model';
 
 interface StatsType {
-	stats: Stats;
+	stats: StatsTypes;
 }
 
 const Stats = (props: StatsType) => {
@@ -22,7 +22,7 @@ const Stats = (props: StatsType) => {
 	const { count, distance, elevation_gain, moving_time } = rideTotals;
 
 	const distanceKm = distanceConverter(distance, 2);
-	const time = timeConverter(moving_time);
+	const time = hoursMinsConverter(moving_time);
 	const elevationKm = elevationConverter(elevation_gain);
 	const distanceRecord = distanceConverter(biggestRide, 2);
 	const climbRecord = biggestClimb.toFixed(0) + 'm';
@@ -40,7 +40,7 @@ const Stats = (props: StatsType) => {
 		<Container>
 			<Heading text="Stats" />
 			<dl className="mt-5 mb-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-				{stats.map((item: any, index: number) => (
+				{stats.map((item, index: number) => (
 					<div
 						key={index}
 						className="relative overflow-hidden rounded-lg bg-zinc px-2 pt-5 font-oswald  shadow sm:px-6 sm:pt-6"

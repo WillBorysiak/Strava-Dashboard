@@ -8,7 +8,7 @@ import Hero from '../components/dashboard/Hero';
 import Stats from '../components/dashboard/stats/Stats';
 import Loading from '../components/dashboard/Loading';
 import ActivityList from '../components/dashboard/activities/ActivityList';
-import Segments from '../components/dashboard/activities/segments/Segments';
+import Segments from '../components/dashboard/segments/Segments';
 import { Strava } from '../models/api/strava.model';
 
 // API Call
@@ -16,9 +16,16 @@ import { Strava } from '../models/api/strava.model';
 const Home: NextPage = () => {
 	const { data, error } = useSWR<Strava>('/api/strava', fetcher);
 
-	console.log(data);
-
 	if (!data)
+		return (
+			<Layout>
+				<SEO />
+				<Hero />
+				<Loading />
+			</Layout>
+		);
+
+	if (error)
 		return (
 			<Layout>
 				<SEO />
@@ -32,9 +39,9 @@ const Home: NextPage = () => {
 			<Layout>
 				<SEO />
 				<Hero />
-				<Stats stats={data.stats} />
-				<ActivityList activities={data.activities} />
-				{/* <Segments /> */}
+				{/* <Stats stats={data.stats} />
+				<ActivityList activities={data.activities} /> */}
+				<Segments segments={data.segments} />
 			</Layout>
 		</>
 	);

@@ -1,4 +1,4 @@
-export interface Activity {
+export interface ActivityTypes {
 	name: string;
 	id: number;
 	start_date: string;

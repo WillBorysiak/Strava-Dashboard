@@ -3,7 +3,7 @@ interface ContainerPropTypes {
 }
 
 const Container = (props: ContainerPropTypes) => {
-	return <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">{props.children}</div>;
+	return <div className="max-w-8xl mx-auto px-3 sm:px-4 lg:px-8">{props.children}</div>;
 };
 
 export default Container;
