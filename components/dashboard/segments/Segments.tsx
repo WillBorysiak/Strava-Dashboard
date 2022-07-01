@@ -8,7 +8,6 @@ interface SegmentTypes {
 }
 
 const Segments = ({ segments }: SegmentTypes) => {
-	console.log(segments);
 	return (
 		<Container>
 			<Heading text="Segments" />
