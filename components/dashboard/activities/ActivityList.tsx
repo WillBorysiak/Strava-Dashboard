@@ -3,36 +3,16 @@ import { useState } from 'react';
 import Heading from '../../typography/Heading';
 import Activity from './Activity';
 import ActivityFilter from './ActivityFilter';
+import { Activity as ActivityModel } from '../../../models/activity.model';
+import dayjs from 'dayjs';
 
 interface ActivityListTypes {
-	data: {
-		map: any;
-		activites: [];
-	};
+	activities: ActivityModel[];
 }
 
-interface ActivityTypes {
-	id: number;
-	activity: {
-		name: string;
-		id: number;
-		start_date: string;
-		distance: number;
-		moving_time: number;
-		elev_high: number;
-		average_watts: number;
-		average_speed: number;
-		average_heartrate: number;
-	};
-}
-
-const ActivityList = (props: ActivityListTypes) => {
-	const [resultsValue, setResultsValue] = useState<number | string>(5);
+const ActivityList = ({ activities }: ActivityListTypes) => {
+	const [resultsValue, setResultsValue] = useState<number>(5);
 	const [sortValue, setSortValue] = useState<string>('recent');
-
-	const activites = props.data;
-
-	const test = activites.slice(0, 10);
 
 	return (
 		<section className="mx-5 overflow-hidden shadow sm:rounded-md">
@@ -41,9 +21,19 @@ const ActivityList = (props: ActivityListTypes) => {
 				<ActivityFilter resultSelection={setResultsValue} sortSelection={setSortValue} />
 			</div>
 			<ul role="list" className="mt-3 rounded-md">
-				{test.map((activity: ActivityTypes) => (
-					<Activity key={activity.id} data={activity} />
-				))}
+				{activities
+					.sort((a, b) => {
+						if (sortValue === 'recent' && dayjs(a.start_date).isBefore(b.start_date)) return -1;
+						if (sortValue === 'oldest' && dayjs(a.start_date).isAfter(b.start_date)) return -1;
+						if (sortValue === 'longest' && b.distance > a.distance) return -1;
+						if (sortValue === 'shortest' && a.distance > b.distance) return -1;
+						return 0;
+					})
+					.slice(activities.length - resultsValue)
+					.reverse()
+					.map(activity => (
+						<Activity key={activity.id} data={activity} />
+					))}
 			</ul>
 		</section>
 	);

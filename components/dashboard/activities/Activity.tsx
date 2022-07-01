@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { distanceConverter } from '../../utils/distanceConverter';
 import { removeEmoji } from '../../utils/removeEmoji';
-import { dateConverter } from '../../utils/dateConverter';
 import { timeConverter } from '../../utils/timeConverter';
 import { speedConverter } from '../../utils/speedConverter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDay } from '@fortawesome/pro-solid-svg-icons';
-
+import { Activity as ActivityModel } from '../../../models/activity.model';
+import dayjs from 'dayjs';
 import StravaIcon from './StravaIcon';
+
 interface ActivityTypes {
-	data: any;
+	data: ActivityModel;
 }
 
 const Activity = (props: ActivityTypes) => {
@@ -17,20 +18,8 @@ const Activity = (props: ActivityTypes) => {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<li className="my-3 font-oswald text-zinc backdrop-brightness-[0.8]">
-			<div
-				className="hover:cursor-pointer"
-				onClick={() => {
-					if (open === false) {
-						setOpen(true);
-						return;
-					}
-					if (open === true) {
-						setOpen(false);
-						return;
-					}
-				}}
-			>
+		<li className="my-3 font-oswald text-zinc">
+			<div className="hover:cursor-pointer" onClick={() => setOpen(!open)}>
 				<div className="px-4 py-2 sm:px-6">
 					<div className="flex items-center justify-between">
 						<h3 className="text-xl font-bold text-orange md:text-2xl">{removeEmoji(content.name)}</h3>
@@ -44,7 +33,7 @@ const Activity = (props: ActivityTypes) => {
 						</div>
 						<div className="mt-2 flex items-center text-lg font-bold sm:mt-0 sm:text-xl">
 							<FontAwesomeIcon icon={faCalendarDay} size="1x" className="mr-3" />
-							<p>{dateConverter(content.start_date)}</p>
+							<p>{dayjs(content.start_date).format('ddd DD MMM YYYY')}</p>
 						</div>
 					</div>
 					<div className={open ? 'block' : 'hidden'}>

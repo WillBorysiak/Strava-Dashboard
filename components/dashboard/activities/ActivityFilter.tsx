@@ -1,14 +1,15 @@
-import { Fragment } from 'react';
-import { Menu, Popover, Transition } from '@headlessui/react';
+import { Fragment, Dispatch } from 'react';
+import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import classNames from '../../utils/classNames';
 
 const results = [
-	{ label: '1 result', value: 1 },
+	{ label: '3 results', value: 3 },
 	{ label: '5 results', value: 5 },
 	{ label: '10 results', value: 10 },
-	{ label: '20 results', value: 20 },
-	{ label: 'All results', value: 'all' },
+	{ label: '15 results', value: 10 },
+	{ label: '25 results', value: 25 },
+	{ label: 'All results', value: 100 },
 ];
 const sorting = [
 	{ label: 'Most Recent', value: 'recent' },
@@ -18,8 +19,8 @@ const sorting = [
 ];
 
 interface ActivityFilterTypes {
-	resultSelection: any;
-	sortSelection: any;
+	resultSelection: Dispatch<number>;
+	sortSelection: Dispatch<string>;
 }
 
 const ActivityFilter = (props: ActivityFilterTypes) => {

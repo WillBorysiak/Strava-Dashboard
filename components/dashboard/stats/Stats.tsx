@@ -8,30 +8,23 @@ import { timeIcon } from './StatsIcons';
 import { elevationIcon } from './StatsIcons';
 import { longestRideIcon } from './StatsIcons';
 import { biggestClimbIcon } from './StatsIcons';
+import Heading from '../../typography/Heading';
+import { Stats } from '../../../models/stats.model';
 
-interface StatsTypes {
-	data: {
-		biggest_ride_distance: number;
-		biggest_climb_elevation_gain: number;
-		all_ride_totals: {
-			count: number;
-			distance: number;
-			elevation_gain: number;
-			moving_time: number;
-		};
-	};
+interface StatsType {
+	stats: Stats;
 }
 
-const Stats = (props: StatsTypes) => {
-	const rideTotals = props.data.all_ride_totals;
-	const biggestRide = props.data.biggest_ride_distance;
-	const biggestClimb = props.data.biggest_climb_elevation_gain;
+const Stats = (props: StatsType) => {
+	const rideTotals = props.stats.all_ride_totals;
+	const biggestRide = props.stats.biggest_ride_distance;
+	const biggestClimb = props.stats.biggest_climb_elevation_gain;
 	const { count, distance, elevation_gain, moving_time } = rideTotals;
 
 	const distanceKm = distanceConverter(distance, 2);
 	const time = timeConverter(moving_time);
 	const elevationKm = elevationConverter(elevation_gain);
-	const distanceRecord = distanceConverter(biggestRide, 1);
+	const distanceRecord = distanceConverter(biggestRide, 2);
 	const climbRecord = biggestClimb.toFixed(0) + 'm';
 
 	const stats = [
@@ -45,6 +38,7 @@ const Stats = (props: StatsTypes) => {
 
 	return (
 		<Container>
+			<Heading text="Stats" />
 			<dl className="mt-5 mb-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
 				{stats.map((item: any, index: number) => (
 					<div

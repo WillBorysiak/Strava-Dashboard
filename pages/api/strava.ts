@@ -37,8 +37,15 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 	);
 	const activities = await activitiesRequest.json();
 
+	// Segments
+	// const segmentsRequest = await fetch(
+	// 	'https://www.strava.com/api/v3/segments/starred?access_token=' + accessJson.access_token,
+	// );
+	// const segments = await segmentsRequest.json();
+
 	return res.status(200).json({
 		activities,
 		stats,
+		// segments,
 	});
 };
