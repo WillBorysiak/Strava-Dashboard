@@ -17,6 +17,8 @@ import Footer from '../components/layout/Footer';
 const Home: NextPage = () => {
 	const { data, error } = useSWR<Strava>('/api/strava', fetcher);
 
+	console.log(data);
+
 	if (!data)
 		return (
 			<Layout>
@@ -42,7 +44,7 @@ const Home: NextPage = () => {
 			<Layout>
 				<SEO />
 				<Hero />
-				<Stats stats={data.stats} />
+				{/* <Stats stats={data.stats} /> */}
 				<ActivityList activities={data.activities} />
 				<Segments segments={data.segments} />
 				<Footer />
