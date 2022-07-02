@@ -44,7 +44,7 @@ const Home: NextPage = () => {
 			<Layout>
 				<SEO />
 				<Hero />
-				{/* <Stats stats={data.stats} /> */}
+				<Stats stats={data.stats} />
 				<ActivityList activities={data.activities} />
 				<Segments segments={data.segments} />
 				<Footer />

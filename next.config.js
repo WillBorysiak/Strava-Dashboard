@@ -4,6 +4,11 @@ const nextConfig = {
 	images: {
 		domains: ['images.unsplash.com'],
 	},
+	env: {
+		STRAVA_SECRET: process.env.STRAVA_SECRET,
+		STRAVA_REFRESH_TOKEN: process.env.STRAVA_REFRESH_TOKEN,
+		STRAVA_CLIENT_ID: process.env.STRAVA_CLIENT_ID,
+	},
 };
 
 module.exports = nextConfig;
