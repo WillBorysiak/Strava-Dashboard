@@ -28,9 +28,28 @@
     <p align="center">Tailwind CSS</p>
   </div>
 </div>
+
+<div align="center">
+  <div style="display: flex; flex-direction: row">
+    <img align="center" src="https://www.vectorlogo.zone/logos/strava/strava-icon.svg" alt="HTML" height="50"/>
+    <p align="center">Strava API</p>
+  </div>
+</div>
+
+<div align="center">
+  <div style="display: flex; flex-direction: row">
+    <img align="center" src="https://cdn.worldvectorlogo.com/logos/postman.svg" alt="HTML" height="50"/>
+    <p align="center">Postman</p>
+  </div>
+</div>
  
   
 <h2 style="color: grey" align="center">What I learnt:</h2>
- 
- 
+
+<p align="center">How to use an external API to fetch data and display it inside a Next app using the built in API routing.</p>
+<p align="center">How to follow an OAuth flow to dynamcially generate access tokens using HTTP requests</p>
+<p align="center">Using Postman to effectively test API calls in a sandbox enviroment and covert that into JavaScript code.</p>
+<p align="center">How to use React-chartjs-2 to display graphs from my workout data.</p>
+<p align="center">Configure and monitor serverless functions using the Vercel dashboard</p>
+
 </div>
