@@ -6,8 +6,8 @@ import MonthlyDistanceChart from './MonthlyDistanceChart';
 const Charts = () => {
 	return (
 		<Container>
-			<div>
-				<Heading text="Charts" />
+			<Heading text="Charts" />
+			<div className="mt-5 flex justify-center">
 				<MonthlyDistanceChart />
 			</div>
 		</Container>

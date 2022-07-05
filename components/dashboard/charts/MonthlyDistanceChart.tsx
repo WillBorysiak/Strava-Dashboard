@@ -25,7 +25,7 @@ ChartJS.register(
 );
 
 const data = {
-	labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+	labels: ['April', 'May', 'June', 'July'],
 	datasets: [
 		{
 			label: '# of Votes',
@@ -51,15 +51,37 @@ const data = {
 	],
 };
 
+const options = {
+	responsive: true,
+	maintainAspectRatio: false,
+	plugins: {
+		legend: {
+			labels: {
+				font: {
+					size: 20,
+				},
+			},
+		},
+	},
+	scales: {
+		x: {
+			grid: {
+				display: false,
+			},
+			ticks: {
+				font: {
+					family: 'Oswald', // Your font family
+					size: 20,
+				},
+			},
+		},
+	},
+};
+
 const MonthlyDistanceChart = () => {
 	return (
-		<div>
-			<Bar
-				data={data}
-				options={{
-					responsive: true,
-				}}
-			/>
+		<div className="relative h-96 w-full">
+			<Bar className="mx-10" data={data} options={options} />
 		</div>
 	);
 };

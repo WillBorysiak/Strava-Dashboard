@@ -19,8 +19,6 @@ import Charts from '../components/dashboard/charts/Charts';
 const Home: NextPage = () => {
 	const { data, error } = useSWR<Strava>('/api/strava', fetcher);
 
-	console.log(data);
-
 	if (!data)
 		return (
 			<Layout>
