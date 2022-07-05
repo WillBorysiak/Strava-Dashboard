@@ -23,7 +23,7 @@ const Segment = (props: SegmentTypes) => {
 			}}
 		>
 			<div className="flex flex-row">
-				<div className="h-44">
+				<div className="h-48">
 					<Image
 						className="h-full w-32 rounded-sm shadow-lg md:h-full md:w-32"
 						src={image}

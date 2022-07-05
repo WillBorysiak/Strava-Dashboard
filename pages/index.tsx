@@ -14,6 +14,7 @@ import Footer from '../components/layout/Footer';
 import ErrorMessage from '../components/dashboard/main/ErrorMessage';
 import Dashboard from '../components/dashboard/main/Dashboard';
 import fetcher from '../components/data/fetcher';
+import Charts from '../components/dashboard/charts/Charts';
 
 const Home: NextPage = () => {
 	const { data, error } = useSWR<Strava>('/api/strava', fetcher);
@@ -62,6 +63,7 @@ const Home: NextPage = () => {
 				<SEO />
 				<Hero />
 				<Stats stats={data.stats} />
+				<Charts />
 				<ActivityList activities={data.activities} />
 				<Segments segments={data.segments} />
 				<Footer />
