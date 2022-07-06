@@ -1,7 +1,7 @@
-export interface ActivityTypes {
+export interface ChartTypes {
 	name: string;
 	id: number;
-	start_date: string;
+	start_date: string | number;
 	distance: number;
 	moving_time: number;
 	elev_high: number;

@@ -43,7 +43,7 @@ const Segment = (props: SegmentTypes) => {
 				{open && (
 					<div className="z-10 flex w-full flex-col items-center justify-center px-2 backdrop-brightness-50">
 						<p className="text-xl font-semibold text-zinc">
-							Distance: <span className="font-normal">{distanceConverter(distance, 2)}</span>
+							Distance: <span className="font-normal">{distanceConverter(distance, 2, true)}</span>
 						</p>
 						<p className="text-xl font-semibold text-zinc">
 							Elevation: <span className="font-normal">{elevation_high}m</span>

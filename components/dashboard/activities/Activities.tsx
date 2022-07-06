@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import Heading from '../../typography/Heading';
 import Activity from './Activity';
 import ActivityFilter from './ActivityFilter';
@@ -17,7 +16,7 @@ const ActivityList = ({ activities }: ActivityTypes) => {
 	return (
 		<section className="mx-5 overflow-hidden shadow sm:rounded-md">
 			<Heading text="Workouts" />
-			<div className="mt-3 flex w-full flex-row justify-around">
+			<div className="mt-10 mb-10 flex w-full flex-row justify-around">
 				<ActivityFilter resultSelection={setResultsValue} sortSelection={setSortValue} />
 			</div>
 			<ul role="list" className="mt-3 rounded-md">

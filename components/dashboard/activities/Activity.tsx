@@ -29,7 +29,7 @@ const Activity = (props: ActivityTypes) => {
 					</div>
 					<div className="mt-2 sm:flex sm:justify-between">
 						<div className="sm:flex">
-							<p className="flex items-center text-lg font-bold sm:text-xl ">{distanceConverter(distance, 2)}</p>
+							<p className="flex items-center text-lg font-bold sm:text-xl ">{distanceConverter(distance, 2, true)}</p>
 						</div>
 						<div className="mt-2 flex items-center text-lg font-bold sm:mt-0 sm:text-xl">
 							<FontAwesomeIcon icon={faCalendarDay} size="1x" className="mr-3" />

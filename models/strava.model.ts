@@ -1,9 +1,11 @@
-import { ActivityTypes } from './activity.model';
 import { StatsTypes } from './stats.model';
+import { ChartTypes } from './chart.model';
+import { ActivityTypes } from './activity.model';
 import { SegmentTypes } from './segment.model';
 
 export interface Strava {
-	activities: ActivityTypes[];
 	stats: StatsTypes;
+	charts: ChartTypes[];
+	activities: ActivityTypes[];
 	segments: SegmentTypes[];
 }

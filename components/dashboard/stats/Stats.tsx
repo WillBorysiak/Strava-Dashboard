@@ -21,10 +21,10 @@ const Stats = (props: StatsType) => {
 	const biggestClimb = props.stats.biggest_climb_elevation_gain;
 	const { count, distance, elevation_gain, moving_time } = rideTotals;
 
-	const distanceKm = distanceConverter(distance, 2);
+	const distanceKm = distanceConverter(distance, 2, true);
 	const time = hoursMinsConverter(moving_time);
 	const elevationKm = elevationConverter(elevation_gain);
-	const distanceRecord = distanceConverter(biggestRide, 2);
+	const distanceRecord = distanceConverter(biggestRide, 2, true);
 	const climbRecord = biggestClimb.toFixed(0) + 'm';
 
 	const stats = [
@@ -39,7 +39,7 @@ const Stats = (props: StatsType) => {
 	return (
 		<Container>
 			<Heading text="Stats" />
-			<dl className="mt-5 mb-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+			<dl className="mt-10 mb-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
 				{stats.map((item, index: number) => (
 					<div
 						key={index}

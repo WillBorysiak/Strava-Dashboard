@@ -1,5 +1,9 @@
-export const distanceConverter = (value: number, decimalPlace: number) => {
+export const distanceConverter = (value: number, decimalPlace: number, kmString: boolean) => {
 	let distanceInKm = value / 1000;
 	let distanceToDecimal = distanceInKm.toFixed(decimalPlace);
-	return distanceToDecimal + 'km';
+	if (!kmString) {
+		return distanceToDecimal;
+	} else {
+		return distanceToDecimal + 'km';
+	}
 };

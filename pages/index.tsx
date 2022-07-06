@@ -1,20 +1,19 @@
 import type { NextPage } from 'next';
-
+import { Strava } from '../models/strava.model';
 import useSWR from 'swr';
+import fetcher from '../components/data/fetcher';
 
 import Layout from '../components/layout/Layout';
+import Dashboard from '../components/dashboard/main/Dashboard';
 import SEO from '../components/layout/SEO';
+import Loading from '../components/dashboard/main/Loading';
 import Hero from '../components/dashboard/main/Hero';
 import Stats from '../components/dashboard/stats/Stats';
-import Loading from '../components/dashboard/main/Loading';
-import ActivityList from '../components/dashboard/activities/ActivityList';
+import Charts from '../components/dashboard/charts/Charts';
+import Activities from '../components/dashboard/activities/Activities';
 import Segments from '../components/dashboard/segments/Segments';
-import { Strava } from '../models/strava.model';
 import Footer from '../components/layout/Footer';
 import ErrorMessage from '../components/dashboard/main/ErrorMessage';
-import Dashboard from '../components/dashboard/main/Dashboard';
-import fetcher from '../components/data/fetcher';
-import Charts from '../components/dashboard/charts/Charts';
 
 const Home: NextPage = () => {
 	const { data, error } = useSWR<Strava>('/api/strava', fetcher);
@@ -61,8 +60,8 @@ const Home: NextPage = () => {
 				<SEO />
 				<Hero />
 				<Stats stats={data.stats} />
-				<Charts />
-				<ActivityList activities={data.activities} />
+				<Charts activities={data.activities} />
+				<Activities activities={data.activities} />
 				<Segments segments={data.segments} />
 				<Footer />
 			</Layout>
