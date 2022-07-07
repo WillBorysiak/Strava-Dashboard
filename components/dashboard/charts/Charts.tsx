@@ -3,7 +3,8 @@ import { ChartTypes as ChartModel } from '../../../models/chart.model';
 import Container from '../../layout/Container';
 import Heading from '../../typography/Heading';
 import MonthlyDistanceChart from './MonthlyDistanceChart';
-import WeeklyDistanceChart from './WeekylDistanceChart';
+import WeeklyDistanceChart from './WeeklyDistanceChart';
+import WeeklyProgress from './WeeklyProgress';
 
 interface ChartTypes {
 	activities: ChartModel[];
@@ -12,7 +13,7 @@ interface ChartTypes {
 const Charts = ({ activities }: ChartTypes) => {
 	return (
 		<Container>
-			<div className="mt-5 mb-10 flex flex-col">
+			<div className="mt-5 mb-5 flex flex-col">
 				<Heading text="Monthly Distances" />
 				<div className="mt-5 mb-5 flex justify-center">
 					<MonthlyDistanceChart activities={activities} />
@@ -21,6 +22,7 @@ const Charts = ({ activities }: ChartTypes) => {
 				<div className="mt-5 mb-5 flex justify-center">
 					<WeeklyDistanceChart activities={activities} />
 				</div>
+				<WeeklyProgress />
 			</div>
 		</Container>
 	);

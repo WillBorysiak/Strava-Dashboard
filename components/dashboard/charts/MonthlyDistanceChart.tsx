@@ -3,6 +3,7 @@ import { distanceReducer } from '../../utils/distanceReducer';
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
 import { months } from '../../data/months';
 import { Bar } from 'react-chartjs-2';
+import { chartOptions } from './chartOptions';
 import {
 	Chart as ChartJS,
 	BarController,
@@ -27,48 +28,6 @@ ChartJS.register(
 	Tooltip,
 	Legend,
 );
-
-const options = {
-	responsive: true,
-	maintainAspectRatio: false,
-	plugins: {
-		tooltip: {
-			displayColors: false,
-			bodyColor: '#e4e4e7',
-		},
-		legend: {
-			labels: {
-				font: {
-					size: 20,
-				},
-			},
-		},
-	},
-	scales: {
-		x: {
-			grid: {
-				display: false,
-				color: '#e4e4e7',
-			},
-			ticks: {
-				color: '#e4e4e7',
-				font: {
-					family: 'Oswald',
-					size: 20,
-				},
-			},
-		},
-		y: {
-			ticks: {
-				color: '#e4e4e7',
-				font: {
-					family: 'Oswald',
-					size: 20,
-				},
-			},
-		},
-	},
-};
 
 interface ChartTypes {
 	activities: ChartModel[];
@@ -117,8 +76,8 @@ const MonthlyDistanceChart = ({ activities }: ChartTypes) => {
 		],
 	};
 	return (
-		<div className="relative h-96 w-full">
-			<Bar className="mx-10" data={data} options={options} />
+		<div className="relative flex h-96 w-full flex-row justify-center">
+			<Bar className="mx-10" data={data} options={chartOptions} />
 		</div>
 	);
 };
