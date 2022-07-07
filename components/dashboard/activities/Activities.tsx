@@ -13,10 +13,11 @@ const ActivityList = ({ activities }: ActivityTypes) => {
 	const [resultsValue, setResultsValue] = useState<number>(5);
 	const [sortValue, setSortValue] = useState<string>('recent');
 
+	console.log(activities);
 	return (
 		<section className="mx-5 overflow-hidden shadow sm:rounded-md">
 			<Heading text="Workouts" />
-			<div className="mt-10 mb-10 flex w-full flex-row justify-around">
+			<div className="mt-5 mb-5 flex w-full flex-row justify-around">
 				<ActivityFilter resultSelection={setResultsValue} sortSelection={setSortValue} />
 			</div>
 			<ul role="list" className="mt-3 rounded-md">

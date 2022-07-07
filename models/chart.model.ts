@@ -9,4 +9,5 @@ export interface ChartTypes {
 	average_speed: number;
 	average_heartrate: number;
 	month: number;
+	week: number;
 }

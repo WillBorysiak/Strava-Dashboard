@@ -11,7 +11,7 @@ const Segments = ({ segments }: SegmentTypes) => {
 	return (
 		<Container>
 			<Heading text="Segments" />
-			<article className="items-around mb-10 mt-10  grid grid-cols-1  gap-3 sm:grid-cols-2 lg:grid-cols-3">
+			<article className="items-around mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
 				{segments.map(item => (
 					<Segment key={item.id} data={item} />
 				))}
