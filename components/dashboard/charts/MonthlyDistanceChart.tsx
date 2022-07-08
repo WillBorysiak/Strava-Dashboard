@@ -42,8 +42,6 @@ const MonthlyDistanceChart = ({ activities }: ChartTypes) => {
 		if (item.month === 6) months.jul.push(item.distance);
 	});
 
-	console.log(distanceReducer(months.apr));
-
 	const data = {
 		labels: ['April', 'May', 'June', 'July'],
 		datasets: [

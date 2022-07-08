@@ -5,7 +5,7 @@ import { SegmentTypes } from './segment.model';
 
 export interface Strava {
 	stats: StatsTypes;
-	charts: ChartTypes[];
+	chartData: ChartTypes;
 	activities: ActivityTypes[];
 	segments: SegmentTypes[];
 }

@@ -13,7 +13,6 @@ const ActivityList = ({ activities }: ActivityTypes) => {
 	const [resultsValue, setResultsValue] = useState<number>(5);
 	const [sortValue, setSortValue] = useState<string>('recent');
 
-	console.log(activities);
 	return (
 		<section className="mx-5 overflow-hidden shadow sm:rounded-md">
 			<Heading text="Workouts" />

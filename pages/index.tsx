@@ -60,7 +60,7 @@ const Home: NextPage = () => {
 				<SEO />
 				<Hero />
 				<Stats stats={data.stats} />
-				<Charts activities={data.activities} />
+				<Charts chartData={data.activities} />
 				<Activities activities={data.activities} />
 				<Segments segments={data.segments} />
 				<Footer />

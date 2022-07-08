@@ -1,7 +1,9 @@
+import { useEffect, Dispatch } from 'react';
 import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import { distanceReducer } from '../../utils/distanceReducer';
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
+import { WeeklyProgressTypes } from '../../../models/weeklyProgress.model';
 import { Line } from 'react-chartjs-2';
 import { chartOptions } from './chartOptions';
 import {
@@ -30,43 +32,54 @@ ChartJS.register(
 );
 
 interface ChartTypes {
+	data: Dispatch<any>;
 	activities: ChartModel[];
 }
 
-const WeeklyDistanceChart = ({ activities }: ChartTypes) => {
+const WeeklyDistanceChart = (props: ChartTypes) => {
 	dayjs.extend(weekOfYear);
 	dayjs.Ls.en.weekStart = 1;
 
-	const weeklyArrays: number[][] = [];
+	const weeklyDistanceArrays: number[][] = [];
 
-	activities.forEach(item => (item.week = dayjs(item.start_date).week()));
+	props.activities.forEach(item => (item.week = dayjs(item.start_date).week()));
 
-	for (let i = 17; i < activities.length + 1; i++) {
+	for (let i = 17; i < props.activities.length + 1; i++) {
 		let weeklyTotal: number[] = [];
-		activities.forEach(item => {
+		props.activities.forEach(item => {
 			if (item.week === i) {
 				weeklyTotal.push(item.distance);
 			}
 		});
-		weeklyArrays.push(weeklyTotal);
+		weeklyDistanceArrays.push(weeklyTotal);
 	}
 
-	const weekNumbers: string[] = [];
-	const weeklyData: number[] = [];
+	const weeklyNumber: string[] = [];
+	const weeklyDistance: number[] = [];
 
-	weeklyArrays.forEach((item, index) => {
+	weeklyDistanceArrays.forEach((item, index) => {
 		const total = distanceReducer(item);
 		const week = `Week ${index + 1}`;
-		weekNumbers.push(week);
-		weeklyData.push(total);
+		weeklyNumber.push(week);
+		weeklyDistance.push(total);
 	});
 
+	const weeklyTargets = {
+		lastWeeksTotal: weeklyDistance[weeklyDistance.length - 2],
+		thisWeeksTotal: weeklyDistance[weeklyDistance.length - 2] * 1.1,
+		thisWeeksCurrent: weeklyDistance[weeklyDistance.length - 1],
+	};
+
+	useEffect(() => {
+		props.data(weeklyTargets);
+	}, []);
+
 	const data = {
-		labels: weekNumbers,
+		labels: weeklyNumber,
 		datasets: [
 			{
 				label: 'Distance in Km',
-				data: weeklyData,
+				data: weeklyDistance,
 				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
 					'rgba(54, 162, 235, 0.2)',
