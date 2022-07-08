@@ -14,8 +14,6 @@ interface ChartTypes {
 const Charts = ({ chartData }: ChartTypes) => {
 	const [weeklyTargets, setWeeklyTargets] = useState();
 
-	console.log(weeklyTargets);
-
 	return (
 		<Container>
 			<div className="mt-5 mb-5 flex flex-col">
