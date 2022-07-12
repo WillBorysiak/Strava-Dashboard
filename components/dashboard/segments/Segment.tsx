@@ -17,31 +17,23 @@ const Segment = (props: SegmentTypes) => {
 
 	return (
 		<div
-			className="relative overflow-hidden rounded-sm font-oswald "
+			className="relative overflow-hidden rounded-sm font-oswald"
 			onClick={() => {
 				setOpen(!open);
 			}}
 		>
-			<div className="flex flex-row">
-				<div className="h-48">
-					<Image
-						className="h-full w-32 rounded-sm shadow-lg md:h-full md:w-32"
-						src={image}
-						alt={name}
-						layout="fill"
-						objectFit="cover"
-					/>
-				</div>
+			<div className="relative z-0 flex h-52 w-full">
+				<Image className="rounded-sm shadow-lg" src={image} alt={name} layout="fill" objectFit="cover" />
 				{!open && (
-					<div className="z-10 mx-2 flex w-full flex-col items-center justify-center">
-						<p className="mb-2 break-normal font-oswald text-2xl font-medium text-zinc   backdrop-brightness-50 md:text-3xl">
+					<div className="z-10 flex w-full flex-col items-center justify-center">
+						<p className=" break-normal font-oswald text-2xl font-medium text-zinc   backdrop-brightness-50 md:text-3xl">
 							{captalise(name)}
 						</p>
 						<p className="text-xl italic text-zinc backdrop-brightness-50 md:text-3xl">{city}</p>
 					</div>
 				)}
 				{open && (
-					<div className="z-10 flex w-full flex-col items-center justify-center px-2 backdrop-brightness-50">
+					<div className="z-10 flex w-full flex-col items-center justify-center backdrop-brightness-50">
 						<p className="text-xl font-semibold text-zinc">
 							Distance: <span className="font-normal">{distanceConverter(distance, 2, true)}</span>
 						</p>
