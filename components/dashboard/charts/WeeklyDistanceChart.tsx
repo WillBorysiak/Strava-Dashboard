@@ -65,9 +65,8 @@ const WeeklyDistanceChart = (props: ChartTypes) => {
 	});
 
 	const weeklyTargets = {
-		lastWeeksTotal: weeklyDistance[weeklyDistance.length - 2],
-		thisWeeksTotal: weeklyDistance[weeklyDistance.length - 2] * 1.1,
-		thisWeeksCurrent: weeklyDistance[weeklyDistance.length - 1],
+		lastWeeksTotal: weeklyDistance.at(-2),
+		thisWeeksCurrent: weeklyDistance.at(-1),
 	};
 
 	useEffect(() => {

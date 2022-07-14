@@ -9,7 +9,8 @@ const WeeklyProgress = ({ weeklyTargets }: WeeklyProgressTypes) => {
 		return <div />;
 	}
 
-	const { lastWeeksTotal, thisWeeksTotal, thisWeeksCurrent } = weeklyTargets;
+	const { lastWeeksTotal, thisWeeksCurrent } = weeklyTargets;
+	const thisWeeksTotal = lastWeeksTotal * 1.1;
 	const remainingThisWeek = thisWeeksTotal - thisWeeksCurrent;
 
 	return (
