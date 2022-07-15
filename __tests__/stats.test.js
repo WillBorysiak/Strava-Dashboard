@@ -3,6 +3,7 @@ import '@testing-library/jest-dom';
 import Stats from '../components/dashboard/stats/Stats';
 
 test('should render stat title and values', () => {
+	// Mock Values
 	const data = {
 		stats: {
 			all_ride_totals: {

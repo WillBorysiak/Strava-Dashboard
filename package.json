@@ -7,7 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"test": "jest --watch"
+		"test": "jest --watchAll"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-pro": "^6.1.1",
