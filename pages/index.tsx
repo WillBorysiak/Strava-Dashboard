@@ -18,6 +18,8 @@ import ErrorMessage from '../components/dashboard/main/ErrorMessage';
 const Home: NextPage = () => {
 	const { data, error } = useSWR<Strava>('/api/strava', fetcher);
 
+	console.log(data?.stats);
+
 	if (!data)
 		return (
 			<Layout>

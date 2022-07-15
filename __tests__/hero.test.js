@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
-import Hero from '../components/dashboard/main/Hero';
 import '@testing-library/jest-dom';
+import Hero from '../components/dashboard/main/Hero';
 
 test('should render hero title and image', () => {
 	const { getByText, getByAltText } = render(<Hero />);
