@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Stats from '../components/dashboard/stats/Stats';
 
-test('should render stat title and values', () => {
+test('should render stat titles and values', () => {
 	// Mock Values
 	const data = {
 		stats: {

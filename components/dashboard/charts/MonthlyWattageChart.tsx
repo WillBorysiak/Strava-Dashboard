@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
-import { distanceReducer } from '../../utils/distanceReducer';
+import { wattageReducer } from '../../utils/wattageReducer';
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
-import { months } from '../../data/monthlyDistanceArray';
+import { months } from '../../data/monthlyWattageArray';
 import { Bar } from 'react-chartjs-2';
 import { chartOptions } from './chartOptions';
 import {
@@ -33,25 +33,25 @@ interface ChartTypes {
 	activities: ChartModel[];
 }
 
-const MonthlyDistanceChart = ({ activities }: ChartTypes) => {
+const MonthlyWattageChart = ({ activities }: ChartTypes) => {
 	activities.forEach(item => {
 		item.month = dayjs(item.start_date).month();
-		if (item.month === 3) months.apr.push(item.distance);
-		if (item.month === 4) months.may.push(item.distance);
-		if (item.month === 5) months.jun.push(item.distance);
-		if (item.month === 6) months.jul.push(item.distance);
+		if (item.month === 3) months.apr.push(item.average_watts);
+		if (item.month === 4) months.may.push(item.average_watts);
+		if (item.month === 5) months.jun.push(item.average_watts);
+		if (item.month === 6) months.jul.push(item.average_watts);
 	});
 
 	const data = {
 		labels: ['April', 'May', 'June', 'July'],
 		datasets: [
 			{
-				label: 'Distance in Km',
+				label: 'Average Watts',
 				data: [
-					distanceReducer(months.apr),
-					distanceReducer(months.may),
-					distanceReducer(months.jun),
-					distanceReducer(months.jul),
+					wattageReducer(months.apr),
+					wattageReducer(months.may),
+					wattageReducer(months.jun),
+					wattageReducer(months.jul),
 				],
 				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',
@@ -80,4 +80,4 @@ const MonthlyDistanceChart = ({ activities }: ChartTypes) => {
 	);
 };
 
-export default MonthlyDistanceChart;
+export default MonthlyWattageChart;

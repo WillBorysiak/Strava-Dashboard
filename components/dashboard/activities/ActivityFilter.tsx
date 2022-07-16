@@ -36,7 +36,7 @@ const ActivityFilter = (props: ActivityFilterTypes) => {
 
 						<Menu as="div" className="relative z-10 inline-block text-left">
 							<div>
-								<Menu.Button className="text-md group inline-flex justify-center font-medium text-zinc md:text-lg ">
+								<Menu.Button className="text-md group inline-flex justify-center font-medium text-zinc md:text-lg">
 									# of Results
 									<ChevronDownIcon className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-zinc " aria-hidden="true" />
 								</Menu.Button>

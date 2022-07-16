@@ -1,9 +1,10 @@
-GRAPHS
+Monthly Graphs
 
-Copy the activities array.
+Add drop down to select value:
+distance
+moving time
+watts
+average heartrate
 
-Mutate the original dates to a dayjs value that can be sorted.
 
-Extract the data based on weeks / months for distance, cycling time, heart rate etc.
-
-Put this data into an array that can be read by chart JS.
+Render a different graph depending on which value you select

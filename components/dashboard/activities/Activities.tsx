@@ -10,7 +10,7 @@ interface ActivityTypes {
 }
 
 const ActivityList = ({ activities }: ActivityTypes) => {
-	const [resultsValue, setResultsValue] = useState<number>(5);
+	const [resultsValue, setResultsValue] = useState<number>(3);
 	const [sortValue, setSortValue] = useState<string>('recent');
 
 	return (

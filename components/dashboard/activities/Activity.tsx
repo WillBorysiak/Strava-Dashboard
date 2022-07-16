@@ -15,9 +15,8 @@ interface ActivityTypes {
 
 const Activity = (props: ActivityTypes) => {
 	const [open, setOpen] = useState(false);
-	const content = props.data;
-	const { name, distance, start_date, moving_time, elev_high, average_speed, average_watts, average_heartrate } =
-		content;
+	const { name, distance, start_date, moving_time, elev_high, average_speed, average_watts, average_heartrate, week } =
+		props.data;
 
 	return (
 		<li className="my-3 font-oswald text-zinc">
@@ -25,7 +24,10 @@ const Activity = (props: ActivityTypes) => {
 				<div className="px-4 py-2 sm:px-6">
 					<div className="flex items-center justify-between">
 						<h3 className="text-xl font-bold text-orange md:text-2xl">{removeEmoji(name)}</h3>
-						<StravaIcon />
+						<div className="flex flex-row-reverse">
+							<StravaIcon />
+							<p className="mr-3 text-lg font-bold sm:text-xl">{`Week ${week - 16}`}</p>
+						</div>
 					</div>
 					<div className="mt-2 sm:flex sm:justify-between">
 						<div className="sm:flex">
@@ -33,6 +35,7 @@ const Activity = (props: ActivityTypes) => {
 						</div>
 						<div className="mt-2 flex items-center text-lg font-bold sm:mt-0 sm:text-xl">
 							<FontAwesomeIcon icon={faCalendarDay} size="1x" className="mr-3" />
+
 							<p>{dayjs(start_date).format('ddd DD MMM YYYY')}</p>
 						</div>
 					</div>
@@ -52,7 +55,7 @@ const Activity = (props: ActivityTypes) => {
 									kmph
 								</p>
 								<p>
-									<span className="mr-1 font-bold italic">Average Watts: </span> {average_watts.toFixed(0)}w
+									<span className="mr-1 font-bold italic">Average Watts: </span> {average_watts.toFixed(0)}W
 								</p>
 								<p>
 									<span className="mr-1 font-bold italic">Average Heart Rate: </span>
