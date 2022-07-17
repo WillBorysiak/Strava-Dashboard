@@ -19,7 +19,7 @@ const ActivityList = ({ activities }: ActivityTypes) => {
 			<div className="mt-5 mb-5 flex w-full flex-row justify-around">
 				<ActivityFilter resultSelection={setResultsValue} sortSelection={setSortValue} />
 			</div>
-			<ul role="list" className="mt-3 rounded-md">
+			<ul role="list" className="mt-3 flex flex-col gap-x-5 rounded-md">
 				{activities
 					.sort((a, b) => {
 						if (sortValue === 'recent' && dayjs(a.start_date).isBefore(b.start_date)) return -1;
