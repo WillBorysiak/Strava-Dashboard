@@ -5,7 +5,6 @@ const SEO = () => {
 		<>
 			<Head>
 				<title>Cycling Dashboard</title>
-
 				<meta name="description" content="A dashboard to display my cycling data to track progress" />
 				<meta content="A dashboard to display my cycling data to track progress" property="og:description"></meta>
 				<link href="/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon" />

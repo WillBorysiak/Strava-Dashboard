@@ -55,7 +55,7 @@ const Activity = (props: ActivityTypes) => {
 									<span className="mr-1 font-bold italic">Average Watts ⚡ - </span> {average_watts.toFixed(0)}W
 								</p>
 								<p>
-									<span className="mr-1 font-bold italic">Average Heart Rate 💓 - </span>
+									<span className="mr-1 font-bold italic">Average Heart Rate ❤️ - </span>
 									{average_heartrate.toFixed(0)}bpm
 								</p>
 							</div>
