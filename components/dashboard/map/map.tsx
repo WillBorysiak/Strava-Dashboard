@@ -1,11 +1,28 @@
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
 
-import React from 'react';
+import 'leaflet/dist/leaflet.css';
+import SegmentMarkers from './SegmentMarkers';
+
+// **DEV TOOL**
+// Lat / Lng Click Event
+// const LocationFinderDummy = () => {
+// 	const map = useMapEvents({
+// 		click(e) {
+// 			console.log(e.latlng);
+// 		},
+// 	});
+// 	return null;
+// };
 
 const map = () => {
 	return (
-		<MapContainer style={{ height: '400px', width: '100%' }} center={[51.505, -0.09]} zoom={10} scrollWheelZoom={false}>
+		<MapContainer
+			style={{ height: '400px', width: '100%' }}
+			center={[53.07023690656067, -1.4902686632686215]}
+			zoom={10}
+			scrollWheelZoom={true}
+		>
+			<SegmentMarkers />
 			<TileLayer
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
