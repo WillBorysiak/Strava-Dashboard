@@ -1,7 +1,7 @@
+import { SegmentTypes as SegmentModel } from '../../../../models/segment.model';
 import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
-
 import 'leaflet/dist/leaflet.css';
-import SegmentMarkers from './SegmentMarkers';
+import MapMarker from './MapMarker';
 
 // **DEV TOOL**
 // Lat / Lng Click Event
@@ -14,15 +14,21 @@ import SegmentMarkers from './SegmentMarkers';
 // 	return null;
 // };
 
-const map = () => {
+interface SegmentTypes {
+	segments: SegmentModel[];
+}
+
+const map = ({ segments }: SegmentTypes) => {
 	return (
 		<MapContainer
 			style={{ height: '400px', width: '100%' }}
 			center={[53.07023690656067, -1.4902686632686215]}
-			zoom={10}
+			zoom={11}
 			scrollWheelZoom={true}
 		>
-			<SegmentMarkers />
+			{segments.map((item, index) => {
+				return <MapMarker key={index} data={item} />;
+			})}
 			<TileLayer
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

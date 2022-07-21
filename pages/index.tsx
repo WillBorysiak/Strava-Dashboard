@@ -30,7 +30,7 @@ const Home: NextPage = () => {
 			</Layout>
 		);
 
-	if (data.stats.message === 'Authorization Error')
+	if (data.stats.message === 'Authorization Error' || error)
 		return (
 			<Layout>
 				<Dashboard>
@@ -40,17 +40,6 @@ const Home: NextPage = () => {
 					<ErrorMessage />
 					<Footer />
 				</Dashboard>
-			</Layout>
-		);
-
-	if (error)
-		return (
-			<Layout>
-				<SEO />
-				<Hero />
-				<Loading />
-				<ErrorMessage />
-				<Footer />
 			</Layout>
 		);
 

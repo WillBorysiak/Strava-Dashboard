@@ -44,7 +44,7 @@ const WeeklyDistanceChart = (props: ChartTypes) => {
 
 	const weeklyDistanceArrays: number[][] = [];
 
-	for (let i = 17; i < props.activities.length - 2; i++) {
+	for (let i = 17; i < props.activities.length; i++) {
 		let weeklyTotal: number[] = [];
 		props.activities.forEach(item => {
 			if (item.week === i) {
@@ -58,8 +58,9 @@ const WeeklyDistanceChart = (props: ChartTypes) => {
 	const weeklyDistance: number[] = [];
 
 	weeklyDistanceArrays.forEach((item, index) => {
-		const total = distanceReducer(item);
+		if (item.length === 0) return;
 		const week = `Week ${index + 1}`;
+		const total = distanceReducer(item);
 		weeklyNumber.push(week);
 		weeklyDistance.push(total);
 	});
