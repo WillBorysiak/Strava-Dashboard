@@ -1,9 +1,8 @@
 import { useEffect, Dispatch } from 'react';
 import dayjs from 'dayjs';
+import { ChartTypes as ChartModel } from '../../../models/chart.model';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import { distanceReducer } from '../../utils/distanceReducer';
-import { ChartTypes as ChartModel } from '../../../models/chart.model';
-import { WeeklyProgressTypes } from '../../../models/weeklyProgress.model';
 import { Line } from 'react-chartjs-2';
 import { chartOptions } from './chartOptions';
 import {

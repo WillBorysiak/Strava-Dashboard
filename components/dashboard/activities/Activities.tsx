@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import dayjs from 'dayjs';
+import { ActivityTypes as ActivityModel } from '../../../models/activity.model';
 import Heading from '../../typography/Heading';
 import Activity from './Activity';
 import ActivityFilter from './ActivityFilter';
-import { ActivityTypes as ActivityModel } from '../../../models/activity.model';
-import dayjs from 'dayjs';
 
 interface ActivityTypes {
 	activities: ActivityModel[];

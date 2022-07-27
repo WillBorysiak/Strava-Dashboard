@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import { wattageReducer } from '../../utils/wattageReducer';
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
+import { wattageReducer } from '../../utils/wattageReducer';
 import { months } from '../../data/monthlyWattageArray';
 import { Bar } from 'react-chartjs-2';
 import { chartOptions } from './chartOptions';

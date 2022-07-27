@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import { distanceReducer } from '../../utils/distanceReducer';
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
+import { distanceReducer } from '../../utils/distanceReducer';
 import { months } from '../../data/monthlyDistanceArray';
 import { Bar } from 'react-chartjs-2';
 import { chartOptions } from './chartOptions';

@@ -1,14 +1,14 @@
-import { distanceConverter } from '../../utils/distanceConverter';
-import { elevationConverter } from '../../utils/elevationConverter';
-import { hoursMinsConverter } from '../../utils/hoursMinsConverter';
 import Container from '../../layout/Container';
+import Heading from '../../typography/Heading';
+import { distanceConverter } from '../../utils/distanceConverter';
+import { hoursMinsConverter } from '../../utils/hoursMinsConverter';
+import { elevationConverter } from '../../utils/elevationConverter';
 import { rideIcon } from './StatsIcons';
 import { distanceIcon } from './StatsIcons';
 import { timeIcon } from './StatsIcons';
 import { elevationIcon } from './StatsIcons';
 import { longestRideIcon } from './StatsIcons';
 import { biggestClimbIcon } from './StatsIcons';
-import Heading from '../../typography/Heading';
 import { StatsTypes } from '../../../models/stats.model';
 
 interface StatsType {

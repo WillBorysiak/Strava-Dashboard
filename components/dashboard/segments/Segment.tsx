@@ -26,7 +26,7 @@ const Segment = (props: SegmentTypes) => {
 				<Image className="rounded-sm shadow-lg" src={image} alt={name} layout="fill" objectFit="cover" />
 				{!open && (
 					<div className="z-10 flex w-full flex-col items-center justify-center">
-						<p className=" break-normal font-oswald text-2xl font-medium text-zinc   backdrop-brightness-50 md:text-3xl">
+						<p className="break-normal text-center font-oswald text-2xl font-medium text-zinc  backdrop-brightness-50 md:text-3xl">
 							{captalise(name)}
 						</p>
 						<p className="text-xl italic text-zinc backdrop-brightness-50 md:text-3xl">{city}</p>
