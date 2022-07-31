@@ -1,5 +1,7 @@
 import { useEffect, Dispatch } from 'react';
 import dayjs from 'dayjs';
+import { motion } from 'framer-motion';
+import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import { distanceReducer } from '../../utils/distanceReducer';
@@ -100,9 +102,15 @@ const WeeklyDistanceChart = (props: ChartTypes) => {
 		],
 	};
 	return (
-		<div className="relative flex h-96 w-full flex-col justify-center">
+		<motion.div
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true }}
+			variants={scrollAnimationVariants}
+			className="relative flex h-96 w-full flex-col justify-center"
+		>
 			<Line className="" data={data} options={chartOptions} />
-		</div>
+		</motion.div>
 	);
 };
 

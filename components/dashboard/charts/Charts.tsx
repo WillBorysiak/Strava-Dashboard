@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
+import { WeeklyProgressTypes } from '../../../models/weeklyProgress.model';
 import Container from '../../layout/Container';
 import Heading from '../../typography/Heading';
 import MonthlyDistanceChart from './MonthlyDistanceChart';
@@ -11,7 +12,7 @@ interface ChartTypes {
 }
 
 const Charts = ({ chartData }: ChartTypes) => {
-	const [weeklyTargets, setWeeklyTargets] = useState();
+	const [weeklyTargets, setWeeklyTargets] = useState<WeeklyProgressTypes>();
 
 	return (
 		<Container>

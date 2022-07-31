@@ -1,4 +1,6 @@
 import dayjs from 'dayjs';
+import { motion } from 'framer-motion';
+import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
 import { distanceReducer } from '../../utils/distanceReducer';
 import { months } from '../../data/monthlyDistanceArray';
@@ -74,9 +76,15 @@ const MonthlyDistanceChart = ({ activities }: ChartTypes) => {
 		],
 	};
 	return (
-		<div className="relative flex h-96 w-full flex-row justify-center">
+		<motion.div
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true }}
+			variants={scrollAnimationVariants}
+			className="relative flex h-96 w-full flex-row justify-center"
+		>
 			<Bar className="mx-10" data={data} options={chartOptions} />
-		</div>
+		</motion.div>
 	);
 };
 

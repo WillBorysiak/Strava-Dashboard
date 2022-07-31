@@ -25,7 +25,7 @@ interface ActivityFilterTypes {
 
 const ActivityFilter = (props: ActivityFilterTypes) => {
 	return (
-		<div className="z-10 w-full font-oswald backdrop-brightness-[0.7]">
+		<div className="z-10 w-full bg-transparentBg font-oswald">
 			<div className="px-4 ">
 				<section aria-labelledby="filter-heading" className=" py-3">
 					<h2 id="filter-heading" className="sr-only">

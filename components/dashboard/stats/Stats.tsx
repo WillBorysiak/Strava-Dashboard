@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
 import Container from '../../layout/Container';
 import Heading from '../../typography/Heading';
 import { distanceConverter } from '../../utils/distanceConverter';
@@ -41,18 +43,21 @@ const Stats = (props: StatsType) => {
 			<Heading text="Stats" />
 			<dl className="mt-5 mb-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
 				{stats.map((item, index: number) => (
-					<div
+					<motion.div
 						key={index}
-						className="relative overflow-hidden rounded-lg bg-zinc px-2 pt-5 font-oswald  shadow sm:px-6 sm:pt-6"
+						initial="hidden"
+						animate="visible"
+						variants={scrollAnimationVariants}
+						className="relative overflow-hidden rounded-md bg-zinc px-2 pt-5 font-oswald  shadow sm:px-6 sm:pt-6"
 					>
 						<dt>
 							<div className="bg-orange-600 absolute rounded-md p-3">{item.icon}</div>
-							<p className="text-md ml-20 truncate font-oswald font-medium text-gray-900 md:text-lg">{item.name}</p>
+							<p className="l ml-24 truncate font-oswald text-xl font-medium text-gray-900">{item.name}</p>
 						</dt>
-						<dd className="ml-20 flex items-baseline pb-6 sm:pb-7">
-							<p className="text-2xl font-semibold text-gray-900">{item.stat}</p>
+						<dd className="ml-24 flex items-baseline pb-6">
+							<p className="text-2xl font-semibold italic text-gray-900">{item.stat}</p>
 						</dd>
-					</div>
+					</motion.div>
 				))}
 			</dl>
 		</Container>

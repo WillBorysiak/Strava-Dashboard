@@ -1,4 +1,6 @@
 import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
+import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
 import { SegmentTypes as SegmentModel } from '../../../models/segment.model';
 import Container from '../../layout/Container';
 import Heading from '../../typography/Heading';
@@ -45,9 +47,15 @@ const Segments = ({ segments }: SegmentTypes) => {
 				))}
 			</article>
 			{/* Segment Map */}
-			<div className="mt-5 h-96">
+			<motion.div
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true }}
+				variants={scrollAnimationVariants}
+				className="mt-5 h-96"
+			>
 				<Map segments={alphabeticalSegments} />
-			</div>
+			</motion.div>
 		</Container>
 	);
 };
