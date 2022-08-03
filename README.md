@@ -10,49 +10,49 @@
  
 <div align="center">
   <div style="display: flex; flex-direction: row">
-    <img align="center" src="https://symbols.getvecta.com/stencil_94/22_react-icon.e55e75bd2e.svg" alt="HTML" height="50"/>
+    <img align="center" src="/assets/readme-icons/react-logo.svg" alt="HTML" height="50"/>
     <p align="center">React</p>
  </div>
 </div>
    
 <div align="center">
   <div style="display: flex; flex-direction: row">
-    <img align="center" src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg" alt="HTML" height="50"/>
+    <img align="center" src="/assets/readme-icons/nextjs-logo.svg" alt="HTML" height="50"/>
     <p align="center">NextJS</p>
   </div>
 </div>
    
 <div align="center">
   <div style="display: flex; flex-direction: row">
-    <img align="center" src="https://symbols.getvecta.com/stencil_97/3_tailwind-css-icon.5009c3dbea.svg" alt="HTML" height="50"/>
+    <img align="center" src="/assets/readme-icons/tailwindcss-logo.svg" alt="HTML" height="50"/>
     <p align="center">Tailwind CSS</p>
   </div>
 </div>
 
 <div align="center">
   <div style="display: flex; flex-direction: row">
-    <img align="center" src="https://www.vectorlogo.zone/logos/strava/strava-icon.svg" alt="HTML" height="50"/>
+    <img align="center" src="/assets/readme-icons/strava-logo.svg" alt="HTML" height="50"/>
     <p align="center">Strava API</p>
   </div>
 </div>
 
 <div align="center">
   <div style="display: flex; flex-direction: row">
-    <img align="center" src="https://symbols.getvecta.com/stencil_85/20_jest-icon.aff64ab210.svg" alt="HTML" height="50"/>
+    <img align="center" src="/assets/readme-icons/jest-logo.svg" alt="HTML" height="50"/>
     <p align="center">Jest</p>
   </div>
 </div>
 
 <div align="center">
   <div style="display: flex; flex-direction: row">
-    <img align="center" src="https://asset.brandfetch.io/idFdo8ulhr/idg4l58CuH.svg" alt="HTML" height="50"/>
-    <p align="center">Chart JS (React)</p>
+    <img align="center" src="/assets/readme-icons/chartjs-logo.svg" alt="HTML" height="50"/>
+    <p align="center">Chart JS</p>
   </div>
 </div>
 
 <div align="center">
   <div style="display: flex; flex-direction: row">
-    <img align="center" src="https://cdn.worldvectorlogo.com/logos/postman.svg" alt="HTML" height="50"/>
+    <img align="center" src="/assets/readme-icons/postman-logo.svg" alt="HTML" height="50"/>
     <p align="center">Postman</p>
   </div>
 </div>
