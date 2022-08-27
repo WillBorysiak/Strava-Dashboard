@@ -1,7 +1,7 @@
-import { Fragment, Dispatch } from 'react';
-import { Menu, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/solid';
 import classNames from '../../utils/classNames';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { Dispatch, Fragment } from 'react';
+import { Menu, Transition } from '@headlessui/react';
 
 const results = [
 	{ label: '3 results', value: 3 },
