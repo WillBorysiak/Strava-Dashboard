@@ -1,5 +1,7 @@
 import { SegmentTypes as SegmentModel } from '../../../../models/segment.model';
-import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
+
+import { MapContainer, TileLayer } from 'react-leaflet';
+
 import 'leaflet/dist/leaflet.css';
 import MapMarker from './MapMarker';
 

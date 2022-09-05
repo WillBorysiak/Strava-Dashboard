@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import { Strava } from '../models/strava.model';
+
 import useSWR from 'swr';
 import fetcher from '../components/data/fetcher';
 

@@ -1,5 +1,8 @@
+import { StatsTypes } from '../../../models/stats.model';
+
 import { motion } from 'framer-motion';
 import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
+
 import Container from '../../layout/Container';
 import Heading from '../../typography/Heading';
 import { distanceConverter } from '../../utils/distanceConverter';
@@ -11,7 +14,6 @@ import { timeIcon } from './StatsIcons';
 import { elevationIcon } from './StatsIcons';
 import { longestRideIcon } from './StatsIcons';
 import { biggestClimbIcon } from './StatsIcons';
-import { StatsTypes } from '../../../models/stats.model';
 
 interface StatsType {
 	stats: StatsTypes;

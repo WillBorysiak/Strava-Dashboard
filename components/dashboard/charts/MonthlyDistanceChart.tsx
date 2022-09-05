@@ -1,11 +1,13 @@
-import dayjs from 'dayjs';
-import { Bar } from 'react-chartjs-2';
-import { chartOptions } from './chartOptions';
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
-import { distanceReducer } from '../../utils/distanceReducer';
-import { months } from '../../data/monthlyDistanceArray';
+import { MonthsTypes } from '../../../models/months.model';
+
+import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
+
+import { distanceReducer } from '../../utils/distanceReducer';
+import { Bar } from 'react-chartjs-2';
+import { chartOptions } from './chartOptions';
 import {
 	Chart as ChartJS,
 	BarController,
@@ -36,6 +38,20 @@ interface ChartTypes {
 }
 
 const MonthlyDistanceChart = ({ activities }: ChartTypes) => {
+	const months: MonthsTypes = {
+		jan: [],
+		feb: [],
+		mar: [],
+		apr: [],
+		may: [],
+		jun: [],
+		jul: [],
+		aug: [],
+		sept: [],
+		oct: [],
+		nov: [],
+		dec: [],
+	};
 	activities.forEach(item => {
 		item.month = dayjs(item.start_date).month();
 		if (item.month === 3) months.apr.push(item.distance);
@@ -43,10 +59,11 @@ const MonthlyDistanceChart = ({ activities }: ChartTypes) => {
 		if (item.month === 5) months.jun.push(item.distance);
 		if (item.month === 6) months.jul.push(item.distance);
 		if (item.month === 7) months.aug.push(item.distance);
+		if (item.month === 8) months.sept.push(item.distance);
 	});
 
 	const data = {
-		labels: ['April', 'May', 'June', 'July', 'Aug'],
+		labels: ['April', 'May', 'June', 'July', 'Aug', 'Sept'],
 		datasets: [
 			{
 				label: 'Distance in Km',
@@ -56,6 +73,7 @@ const MonthlyDistanceChart = ({ activities }: ChartTypes) => {
 					distanceReducer(months.jun),
 					distanceReducer(months.jul),
 					distanceReducer(months.aug),
+					distanceReducer(months.sept),
 				],
 				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',

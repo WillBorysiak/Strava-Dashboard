@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { ActivityTypes as ActivityModel } from '../../../models/activity.model';
+
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
-import { ActivityTypes as ActivityModel } from '../../../models/activity.model';
+
 import { distanceConverter } from '../../utils/distanceConverter';
 import { removeEmoji } from '../../utils/removeEmoji';
 import { hoursMinsConverter } from '../../utils/hoursMinsConverter';

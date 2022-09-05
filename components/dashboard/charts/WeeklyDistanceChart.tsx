@@ -1,9 +1,11 @@
 import { useEffect, Dispatch } from 'react';
+import { ChartTypes as ChartModel } from '../../../models/chart.model';
+
 import dayjs from 'dayjs';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
 import { motion } from 'framer-motion';
 import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
-import { ChartTypes as ChartModel } from '../../../models/chart.model';
-import weekOfYear from 'dayjs/plugin/weekOfYear';
+
 import { distanceReducer } from '../../utils/distanceReducer';
 import { Line } from 'react-chartjs-2';
 import { chartOptions } from './chartOptions';

@@ -1,5 +1,6 @@
-import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
+import { Marker, Popup } from 'react-leaflet';
+
 import { captalise } from '../../../utils/capitalise';
 
 const icon = L.icon({

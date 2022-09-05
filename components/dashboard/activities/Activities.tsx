@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { ActivityTypes as ActivityModel } from '../../../models/activity.model';
+
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
-import { ActivityTypes as ActivityModel } from '../../../models/activity.model';
+
 import Heading from '../../typography/Heading';
 import Activity from './Activity';
 import ActivityFilter from './ActivityFilter';

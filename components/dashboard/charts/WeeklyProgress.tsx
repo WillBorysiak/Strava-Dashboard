@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
-import { WeeklyProgressTypes as WeeklyProgressModel } from '../../../models/weeklyProgress.model';
 
 interface WeeklyProgressTypes {
 	weeklyTargets: any;

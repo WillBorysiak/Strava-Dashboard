@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ChartTypes as ChartModel } from '../../../models/chart.model';
 import { WeeklyProgressTypes } from '../../../models/weeklyProgress.model';
+import { ChartTypes as ChartModel } from '../../../models/chart.model';
+
 import Container from '../../layout/Container';
 import Heading from '../../typography/Heading';
 import MonthlyDistanceChart from './MonthlyDistanceChart';
