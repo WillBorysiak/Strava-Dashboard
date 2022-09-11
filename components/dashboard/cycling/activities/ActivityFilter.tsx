@@ -3,7 +3,7 @@ import { Dispatch, Fragment } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { Menu, Transition } from '@headlessui/react';
 
-import classNames from '../../utils/classNames';
+import classNames from '../../../utils/classNames';
 
 const results = [
 	{ label: '3 results', value: 3 },

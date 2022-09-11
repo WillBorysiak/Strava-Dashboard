@@ -1,13 +1,13 @@
-import { StatsTypes } from '../../../models/stats.model';
+import { StatsTypes } from '../../../../models/stats.model';
 
 import { motion } from 'framer-motion';
-import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
+import { scrollAnimationVariants } from '../../../utils/scrollAnimationVariants';
 
-import Container from '../../layout/Container';
-import Heading from '../../typography/Heading';
-import { distanceConverter } from '../../utils/distanceConverter';
-import { hoursMinsConverter } from '../../utils/hoursMinsConverter';
-import { elevationConverter } from '../../utils/elevationConverter';
+import Container from '../../../layout/Container';
+import Heading from '../../../typography/Heading';
+import { distanceConverter } from '../../../utils/distanceConverter';
+import { hoursMinsConverter } from '../../../utils/hoursMinsConverter';
+import { elevationConverter } from '../../../utils/elevationConverter';
 import { rideIcon } from './StatsIcons';
 import { distanceIcon } from './StatsIcons';
 import { timeIcon } from './StatsIcons';
@@ -20,30 +20,24 @@ interface StatsType {
 }
 
 const Stats = (props: StatsType) => {
-	const rideTotals = props.stats.all_ride_totals;
-	const biggestRide = props.stats.biggest_ride_distance;
-	const biggestClimb = props.stats.biggest_climb_elevation_gain;
-	const { count, distance, elevation_gain, moving_time } = rideTotals;
+	const runTotals = props.stats.all_run_totals;
+	const { count, distance, elevation_gain, moving_time } = runTotals;
 
 	const distanceKm = distanceConverter(distance, 2, true);
 	const time = hoursMinsConverter(moving_time);
 	const elevationKm = elevationConverter(elevation_gain);
-	const distanceRecord = distanceConverter(biggestRide, 2, true);
-	const climbRecord = biggestClimb.toFixed(0) + 'm';
 
 	const stats = [
-		{ id: 1, name: 'Total Rides', stat: count, icon: rideIcon },
+		{ id: 1, name: 'Total Runs', stat: count, icon: rideIcon },
 		{ id: 2, name: 'Total Distance', stat: distanceKm, icon: distanceIcon },
 		{ id: 3, name: 'Total Time', stat: time, icon: timeIcon },
 		{ id: 4, name: 'Total Elevation', stat: elevationKm, icon: elevationIcon },
-		{ id: 5, name: 'Longest Ride', stat: distanceRecord, icon: longestRideIcon },
-		{ id: 6, name: 'Biggest Climb', stat: climbRecord, icon: biggestClimbIcon },
 	];
 
 	return (
 		<Container>
 			<Heading text="Stats" />
-			<dl className="mt-5 mb-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+			<dl className="mt-5 mb-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-2">
 				{stats.map((item, index: number) => (
 					<motion.div
 						key={index}

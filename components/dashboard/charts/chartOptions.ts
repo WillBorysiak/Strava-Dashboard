@@ -1,3 +1,5 @@
+export const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
 export const chartOptions = {
 	responsive: true,
 	maintainAspectRatio: false,

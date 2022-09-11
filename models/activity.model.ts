@@ -1,4 +1,5 @@
 export interface ActivityTypes {
+	sport_type: string;
 	name: string;
 	id: number;
 	start_date: string;

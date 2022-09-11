@@ -43,11 +43,9 @@ const WeeklyDistanceChart = (props: ChartTypes) => {
 	dayjs.extend(weekOfYear);
 	dayjs.Ls.en.weekStart = 1;
 
-	props.activities.forEach(item => (item.week = dayjs(item.start_date).week()));
-
 	const weeklyDistanceArrays: number[][] = [];
 
-	for (let i = 17; i < props.activities.length; i++) {
+	for (let i = 2; i < 52; i++) {
 		let weeklyTotal: number[] = [];
 		props.activities.forEach(item => {
 			if (item.week === i) {
@@ -61,10 +59,13 @@ const WeeklyDistanceChart = (props: ChartTypes) => {
 	const weeklyDistance: number[] = [];
 
 	weeklyDistanceArrays.forEach((item, index) => {
-		if (item.length === 0) return;
 		const week = `Week ${index + 1}`;
 		const total = distanceReducer(item);
 		weeklyNumber.push(week);
+		if (item.length === 0) {
+			weeklyDistance.push(0);
+			return;
+		}
 		weeklyDistance.push(total);
 	});
 

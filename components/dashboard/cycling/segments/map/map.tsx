@@ -1,4 +1,4 @@
-import { SegmentTypes as SegmentModel } from '../../../../models/segment.model';
+import { SegmentTypes as SegmentModel } from '../../../../../models/segment.model';
 
 import { MapContainer, TileLayer } from 'react-leaflet';
 

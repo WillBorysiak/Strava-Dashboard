@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { SegmentTypes as SegmentModel } from '../../../models/segment.model';
+import { SegmentTypes as SegmentModel } from '../../../../models/segment.model';
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
+import { scrollAnimationVariants } from '../../../utils/scrollAnimationVariants';
 
-import { distanceConverter } from '../../utils/distanceConverter';
-import { secondsMinsConverter } from '../../utils/secondsMinsConverter';
-import { captalise } from '../../utils/capitalise';
+import { distanceConverter } from '../../../utils/distanceConverter';
+import { secondsMinsConverter } from '../../../utils/secondsMinsConverter';
+import { captalise } from '../../../utils/capitalise';
 
 interface SegmentTypes {
 	data: SegmentModel;
@@ -17,7 +17,7 @@ const Segment = (props: SegmentTypes) => {
 	const [open, setOpen] = useState(false);
 	const content = props.data;
 	const { name, id, city, distance, elevation_high, maximum_grade, pr_time } = content;
-	const image = `/segments/${id}.png`;
+	const image = `/images/segments/${id}.png`;
 
 	return (
 		<motion.div

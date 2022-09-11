@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { ActivityTypes as ActivityModel } from '../../../models/activity.model';
+import { ActivityTypes as ActivityModel } from '../../../../models/activity.model';
 
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 
-import { distanceConverter } from '../../utils/distanceConverter';
-import { removeEmoji } from '../../utils/removeEmoji';
-import { hoursMinsConverter } from '../../utils/hoursMinsConverter';
-import { speedConverter } from '../../utils/speedConverter';
+import { distanceConverter } from '../../../utils/distanceConverter';
+import { removeEmoji } from '../../../utils/removeEmoji';
+import { hoursMinsConverter } from '../../../utils/hoursMinsConverter';
+import { speedConverter } from '../../../utils/speedConverter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDay } from '@fortawesome/pro-solid-svg-icons';
 
@@ -31,7 +31,7 @@ const Activity = (props: ActivityTypes) => {
 				<div className="flex items-center justify-between">
 					<h3 className="text-xl font-bold text-orange md:text-2xl">{removeEmoji(name)}</h3>
 					<div className="flex flex-row-reverse">
-						<p className="ml-5 whitespace-nowrap text-lg font-bold sm:text-xl">{`Week ${week - 16}`}</p>
+						<p className="ml-5 whitespace-nowrap text-lg font-bold sm:text-xl">{`Week ${week - 1}`}</p>
 					</div>
 				</div>
 				<div className="mt-2 sm:flex sm:justify-between">

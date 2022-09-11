@@ -6,6 +6,7 @@ interface WeeklyProgressTypes {
 }
 
 const WeeklyProgress = ({ weeklyTargets }: WeeklyProgressTypes) => {
+	console.log(weeklyTargets);
 	if (!weeklyTargets) {
 		return <div />;
 	}

@@ -26,7 +26,7 @@ const Charts = ({ chartData }: ChartTypes) => {
 				<div className="mt-5 mb-5 flex justify-center">
 					<WeeklyDistanceChart activities={chartData} data={setWeeklyTargets} />
 				</div>
-				<WeeklyProgress weeklyTargets={weeklyTargets} />
+				{/* <WeeklyProgress weeklyTargets={weeklyTargets} /> */}
 			</div>
 		</Container>
 	);

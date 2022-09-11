@@ -1,6 +1,8 @@
 import { distanceConverter } from './distanceConverter';
 
 export const distanceReducer = (array: number[]) => {
+	if (!array) return 0;
+
 	let distanceRawTotal = array.reduce(function (previousValue, currentValue) {
 		return previousValue + currentValue;
 	}, 0);

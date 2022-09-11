@@ -33,7 +33,7 @@ const stravaAPI = async (req: NextApiRequest, res: NextApiResponse) => {
 
 	// Activities
 	const activitiesRequest = await fetch(
-		'https://www.strava.com/api/v3/athlete/activities?after=1650416400&per_page=100&access_token=' +
+		'https://www.strava.com/api/v3/athlete/activities?after=1640995200&per_page=100&access_token=' +
 			accessJson.access_token,
 	);
 	const activities = await activitiesRequest.json();

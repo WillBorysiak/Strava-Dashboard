@@ -7,6 +7,7 @@ import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
 
 import { distanceReducer } from '../../utils/distanceReducer';
 import { Bar } from 'react-chartjs-2';
+import { monthNames } from './chartOptions';
 import { chartOptions } from './chartOptions';
 import {
 	Chart as ChartJS,
@@ -54,26 +55,38 @@ const MonthlyDistanceChart = ({ activities }: ChartTypes) => {
 	};
 	activities.forEach(item => {
 		item.month = dayjs(item.start_date).month();
+		if (item.month === 0) months.jan.push(item.distance);
+		if (item.month === 1) months.feb.push(item.distance);
+		if (item.month === 2) months.mar.push(item.distance);
 		if (item.month === 3) months.apr.push(item.distance);
 		if (item.month === 4) months.may.push(item.distance);
 		if (item.month === 5) months.jun.push(item.distance);
 		if (item.month === 6) months.jul.push(item.distance);
 		if (item.month === 7) months.aug.push(item.distance);
 		if (item.month === 8) months.sept.push(item.distance);
+		if (item.month === 9) months.oct.push(item.distance);
+		if (item.month === 10) months.nov.push(item.distance);
+		if (item.month === 11) months.dec.push(item.distance);
 	});
 
 	const data = {
-		labels: ['April', 'May', 'June', 'July', 'Aug', 'Sept'],
+		labels: monthNames,
 		datasets: [
 			{
 				label: 'Distance in Km',
 				data: [
+					distanceReducer(months.jan),
+					distanceReducer(months.feb),
+					distanceReducer(months.mar),
 					distanceReducer(months.apr),
 					distanceReducer(months.may),
 					distanceReducer(months.jun),
 					distanceReducer(months.jul),
 					distanceReducer(months.aug),
 					distanceReducer(months.sept),
+					distanceReducer(months.oct),
+					distanceReducer(months.nov),
+					distanceReducer(months.dec),
 				],
 				backgroundColor: [
 					'rgba(255, 99, 132, 0.2)',

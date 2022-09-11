@@ -1,20 +1,20 @@
 import { useState } from 'react';
-import { ActivityTypes as ActivityModel } from '../../../models/activity.model';
+import { ActivityTypes as ActivityModel } from '../../../../models/activity.model';
 
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
-import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
+import { scrollAnimationVariants } from '../../../utils/scrollAnimationVariants';
 
-import Heading from '../../typography/Heading';
-import Activity from './Activity';
+import Heading from '../../../typography/Heading';
+import CyclingActivity from './RunningActivity';
 import ActivityFilter from './ActivityFilter';
 
 interface ActivityTypes {
 	activities: ActivityModel[];
 }
 
-const ActivityList = ({ activities }: ActivityTypes) => {
-	const [resultsValue, setResultsValue] = useState<number>(3);
+const Activities = ({ activities }: ActivityTypes) => {
+	const [resultsValue, setResultsValue] = useState<number>(5);
 	const [sortValue, setSortValue] = useState<string>('recent');
 
 	return (
@@ -37,7 +37,7 @@ const ActivityList = ({ activities }: ActivityTypes) => {
 						.slice(activities.length - resultsValue)
 						.reverse()
 						.map(activity => (
-							<Activity key={activity.id} data={activity} />
+							<CyclingActivity key={activity.id} data={activity} />
 						))}
 				</motion.ul>
 			</motion.div>
@@ -45,4 +45,4 @@ const ActivityList = ({ activities }: ActivityTypes) => {
 	);
 };
 
-export default ActivityList;
+export default Activities;
