@@ -1,8 +1,8 @@
-<h1  align="center">Cycling Dashboard</h1>
+<h1  align="center">Strava Dashboard</h1>
  
 <h2  align="center">Purpose of the Website/App:</h2>
  
-<h3 align="center">To display my cycling data using the Strava API.<p>
+<h3 align="center">To display my workout data using the Strava API.<p>
  
 <h2 align="center">Technology used</h2>
  

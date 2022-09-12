@@ -21,9 +21,7 @@ const SelectSport = (props: { state: string; selectSport: any }) => {
 		>
 			<div className="flex h-full w-1/2 flex-col items-center justify-center">
 				<div
-					className={
-						props.state === 'running' ? 'p-5 text-orange shadow-2xl' : 'text-zinc hover:scale-110 hover:text-orange'
-					}
+					className={props.state === 'running' ? 'text-orange' : 'text-zinc hover:scale-110 hover:text-orange'}
 					onClick={() => {
 						props.selectSport('running');
 					}}
@@ -34,9 +32,7 @@ const SelectSport = (props: { state: string; selectSport: any }) => {
 			</div>
 			<div className="flex h-full w-1/2 flex-col items-center justify-center  text-zinc  hover:text-orange">
 				<div
-					className={
-						props.state === 'cycling' ? 'p-5 text-orange shadow-2xl' : 'text-zinc hover:scale-110 hover:text-orange'
-					}
+					className={props.state === 'cycling' ? 'text-orange' : 'text-zinc hover:scale-110 hover:text-orange'}
 					onClick={() => {
 						props.selectSport('cycling');
 					}}
