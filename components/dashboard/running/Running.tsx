@@ -1,8 +1,7 @@
 import { RunningProps } from '../../../models/runningProps.model';
-
-import Stats from './stats/RunningStats';
 import Charts from '../charts/Charts';
 import Activities from './activities/RunningActivities';
+import Stats from './stats/RunningStats';
 
 const Running = (props: RunningProps) => {
 	// Filter by runs

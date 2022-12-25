@@ -1,11 +1,9 @@
-import { SegmentTypes as SegmentModel } from '../../../../models/segment.model';
-
-import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import { scrollAnimationVariants } from '../../../utils/scrollAnimationVariants';
-
+import dynamic from 'next/dynamic';
+import { SegmentTypes as SegmentModel } from '../../../../models/segment.model';
 import Container from '../../../layout/Container';
 import Heading from '../../../typography/Heading';
+import { scrollAnimationVariants } from '../../../utils/scrollAnimationVariants';
 import Segment from './Segment';
 
 interface SegmentTypes {

@@ -1,9 +1,8 @@
 import { CyclingProps } from '../../../models/cyclingProps.model';
-
-import Stats from './stats/CyclingStats';
 import Charts from '../charts/Charts';
 import CyclingActivities from './activities/CyclingActivities';
 import Segments from './segments/Segments';
+import Stats from './stats/CyclingStats';
 
 const Cycling = (props: CyclingProps) => {
 	// Filter by rides

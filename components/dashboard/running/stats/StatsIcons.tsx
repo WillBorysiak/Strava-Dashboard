@@ -1,10 +1,12 @@
+import {
+	faChartLine,
+	faMedal,
+	faMountains,
+	faRabbitRunning,
+	faRoad,
+	faStopwatch,
+} from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRabbitRunning } from '@fortawesome/pro-solid-svg-icons';
-import { faRoad } from '@fortawesome/pro-solid-svg-icons';
-import { faStopwatch } from '@fortawesome/pro-solid-svg-icons';
-import { faMountains } from '@fortawesome/pro-solid-svg-icons';
-import { faMedal } from '@fortawesome/pro-solid-svg-icons';
-import { faChartLine } from '@fortawesome/pro-solid-svg-icons';
 
 export const rideIcon = <FontAwesomeIcon icon={faRabbitRunning} size="3x" className="text-orange" />;
 export const distanceIcon = <FontAwesomeIcon icon={faRoad} size="3x" className="text-orange" />;

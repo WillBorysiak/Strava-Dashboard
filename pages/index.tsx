@@ -1,24 +1,20 @@
-import type { NextPage } from 'next';
-import { Strava } from '../models/strava.model';
-
-import { useState } from 'react';
-
-import useSWR from 'swr';
-import fetcher from '../components/utils/fetcher';
-
 import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
-
-import Layout from '../components/layout/Layout';
+import type { NextPage } from 'next';
+import { useState } from 'react';
+import useSWR from 'swr';
+import Cycling from '../components/dashboard/cycling/Cycling';
 import Dashboard from '../components/dashboard/home/Dashboard';
-import SEO from '../components/layout/SEO';
-import Loading from '../components/dashboard/home/Loading';
-import Hero from '../components/dashboard/home/Hero';
-import Footer from '../components/layout/Footer';
 import ErrorMessage from '../components/dashboard/home/ErrorMessage';
+import Hero from '../components/dashboard/home/Hero';
+import Loading from '../components/dashboard/home/Loading';
 import SelectSport from '../components/dashboard/home/SelectSport';
 import Running from '../components/dashboard/running/Running';
-import Cycling from '../components/dashboard/cycling/Cycling';
+import Footer from '../components/layout/Footer';
+import Layout from '../components/layout/Layout';
+import SEO from '../components/layout/SEO';
+import fetcher from '../components/utils/fetcher';
+import { Strava } from '../models/strava.model';
 
 const Home: NextPage = () => {
 	const { data, error } = useSWR<Strava>('/api/strava', fetcher);

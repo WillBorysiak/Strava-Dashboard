@@ -1,11 +1,8 @@
-import SubHeading from '../../typography/SubHeading';
-
-import { motion } from 'framer-motion';
-import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
-
+import { faPersonBiking, faPersonRunning } from '@fortawesome/pro-thin-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPersonBiking } from '@fortawesome/pro-thin-svg-icons';
-import { faPersonRunning } from '@fortawesome/pro-thin-svg-icons';
+import { motion } from 'framer-motion';
+import SubHeading from '../../typography/SubHeading';
+import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
 
 const SelectSport = (props: { state: string; selectSport: any }) => {
 	return (

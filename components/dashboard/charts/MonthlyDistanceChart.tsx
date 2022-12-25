@@ -1,26 +1,23 @@
-import { ChartTypes as ChartModel } from '../../../models/chart.model';
-import { MonthsTypes } from '../../../models/months.model';
-
-import dayjs from 'dayjs';
-import { motion } from 'framer-motion';
-import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
-
-import { distanceReducer } from '../../utils/distanceReducer';
-import { Bar } from 'react-chartjs-2';
-import { monthNames } from './chartOptions';
-import { chartOptions } from './chartOptions';
 import {
-	Chart as ChartJS,
 	BarController,
 	BarElement,
 	CategoryScale,
+	Chart as ChartJS,
+	Legend,
 	LinearScale,
-	PointElement,
 	LineElement,
+	PointElement,
 	Title,
 	Tooltip,
-	Legend,
 } from 'chart.js';
+import dayjs from 'dayjs';
+import { motion } from 'framer-motion';
+import { Bar } from 'react-chartjs-2';
+import { ChartTypes as ChartModel } from '../../../models/chart.model';
+import { MonthsTypes } from '../../../models/months.model';
+import { distanceReducer } from '../../utils/distanceReducer';
+import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
+import { chartOptions, monthNames } from './chartOptions';
 
 ChartJS.register(
 	BarController,

@@ -1,19 +1,12 @@
-import { StatsTypes } from '../../../../models/stats.model';
-
 import { motion } from 'framer-motion';
-import { scrollAnimationVariants } from '../../../utils/scrollAnimationVariants';
-
+import { StatsTypes } from '../../../../models/stats.model';
 import Container from '../../../layout/Container';
 import Heading from '../../../typography/Heading';
 import { distanceConverter } from '../../../utils/distanceConverter';
-import { hoursMinsConverter } from '../../../utils/hoursMinsConverter';
 import { elevationConverter } from '../../../utils/elevationConverter';
-import { rideIcon } from './StatsIcons';
-import { distanceIcon } from './StatsIcons';
-import { timeIcon } from './StatsIcons';
-import { elevationIcon } from './StatsIcons';
-import { longestRideIcon } from './StatsIcons';
-import { biggestClimbIcon } from './StatsIcons';
+import { hoursMinsConverter } from '../../../utils/hoursMinsConverter';
+import { scrollAnimationVariants } from '../../../utils/scrollAnimationVariants';
+import { biggestClimbIcon, distanceIcon, elevationIcon, longestRideIcon, rideIcon, timeIcon } from './StatsIcons';
 
 interface StatsType {
 	stats: StatsTypes;

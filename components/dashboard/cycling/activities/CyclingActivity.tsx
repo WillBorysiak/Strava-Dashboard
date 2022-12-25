@@ -1,15 +1,13 @@
-import { useState } from 'react';
-import { ActivityTypes as ActivityModel } from '../../../../models/activity.model';
-
+import { faCalendarDay } from '@fortawesome/pro-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
-
+import { useState } from 'react';
+import { ActivityTypes as ActivityModel } from '../../../../models/activity.model';
 import { distanceConverter } from '../../../utils/distanceConverter';
-import { removeEmoji } from '../../../utils/removeEmoji';
 import { hoursMinsConverter } from '../../../utils/hoursMinsConverter';
+import { removeEmoji } from '../../../utils/removeEmoji';
 import { speedConverter } from '../../../utils/speedConverter';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarDay } from '@fortawesome/pro-solid-svg-icons';
 
 interface ActivityTypes {
 	data: ActivityModel;

@@ -1,13 +1,11 @@
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useState } from 'react';
 import { SegmentTypes as SegmentModel } from '../../../../models/segment.model';
-
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { scrollAnimationVariants } from '../../../utils/scrollAnimationVariants';
-
-import { distanceConverter } from '../../../utils/distanceConverter';
-import { secondsMinsConverter } from '../../../utils/secondsMinsConverter';
 import { captalise } from '../../../utils/capitalise';
+import { distanceConverter } from '../../../utils/distanceConverter';
+import { scrollAnimationVariants } from '../../../utils/scrollAnimationVariants';
+import { secondsMinsConverter } from '../../../utils/secondsMinsConverter';
 
 interface SegmentTypes {
 	data: SegmentModel;

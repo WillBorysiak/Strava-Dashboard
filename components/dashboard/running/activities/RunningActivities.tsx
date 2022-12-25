@@ -1,13 +1,11 @@
-import { useState } from 'react';
-import { ActivityTypes as ActivityModel } from '../../../../models/activity.model';
-
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
-import { scrollAnimationVariants } from '../../../utils/scrollAnimationVariants';
-
+import { useState } from 'react';
+import { ActivityTypes as ActivityModel } from '../../../../models/activity.model';
 import Heading from '../../../typography/Heading';
-import CyclingActivity from './RunningActivity';
+import { scrollAnimationVariants } from '../../../utils/scrollAnimationVariants';
 import ActivityFilter from './ActivityFilter';
+import CyclingActivity from './RunningActivity';
 
 interface ActivityTypes {
 	activities: ActivityModel[];

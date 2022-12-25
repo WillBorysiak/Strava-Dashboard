@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
-import { WeeklyProgressTypes } from '../../../models/weeklyProgress.model';
+import { useState } from 'react';
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
-
+import { WeeklyProgressTypes } from '../../../models/weeklyProgress.model';
 import Container from '../../layout/Container';
 import Heading from '../../typography/Heading';
 import MonthlyDistanceChart from './MonthlyDistanceChart';
 import WeeklyDistanceChart from './WeeklyDistanceChart';
-import WeeklyProgress from './WeeklyProgress';
 
 interface ChartTypes {
 	chartData: ChartModel[];
