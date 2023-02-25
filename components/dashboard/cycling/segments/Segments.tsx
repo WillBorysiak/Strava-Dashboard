@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+
 import { SegmentTypes as SegmentModel } from '../../../../models/segment.model';
 import Container from '../../../layout/Container';
 import Heading from '../../../typography/Heading';

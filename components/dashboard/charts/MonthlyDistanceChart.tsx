@@ -13,6 +13,7 @@ import {
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 import { Bar } from 'react-chartjs-2';
+
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
 import { MonthsTypes } from '../../../models/months.model';
 import { distanceReducer } from '../../utils/distanceReducer';

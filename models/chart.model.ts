@@ -10,4 +10,5 @@ export interface ChartTypes {
 	average_heartrate: number;
 	month: number;
 	week: number;
+	year: number;
 }

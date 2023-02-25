@@ -1,6 +1,7 @@
 import { faPersonBiking, faPersonRunning } from '@fortawesome/pro-thin-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
+
 import SubHeading from '../../typography/SubHeading';
 import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
 

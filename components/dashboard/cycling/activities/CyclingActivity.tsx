@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+
 import { ActivityTypes as ActivityModel } from '../../../../models/activity.model';
 import { distanceConverter } from '../../../utils/distanceConverter';
 import { hoursMinsConverter } from '../../../utils/hoursMinsConverter';

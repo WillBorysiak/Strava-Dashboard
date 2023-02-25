@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+
 import { ActivityTypes as ActivityModel } from '../../../../models/activity.model';
 import Heading from '../../../typography/Heading';
 import { scrollAnimationVariants } from '../../../utils/scrollAnimationVariants';

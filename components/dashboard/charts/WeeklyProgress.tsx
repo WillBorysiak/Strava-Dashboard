@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+
 import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
 
 interface WeeklyProgressTypes {
@@ -6,7 +7,6 @@ interface WeeklyProgressTypes {
 }
 
 const WeeklyProgress = ({ weeklyTargets }: WeeklyProgressTypes) => {
-	console.log(weeklyTargets);
 	if (!weeklyTargets) {
 		return <div />;
 	}

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
 import { WeeklyProgressTypes } from '../../../models/weeklyProgress.model';
 import Container from '../../layout/Container';
@@ -24,7 +25,6 @@ const Charts = ({ chartData }: ChartTypes) => {
 				<div className="mt-5 mb-5 flex justify-center">
 					<WeeklyDistanceChart activities={chartData} data={setWeeklyTargets} />
 				</div>
-				{/* <WeeklyProgress weeklyTargets={weeklyTargets} /> */}
 			</div>
 		</Container>
 	);

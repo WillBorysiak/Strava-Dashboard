@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+
 import { StatsTypes } from '../../../../models/stats.model';
 import Container from '../../../layout/Container';
 import Heading from '../../../typography/Heading';

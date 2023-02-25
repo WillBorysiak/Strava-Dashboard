@@ -10,11 +10,10 @@ import {
 	Title,
 	Tooltip,
 } from 'chart.js';
-import dayjs from 'dayjs';
-import weekOfYear from 'dayjs/plugin/weekOfYear';
 import { motion } from 'framer-motion';
 import { Dispatch, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
+
 import { ChartTypes as ChartModel } from '../../../models/chart.model';
 import { distanceReducer } from '../../utils/distanceReducer';
 import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
@@ -38,9 +37,6 @@ interface ChartTypes {
 }
 
 const WeeklyDistanceChart = (props: ChartTypes) => {
-	dayjs.extend(weekOfYear);
-	dayjs.Ls.en.weekStart = 1;
-
 	const weeklyDistanceArrays: number[][] = [];
 
 	for (let i = 2; i < 52; i++) {
