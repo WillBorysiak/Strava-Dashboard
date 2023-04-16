@@ -1,6 +1,6 @@
 const Footer = () => {
 	return (
-		<footer className=" w-screen bg-zinc text-center font-oswald font-extrabold text-[#1a1b1c]">
+		<footer className="w-screen bg-zinc text-center font-oswald font-extrabold text-[#1a1b1c]">
 			<div className=" max-w-full px-4 py-2 sm:px-6 md:flex md:items-center md:justify-center lg:px-8">
 				<div className="space-x- flex justify-center md:order-2"></div>
 				<div className="md:order-1 md:mt-0">

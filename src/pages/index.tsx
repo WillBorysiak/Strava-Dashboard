@@ -3,7 +3,7 @@ import weekOfYear from 'dayjs/plugin/weekOfYear';
 import type { NextPage } from 'next';
 import useSWR from 'swr';
 
-import Dashboard from '../components/dashboard/home/Dashboard';
+import LoadingContainer from '../components/dashboard/home/LoadingContainer';
 import ErrorMessage from '../components/dashboard/home/ErrorMessage';
 import Hero from '../components/dashboard/home/Hero';
 import Loading from '../components/dashboard/home/Loading';
@@ -27,12 +27,12 @@ const Home: NextPage = () => {
 	if (!data)
 		return (
 			<Layout>
-				<Dashboard>
+				<LoadingContainer>
 					<SEO />
 					<Hero />
 					<Loading />
 					<Footer />
-				</Dashboard>
+				</LoadingContainer>
 			</Layout>
 		);
 
