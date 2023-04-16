@@ -5,10 +5,10 @@ import { useYearStore } from '../../../store/yearStore';
 
 import classNames from '../../utils/classNames';
 
-const years = [2022, 2023];
+const years = [2021, 2022, 2023];
 
 const SelectYear = () => {
-	const [selectedYear, setselectedYear] = useState(years[1]);
+	const [selectedYear, setselectedYear] = useState(years[2]);
 	const { changeSelectedYear } = useYearStore();
 
 	return (

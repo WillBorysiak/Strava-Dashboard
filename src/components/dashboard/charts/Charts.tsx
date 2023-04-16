@@ -8,19 +8,19 @@ import MonthlyDistanceChart from './MonthlyDistanceChart';
 import WeeklyDistanceChart from './WeeklyDistanceChart';
 
 const Charts = (props: { chartData: ChartModel[] | undefined }) => {
-	const [weeklyTargets, setWeeklyTargets] = useState<WeeklyProgressModel>();
+	// const [weeklyTargets, setWeeklyTargets] = useState<WeeklyProgressModel>();
 
 	const chartData = props.chartData;
 
 	return (
 		<Container>
-			<div className="mt-5 mb-5 flex flex-col">
+			<div className="mb-5 mt-5 flex flex-col">
 				<Heading text="Monthly Totals" />
-				<div className="mt-5 mb-5 flex flex-col justify-center">
+				<div className="mb-5 mt-5 flex flex-col justify-center">
 					<MonthlyDistanceChart activities={chartData} />
 				</div>
 				<Heading text="Weekly Distances" />
-				<div className="mt-5 mb-5 flex justify-center">
+				<div className="mb-5 mt-5 flex justify-center">
 					<WeeklyDistanceChart activities={chartData} />
 				</div>
 			</div>

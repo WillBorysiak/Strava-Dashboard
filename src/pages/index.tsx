@@ -21,6 +21,7 @@ const Home: NextPage = () => {
 	dayjs.extend(weekOfYear);
 	dayjs.Ls.en.weekStart = 1;
 	data?.activities?.forEach(item => (item.week = dayjs(item.start_date).week()));
+	data?.activities?.forEach(item => (item.month = dayjs(item.start_date).month() + 1));
 	data?.activities?.forEach(item => (item.year = dayjs(item.start_date).year()));
 	const activities = data?.activities.filter(item => item.sport_type === 'Run');
 

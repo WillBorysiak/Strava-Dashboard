@@ -56,19 +56,18 @@ const MonthlyDistanceChart = (props: { activities: ChartModel[] | undefined }) =
 
 	if (activities)
 		activities.forEach(item => {
-			item.month = dayjs(item.start_date).month();
-			if (item.month === 0) months.jan.push(item.distance);
-			if (item.month === 1) months.feb.push(item.distance);
-			if (item.month === 2) months.mar.push(item.distance);
-			if (item.month === 3) months.apr.push(item.distance);
-			if (item.month === 4) months.may.push(item.distance);
-			if (item.month === 5) months.jun.push(item.distance);
-			if (item.month === 6) months.jul.push(item.distance);
-			if (item.month === 7) months.aug.push(item.distance);
-			if (item.month === 8) months.sept.push(item.distance);
-			if (item.month === 9) months.oct.push(item.distance);
-			if (item.month === 10) months.nov.push(item.distance);
-			if (item.month === 11) months.dec.push(item.distance);
+			if (item.month === 1) months.jan.push(item.distance);
+			if (item.month === 2) months.feb.push(item.distance);
+			if (item.month === 3) months.mar.push(item.distance);
+			if (item.month === 4) months.apr.push(item.distance);
+			if (item.month === 5) months.may.push(item.distance);
+			if (item.month === 6) months.jun.push(item.distance);
+			if (item.month === 7) months.jul.push(item.distance);
+			if (item.month === 8) months.aug.push(item.distance);
+			if (item.month === 9) months.sept.push(item.distance);
+			if (item.month === 10) months.oct.push(item.distance);
+			if (item.month === 11) months.nov.push(item.distance);
+			if (item.month === 12) months.dec.push(item.distance);
 		});
 
 	const data = {

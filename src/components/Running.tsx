@@ -4,7 +4,7 @@ import { useYearStore } from '../store/yearStore';
 import Charts from './dashboard/charts/Charts';
 import SelectYear from './dashboard/charts/SelectYear';
 import Activities from './dashboard/activities/Activities';
-import Stats from './dashboard/stats/RunningStats';
+import Stats from './dashboard/stats/Stats';
 
 const Running = (props: { stats: StatsModel; activities: ActivityModel[] | undefined }) => {
 	const { selectedYear } = useYearStore();
