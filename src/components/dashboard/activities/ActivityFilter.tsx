@@ -27,11 +27,8 @@ const ActivityFilter = (props: ActivityFilterTypes) => {
   return (
     <section
       aria-labelledby="filter-heading"
-      className="bg-darkBackground z-10 w-full px-4 py-3 font-oswald"
+      className="z-10 w-full bg-darkBackground px-4 py-3 font-oswald"
     >
-      <h2 id="filter-heading" className="sr-only">
-        Product filters
-      </h2>
       <div className="flex items-center justify-between">
         {/* Sort Menu */}
 
@@ -40,7 +37,7 @@ const ActivityFilter = (props: ActivityFilterTypes) => {
             <Menu.Button className="text-md group flex items-center justify-center font-medium text-zinc md:text-lg">
               # of Results
               <ChevronDownIcon
-                className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-zinc "
+                className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-zinc"
                 aria-hidden="true"
               />
             </Menu.Button>
@@ -88,7 +85,7 @@ const ActivityFilter = (props: ActivityFilterTypes) => {
             <Menu.Button className="text-md group flex items-center justify-center font-medium text-zinc md:text-lg">
               Sort
               <ChevronDownIcon
-                className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-zinc "
+                className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-zinc"
                 aria-hidden="true"
               />
             </Menu.Button>

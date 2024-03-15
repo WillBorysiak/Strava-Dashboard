@@ -1,37 +1,34 @@
 import { ChartDataItem } from "../../models/charts/ChartDataItem";
 import { useActivityStore } from "../../store/activityStore/activityStore";
 import { useCoreStore } from "../../store/coreStore/coreStore";
-import { useStatStore } from "../../store/statStore/statStore";
 import Activities from "../dashboard/activities/Activities";
 import Charts from "../dashboard/charts/Charts";
 import StravaSelect, { StravaSelectEnum } from "../dashboard/home/StravaSelect";
-import Stats from "../dashboard/stats/Stats";
 
-const Running = () => {
+const Hiking = () => {
   const { selectedYear } = useCoreStore();
 
-  const statsData = useStatStore((state) => state.stats);
-  const runningData = useActivityStore((state) =>
-    state.getRunsByYear(selectedYear),
+  const hikingData = useActivityStore((state) =>
+    state.getHikesByYear(selectedYear),
   );
 
   let chartData: ChartDataItem[] = [];
-  if (runningData) chartData = runningData.map((run) => new ChartDataItem(run));
+  if (hikingData) chartData = hikingData.map((hike) => new ChartDataItem(hike));
 
-  const stravaSelectYears = [2021, 2022, 2023, 2024];
+  const stravaSelectYears = [2023, 2024];
 
   return (
-    <section id="running">
-      {statsData && <Stats data={statsData} />}
+    <section id="hiking">
       <StravaSelect
         data={stravaSelectYears}
         type={StravaSelectEnum.year}
         text={"Select Year"}
       />
+
       {chartData && <Charts chartData={chartData} />}
-      {runningData && <Activities activities={runningData} />}
+      {hikingData && <Activities activities={hikingData} />}
     </section>
   );
 };
 
-export default Running;
+export default Hiking;
