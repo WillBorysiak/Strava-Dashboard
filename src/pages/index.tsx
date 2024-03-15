@@ -1,53 +1,58 @@
-import dayjs from 'dayjs';
-import weekOfYear from 'dayjs/plugin/weekOfYear';
-import type { NextPage } from 'next';
-import useSWR from 'swr';
+import { useEffect } from "react";
+import type { NextPage } from "next";
 
-import LoadingContainer from '../components/dashboard/home/LoadingContainer';
-import ErrorMessage from '../components/dashboard/home/ErrorMessage';
-import Hero from '../components/dashboard/home/Hero';
-import Loading from '../components/dashboard/home/Loading';
-import Footer from '../components/layout/Footer';
-import Layout from '../components/layout/Layout';
-import SEO from '../components/layout/SEO';
-import Running from '../components/Running';
-import fetcher from '../components/utils/fetcher';
-import { StravaModel } from '../models/strava.model';
+import useSWR from "swr";
+
+import { useStatStore } from "../store/statStore/statStore";
+import Running from "../components/containers/Running";
+import Hero from "../components/dashboard/home/Hero";
+import Loading from "../components/dashboard/home/Loading";
+import Footer from "../components/layout/Footer";
+import Layout from "../components/layout/Layout";
+import SEO from "../components/layout/SEO";
+import { fetcher } from "../helpers/core/fetcher";
+import { IStravaData } from "../interfaces/IStravaData";
+import { useRunningStore } from "../store/runningStore/runningStore";
 
 const Home: NextPage = () => {
-	const { data, error } = useSWR<StravaModel>('/api/strava', fetcher);
+  const { data } = useSWR<IStravaData>("/api/strava", fetcher);
 
-	// format data
-	dayjs.extend(weekOfYear);
-	dayjs.Ls.en.weekStart = 1;
-	data?.activities?.forEach(item => (item.week = dayjs(item.start_date).week()));
-	data?.activities?.forEach(item => (item.month = dayjs(item.start_date).month() + 1));
-	data?.activities?.forEach(item => (item.year = dayjs(item.start_date).year()));
-	const activities = data?.activities.filter(item => item.sport_type === 'Run');
+  // stats store
+  const hasStats = useStatStore((state) => state.hasStats);
+  const setStats = useStatStore((state) => state.setStats);
 
-	if (!data)
-		return (
-			<Layout>
-				<LoadingContainer>
-					<SEO />
-					<Hero />
-					<Loading />
-					<Footer />
-				</LoadingContainer>
-			</Layout>
-		);
+  useEffect(() => {
+    if (data && !hasStats) setStats(data.stats);
+  }, [data, hasStats, setStats]);
 
-	return (
-		<>
-			<Layout>
-				<SEO />
-				<Hero />
-				{error && <ErrorMessage />}
-				{data.stats && data.activities && <Running stats={data.stats} activities={activities} />}
-				<Footer />
-			</Layout>
-		</>
-	);
+  // running store
+  const hasRuns = useRunningStore((state) => state.hasRuns);
+  const setRuns = useRunningStore((state) => state.setRuns);
+
+  useEffect(() => {
+    if (data && !hasRuns) setRuns([data.activities, data.activities2]);
+  }, [data, hasRuns, setRuns]);
+
+  const hasData = hasStats && hasRuns;
+
+  if (!data)
+    return (
+      <Layout>
+        <SEO />
+        <Hero />
+        <Loading />
+        <Footer />
+      </Layout>
+    );
+
+  return (
+    <Layout>
+      <SEO />
+      <Hero />
+      {hasData && <Running />}
+      <Footer />
+    </Layout>
+  );
 };
 
 export default Home;

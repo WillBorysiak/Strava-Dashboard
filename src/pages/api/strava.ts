@@ -1,51 +1,66 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse } from "next";
 
 const stravaAPI = async (req: NextApiRequest, res: NextApiResponse) => {
-	const headers = {
-		Accept: 'application/json, text/plain, */*',
-		'Content-Type': 'application/json',
-	};
+  const headers = {
+    Accept: "application/json, text/plain, */*",
+    "Content-Type": "application/json",
+  };
 
-	const body = JSON.stringify({
-		client_id: process.env.STRAVA_CLIENT_ID,
-		client_secret: process.env.STRAVA_SECRET,
-		refresh_token: process.env.STRAVA_REFRESH_TOKEN,
-		grant_type: 'refresh_token',
-	});
+  const body = JSON.stringify({
+    client_id: process.env.STRAVA_CLIENT_ID,
+    client_secret: process.env.STRAVA_SECRET,
+    refresh_token: process.env.STRAVA_REFRESH_TOKEN,
+    grant_type: "refresh_token",
+  });
 
-	const refreshAccess = await fetch('https://www.strava.com/oauth/token', {
-		method: 'post',
-		headers: headers,
-		body: body,
-	});
+  const refreshAccess = await fetch("https://www.strava.com/oauth/token", {
+    method: "post",
+    headers: headers,
+    body: body,
+  });
+  const accessJson = await refreshAccess.json();
+  const accessToken = accessJson.access_token;
 
-	const accessJson = await refreshAccess.json();
+  // stats
+  const athleteId = 90122035;
+  const statsUrl = `https://www.strava.com/api/v3/athletes/${athleteId}/stats`;
+  const statParams = new URLSearchParams({
+    access_token: accessToken,
+  });
 
-	// stats
-	const statsRequest = await fetch(
-		'https://www.strava.com/api/v3/athletes/90122035/stats?access_token=' + accessJson.access_token,
-	);
+  const statsRequest = await fetch(`${statsUrl}?${statParams}`);
+  const stats = await statsRequest.json();
 
-	const stats = await statsRequest.json();
+  // activities
+  const activityUrl = "https://www.strava.com/api/v3/athlete/activities";
 
-	// activities
-	const activitiesRequest = await fetch(
-		'https://www.strava.com/api/v3/athlete/activities?after=1625702400&per_page=200&access_token=' +
-			accessJson.access_token,
-	);
-	const activities = await activitiesRequest.json();
+  // (Jan 2021 - Dec 2022)
+  const activityParams = new URLSearchParams({
+    after: "1609459200", // 01/01/2021
+    before: "1672527600", // 31/12/2022
+    per_page: "200",
+    access_token: accessToken,
+  });
 
-	// segments
-	const segmentsRequest = await fetch(
-		'https://www.strava.com/api/v3/segments/starred?access_token=' + accessJson.access_token,
-	);
-	const segments = await segmentsRequest.json();
+  const activitiesRequest = await fetch(`${activityUrl}?${activityParams}`);
+  const activities = await activitiesRequest.json();
 
-	return res.status(200).json({
-		activities,
-		stats,
-		segments,
-	});
+  // (Jan 2023 - Dec 2024)
+  const activityParams2 = new URLSearchParams({
+    after: "1672531200", // 01/01/2023
+    before: "1735686000", // 31/12/2024
+    per_page: "200",
+    access_token: accessToken,
+  });
+
+  const activitiesRequest2 = await fetch(`${activityUrl}?${activityParams2}`);
+  const activities2 = await activitiesRequest2.json();
+
+  return res.status(200).json({
+    stats,
+    activities,
+    activities2,
+  });
 };
 
 export default stravaAPI;

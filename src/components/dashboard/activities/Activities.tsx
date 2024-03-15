@@ -1,44 +1,72 @@
-import dayjs from 'dayjs';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { ActivityModel } from '../../../models/activity.model';
-import Heading from '../../typography/Heading';
-import { scrollAnimationVariants } from '../../utils/scrollAnimationVariants';
-import Activity from './Activity';
-import ActivityFilter from './ActivityFilter';
+import dayjs from "dayjs";
+import { motion } from "framer-motion";
 
-const Activities = (props: { activities: ActivityModel[] | undefined }) => {
-	const activities = props.activities;
+import { scrollVariants } from "../../../helpers/core/animationVariants";
+import { Activity as ActivityModel } from "../../../models/activities/Activity";
+import Heading from "../../typography/Heading";
+import Activity from "./Activity";
+import ActivityFilter from "./ActivityFilter";
 
-	const [resultsValue, setResultsValue] = useState<number>(5);
-	const [sortValue, setSortValue] = useState<string>('recent');
+interface ActivitiesProps {
+  activities: ActivityModel[];
+}
 
-	return (
-		<section className="mx-5 overflow-hidden shadow">
-			<Heading text="Workouts" />
-			<motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={scrollAnimationVariants}>
-				<div className="mt-5 mb-5 flex w-full flex-row justify-around">
-					<ActivityFilter resultSelection={setResultsValue} sortSelection={setSortValue} />
-				</div>
+const Activities = (props: ActivitiesProps) => {
+  const { activities: initialActivities } = props;
 
-				<motion.ul layout role="list" className="mt-3 flex flex-col gap-x-5 rounded-md">
-					{activities &&
-						activities
-							.sort((a, b) => {
-								if (sortValue === 'recent' && dayjs(a.start_date).isBefore(b.start_date)) return -1;
-								if (sortValue === 'oldest' && dayjs(a.start_date).isAfter(b.start_date)) return -1;
-								if (sortValue === 'longest' && b.distance > a.distance) return -1;
-								if (sortValue === 'shortest' && a.distance > b.distance) return -1;
-								return 0;
-							})
-							.slice(activities.length - resultsValue)
-							.reverse()
-							.map(activity => <Activity key={activity.id} data={activity} />)}
-				</motion.ul>
-			</motion.div>
-		</section>
-	);
+  const [activities, setActivities] =
+    useState<ActivityModel[]>(initialActivities);
+
+  const [resultsCount, setResultsCount] = useState<number>(10);
+  const [sortType, setSortType] = useState<string>("recent");
+
+  useEffect(() => {
+    const sortedActivities = initialActivities
+      .sort((a, b) => {
+        switch (sortType) {
+          case "recent":
+            return dayjs(b.startDate).diff(a.startDate);
+          case "oldest":
+            return dayjs(a.startDate).diff(b.startDate);
+          case "longest":
+            return b.distance - a.distance;
+          case "shortest":
+            return a.distance - b.distance;
+          default:
+            return 0;
+        }
+      })
+      .slice(0, resultsCount);
+
+    setActivities(sortedActivities);
+  }, [initialActivities, resultsCount, sortType]);
+
+  return (
+    <section id="activities" className="mx-5 overflow-hidden shadow">
+      <Heading text="Workouts" />
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={scrollVariants}
+      >
+        <div className="mb-5 mt-5 flex w-full flex-row justify-around">
+          <ActivityFilter
+            resultSelection={setResultsCount}
+            sortSelection={setSortType}
+          />
+        </div>
+
+        <motion.ul layout={true} role="list" className="mt-3 rounded-sm">
+          {activities.map((activity) => (
+            <Activity key={activity.id} activity={activity} />
+          ))}
+        </motion.ul>
+      </motion.div>
+    </section>
+  );
 };
 
 export default Activities;

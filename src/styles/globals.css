@@ -1,9 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html {
-	overflow-x: hidden;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .default-transition {
+    @apply transition-all duration-500 ease-in-out;
+  }
 }
