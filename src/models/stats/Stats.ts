@@ -5,15 +5,11 @@ export class Stats {
   runningTotals: StatTotals;
 
   constructor(runningTotals: ITotals) {
-    this.runningTotals = this.createModelFromInterface(runningTotals);
-  }
-
-  private createModelFromInterface(totals: ITotals): StatTotals {
-    return new StatTotals(
-      totals.count,
-      totals.distance,
-      totals.moving_time,
-      totals.elevation_gain,
+    this.runningTotals = new StatTotals(
+      runningTotals.count,
+      runningTotals.distance,
+      runningTotals.moving_time,
+      runningTotals.elevation_gain,
     );
   }
 }

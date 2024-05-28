@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import { AnimatePresence, motion } from "framer-motion";
-
 import {
   faCalendarDay,
   faChartLine,
@@ -10,6 +8,7 @@ import {
   faWind,
 } from "@fortawesome/pro-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { accordianVariants } from "../../../helpers/core/animationVariants";
 import { Activity as ActivityModel } from "../../../models/activities/Activity";

@@ -13,17 +13,18 @@
         ],
         "pathGroups": [
           {
-            "pattern": "{react,next}",
+            "pattern": "{react,next,next/*,next-*}",
             "group": "external",
             "position": "before"
           },
           {
-            "pattern": "*",
+            "pattern": "{*}",
             "group": "external",
             "position": "after"
           },
+
           {
-            "pattern": "**/*",
+            "pattern": "{*}",
             "group": "internal",
             "position": "after"
           }
