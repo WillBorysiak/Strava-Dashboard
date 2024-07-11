@@ -12,7 +12,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { accordianVariants } from "../../../helpers/core/animationVariants";
 import { Activity as ActivityModel } from "../../../models/activities/Activity";
-import { ActivityViewModel } from "../../viewmodels/ActivityViewModel";
+import { ActivityViewModel } from "../../../viewmodels/ActivityViewModel";
 import ActivityStat from "./ActivityStat";
 
 interface ActivityTypes {
