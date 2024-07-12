@@ -7,37 +7,37 @@
 <h2 align="center">Technology used</h2>
  
 <div align="center">
-  <img align="center" src="/docs/readme-icons/react.svg" alt="HTML" height="50"/>
+  <img align="center" src="/docs/readme/icons/react.svg" alt="HTML" height="50"/>
   <p align="center"><i>React</i></p>
 </div>
 
 <div align="center">
-  <img align="center" src="/docs/readme-icons/nextjs.svg" alt="HTML" height="50"/>
+  <img align="center" src="/docs/readme/icons/nextjs.svg" alt="HTML" height="50"/>
   <p align="center"><i>NextJS</i></p>
 </div>
 
 <div align="center">
-  <img align="center" src="/docs/readme-icons/tailwindcss.svg" alt="HTML" height="50"/>
+  <img align="center" src="/docs/readme/icons/tailwindcss.svg" alt="HTML" height="50"/>
   <p align="center"><i>Tailwind CSS</i></p>
 </div>
 
 <div align="center">
-  <img align="center" src="/docs/readme-icons/chartjs.svg" alt="HTML" height="50"/>
+  <img align="center" src="/docs/readme/icons/chartjs.svg" alt="HTML" height="50"/>
   <p align="center"><i>Chart JS</i></p>
 </div>
 
 <div align="center">
-  <img src="/docs/readme-icons/strava.svg" alt="HTML" height="50"/>
+  <img src="/docs/readme/icons/strava.svg" alt="HTML" height="50"/>
   <p align="center"><i>Strava API</i></p>
 </div>
 
 <div align="center">
-  <img align="center" src="/docs/readme-icons/postman.svg" alt="HTML" height="50"/>
+  <img align="center" src="/docs/readme/icons/postman.svg" alt="HTML" height="50"/>
   <p align="center"><i>Postman</i></p>
 </div>
 
 <div align="center">
-  <img align="center" src="/docs/readme-icons/jest.svg" alt="HTML" height="50"/>
+  <img align="center" src="/docs/readme/icons/jest.svg" alt="HTML" height="50"/>
   <p align="center"><i>Jest</i></p>
  </div>
 
