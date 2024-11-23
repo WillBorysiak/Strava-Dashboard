@@ -15,14 +15,17 @@ import Layout from "../components/layout/Layout";
 import SEO from "../components/layout/SEO";
 import { fetcher } from "../helpers/core/fetcher";
 import { IStravaData } from "../interfaces/IStravaData";
-import { useActivityStore } from "../store/activityStore/activityStore";
-import { SportEnum, useCoreStore } from "../store/coreStore/coreStore";
-import { useStatStore } from "../store/statStore/statStore";
+import { SportEnum, useCoreStore } from "../store/coreStore";
+import { useHikingStore } from "../store/hikingStore";
+import { useRunningStore } from "../store/runningStore";
+import { useStatStore } from "../store/statStore";
 
 const Home: NextPage = () => {
   const { data } = useSWR<IStravaData>("/api/strava", fetcher);
 
   const { selectedSport } = useCoreStore();
+
+  const selectableSports = [SportEnum.running, SportEnum.hiking];
 
   // stats
   const hasStats = useStatStore((state) => state.hasStats);
@@ -32,15 +35,15 @@ const Home: NextPage = () => {
   }, [data, hasStats, setStats]);
 
   // running
-  const hasRuns = useActivityStore((state) => state.hasRuns);
-  const setRuns = useActivityStore((state) => state.setRuns);
+  const hasRuns = useRunningStore((state) => state.hasRuns);
+  const setRuns = useRunningStore((state) => state.setRuns);
   useEffect(() => {
     if (data && !hasRuns) setRuns([data.activities, data.activities2]);
   }, [data, hasRuns, setRuns]);
 
   // hiking
-  const hasHikes = useActivityStore((state) => state.hasHikes);
-  const setHikes = useActivityStore((state) => state.setHikes);
+  const hasHikes = useHikingStore((state) => state.hasHikes);
+  const setHikes = useHikingStore((state) => state.setHikes);
   useEffect(() => {
     if (data && !hasHikes) setHikes([data.activities, data.activities2]);
   }, [data, hasHikes, setHikes]);
@@ -62,7 +65,7 @@ const Home: NextPage = () => {
       <SEO />
       <Hero />
       <StravaSelect
-        data={[SportEnum.running, SportEnum.hiking]}
+        data={selectableSports}
         type={StravaSelectEnum.sport}
         text="Select Sport"
       />

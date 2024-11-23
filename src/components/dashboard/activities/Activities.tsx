@@ -14,16 +14,15 @@ interface ActivitiesProps {
 }
 
 const Activities = (props: ActivitiesProps) => {
-  const { activities: initialActivities } = props;
+  const { activities: activityData } = props;
 
-  const [activities, setActivities] =
-    useState<ActivityModel[]>(initialActivities);
+  const [activities, setActivities] = useState<ActivityModel[]>(activityData);
 
   const [resultsCount, setResultsCount] = useState<number>(5);
   const [sortType, setSortType] = useState<string>("recent");
 
   useEffect(() => {
-    const sortedActivities = initialActivities
+    const sortedActivities = activityData
       .sort((a, b) => {
         switch (sortType) {
           case "recent":
@@ -41,7 +40,7 @@ const Activities = (props: ActivitiesProps) => {
       .slice(0, resultsCount);
 
     setActivities(sortedActivities);
-  }, [initialActivities, resultsCount, sortType]);
+  }, [activityData, resultsCount, sortType]);
 
   return (
     <section id="activities" className="mx-5 overflow-hidden shadow">

@@ -9,7 +9,7 @@ import { Listbox, Transition } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 import classNames from "../../../helpers/core/classNames";
-import { useCoreStore } from "../../../store/coreStore/coreStore";
+import { useCoreStore } from "../../../store/coreStore";
 
 export enum StravaSelectEnum {
   sport = "Sport",

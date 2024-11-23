@@ -1,6 +1,6 @@
 import { ChartDataItem } from "../../models/charts/ChartDataItem";
-import { useActivityStore } from "../../store/activityStore/activityStore";
-import { useCoreStore } from "../../store/coreStore/coreStore";
+import { useCoreStore } from "../../store/coreStore";
+import { useHikingStore } from "../../store/hikingStore";
 import Activities from "../dashboard/activities/Activities";
 import Charts from "../dashboard/charts/Charts";
 import StravaSelect, { StravaSelectEnum } from "../dashboard/home/StravaSelect";
@@ -8,7 +8,7 @@ import StravaSelect, { StravaSelectEnum } from "../dashboard/home/StravaSelect";
 const Hiking = () => {
   const { selectedYear } = useCoreStore();
 
-  const hikingData = useActivityStore((state) =>
+  const hikingData = useHikingStore((state) =>
     state.getHikesByYear(selectedYear),
   );
 

@@ -1,7 +1,7 @@
 import { ChartDataItem } from "../../models/charts/ChartDataItem";
-import { useActivityStore } from "../../store/activityStore/activityStore";
-import { useCoreStore } from "../../store/coreStore/coreStore";
-import { useStatStore } from "../../store/statStore/statStore";
+import { useCoreStore } from "../../store/coreStore";
+import { useRunningStore } from "../../store/runningStore";
+import { useStatStore } from "../../store/statStore";
 import Activities from "../dashboard/activities/Activities";
 import Charts from "../dashboard/charts/Charts";
 import StravaSelect, { StravaSelectEnum } from "../dashboard/home/StravaSelect";
@@ -11,7 +11,7 @@ const Running = () => {
   const { selectedYear } = useCoreStore();
 
   const statsData = useStatStore((state) => state.stats);
-  const runningData = useActivityStore((state) =>
+  const runningData = useRunningStore((state) =>
     state.getRunsByYear(selectedYear),
   );
 
