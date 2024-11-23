@@ -6,6 +6,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import classNames from "../../../helpers/core/classNames";
 
 const results = [
+  { label: "5 results", value: 5 },
   { label: "10 results", value: 10 },
   { label: "15 results", value: 15 },
   { label: "20 results", value: 20 },
@@ -31,7 +32,6 @@ const ActivityFilter = (props: ActivityFilterTypes) => {
     >
       <div className="flex items-center justify-between">
         {/* Sort Menu */}
-
         <Menu as="div" className="relative z-10 inline-block text-left">
           <div>
             <Menu.Button className="text-md group flex items-center justify-center font-medium text-zinc md:text-lg">
@@ -53,7 +53,6 @@ const ActivityFilter = (props: ActivityFilterTypes) => {
             leaveTo="transform opacity-0 scale-95"
           >
             {/* Sort Menu Items */}
-
             <Menu.Items className="absolute left-0 z-10 mt-2 w-40 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-opacity-5 focus:outline-none">
               <div className="py-1">
                 {results.map((option, index) => (
@@ -62,7 +61,7 @@ const ActivityFilter = (props: ActivityFilterTypes) => {
                       <a
                         className={classNames(
                           active ? "bg-zinc" : "",
-                          "text-md block px-4 py-2  font-medium text-[#1a1b1c] hover:cursor-pointer",
+                          "text-md block px-4 py-2 font-medium text-[#1a1b1c] hover:cursor-pointer",
                         )}
                         onClick={() => {
                           props.resultSelection(option.value);
@@ -79,7 +78,6 @@ const ActivityFilter = (props: ActivityFilterTypes) => {
         </Menu>
 
         {/* Filters */}
-
         <Menu as="div" className="relative z-10 inline-block text-left">
           <div>
             <Menu.Button className="text-md group flex items-center justify-center font-medium text-zinc md:text-lg">
@@ -108,7 +106,7 @@ const ActivityFilter = (props: ActivityFilterTypes) => {
                       <a
                         className={classNames(
                           active ? "bg-zinc" : "",
-                          "text-md block px-4 py-2  font-medium text-[#1a1b1c] hover:cursor-pointer",
+                          "text-md block px-4 py-2 font-medium text-[#1a1b1c] hover:cursor-pointer",
                         )}
                         onClick={() => {
                           props.sortSelection(option.value);

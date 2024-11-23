@@ -45,7 +45,7 @@ const Home: NextPage = () => {
     if (data && !hasHikes) setHikes([data.activities, data.activities2]);
   }, [data, hasHikes, setHikes]);
 
-  const hasData = hasStats && hasRuns;
+  const hasData = hasStats && (hasRuns || hasHikes);
 
   if (!data)
     return (

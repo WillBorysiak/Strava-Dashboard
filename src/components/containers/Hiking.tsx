@@ -13,6 +13,7 @@ const Hiking = () => {
   );
 
   let chartData: ChartDataItem[] = [];
+
   if (hikingData) chartData = hikingData.map((hike) => new ChartDataItem(hike));
 
   const stravaSelectYears = [2023, 2024];

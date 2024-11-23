@@ -19,7 +19,7 @@ const Activities = (props: ActivitiesProps) => {
   const [activities, setActivities] =
     useState<ActivityModel[]>(initialActivities);
 
-  const [resultsCount, setResultsCount] = useState<number>(10);
+  const [resultsCount, setResultsCount] = useState<number>(5);
   const [sortType, setSortType] = useState<string>("recent");
 
   useEffect(() => {

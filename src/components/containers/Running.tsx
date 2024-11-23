@@ -16,6 +16,7 @@ const Running = () => {
   );
 
   let chartData: ChartDataItem[] = [];
+
   if (runningData) chartData = runningData.map((run) => new ChartDataItem(run));
 
   const stravaSelectYears = [2021, 2022, 2023, 2024];
