@@ -10,10 +10,10 @@ import Stats from "../dashboard/stats/Stats";
 const Running = () => {
   const { selectedYear } = useCoreStore();
 
+  const getRunsByYear = useRunningStore((state) => state.getRunsByYear);
+
   const statsData = useStatStore((state) => state.stats);
-  const runningData = useRunningStore((state) =>
-    state.getRunsByYear(selectedYear),
-  );
+  const runningData = getRunsByYear(selectedYear);
 
   let chartData: ChartDataItem[] = [];
 

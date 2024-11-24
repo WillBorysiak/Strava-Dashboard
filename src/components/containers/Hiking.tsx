@@ -8,9 +8,9 @@ import StravaSelect, { StravaSelectEnum } from "../dashboard/home/StravaSelect";
 const Hiking = () => {
   const { selectedYear } = useCoreStore();
 
-  const hikingData = useHikingStore((state) =>
-    state.getHikesByYear(selectedYear),
-  );
+  const getHikesByYear = useHikingStore((state) => state.getHikesByYear);
+
+  const hikingData = getHikesByYear(selectedYear);
 
   let chartData: ChartDataItem[] = [];
 

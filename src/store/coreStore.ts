@@ -7,18 +7,18 @@ export enum SportEnum {
 
 interface CoreStore {
   selectedSport: SportEnum;
-  changeSelectedSport: (payload: SportEnum) => void;
-
   selectedYear: number;
+
+  changeSelectedSport: (payload: SportEnum) => void;
   changeSelectedYear: (payload: number) => void;
 }
 
 export const useCoreStore = create<CoreStore>((set) => ({
   selectedSport: SportEnum.running,
+  selectedYear: new Date().getFullYear(),
+
   changeSelectedSport: (payload: SportEnum) =>
     set(() => ({ selectedSport: payload })),
-
-  selectedYear: new Date().getFullYear(),
   changeSelectedYear: (payload: number) =>
     set(() => ({ selectedYear: payload })),
 }));
