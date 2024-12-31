@@ -22,7 +22,7 @@ const stravaAPI = async (req: NextApiRequest, res: NextApiResponse) => {
   const accessToken = accessJson.access_token;
 
   // stats
-  const athleteId = 90122035;
+  const athleteId = process.env.STRAVA_ATHLETE_ID;
   const statsUrl = `https://www.strava.com/api/v3/athletes/${athleteId}/stats`;
   const statParams = new URLSearchParams({
     access_token: accessToken,
