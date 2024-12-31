@@ -14,11 +14,11 @@ import Footer from "../components/layout/Footer";
 import Layout from "../components/layout/Layout";
 import SEO from "../components/layout/SEO";
 import { fetcher } from "../helpers/core/fetcher";
-import { IStravaData } from "../interfaces/IStravaData";
-import { SportEnum, useCoreStore } from "../store/coreStore";
-import { useHikingStore } from "../store/hikingStore";
-import { useRunningStore } from "../store/runningStore";
-import { useStatStore } from "../store/statStore";
+import { IStravaData } from "../interfaces/StravaData.interface";
+import { SportEnum, useCoreStore } from "../store/core-store";
+import { useHikingStore } from "../store/hiking-store";
+import { useRunningStore } from "../store/running-store";
+import { useStatStore } from "../store/stat-store";
 
 const Home: NextPage = () => {
   const { data } = useSWR<IStravaData>("/api/strava", fetcher);

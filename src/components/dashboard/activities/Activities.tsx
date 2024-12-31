@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { motion } from "framer-motion";
 
-import { scrollVariants } from "../../../helpers/core/animationVariants";
-import { Activity as ActivityModel } from "../../../models/activities/Activity";
+import { scrollVariants } from "../../../helpers/core/animation-variants";
+import { Activity as ActivityModel } from "../../../models/activities/Activity.model";
 import Heading from "../../typography/Heading";
 import Activity from "./Activity";
 import ActivityFilter from "./ActivityFilter";

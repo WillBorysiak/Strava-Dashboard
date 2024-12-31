@@ -1,7 +1,7 @@
-import { ChartDataItem } from "../../models/charts/ChartDataItem";
-import { useCoreStore } from "../../store/coreStore";
-import { useRunningStore } from "../../store/runningStore";
-import { useStatStore } from "../../store/statStore";
+import { ChartDataItem } from "../../models/charts/ChartDataItem.model";
+import { useCoreStore } from "../../store/core-store";
+import { useRunningStore } from "../../store/running-store";
+import { useStatStore } from "../../store/stat-store";
 import Activities from "../dashboard/activities/Activities";
 import Charts from "../dashboard/charts/Charts";
 import StravaSelect, { StravaSelectEnum } from "../dashboard/home/StravaSelect";

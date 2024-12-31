@@ -13,9 +13,9 @@ import {
 import { motion } from "framer-motion";
 import { Line } from "react-chartjs-2";
 
-import { scrollVariants } from "../../../helpers/core/animationVariants";
-import { ChartData } from "../../../models/charts/ChartData";
-import { chartOptions } from "./config/chartOptions";
+import { scrollVariants } from "../../../helpers/core/animation-variants";
+import { ChartData } from "../../../models/charts/ChartData.model";
+import { chartOptions } from "../../../helpers/charts/chart-options";
 
 ChartJS.register(
   BarController,

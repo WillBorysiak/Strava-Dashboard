@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
-import { IActivity } from "../interfaces/IActivity";
-import { Activity } from "../models/activities/Activity";
+import { IActivity } from "../interfaces/Activity.interface";
+import { Activity } from "../models/activities/Activity.model";
 
 interface HikingStore {
   hikes: Activity[] | undefined;

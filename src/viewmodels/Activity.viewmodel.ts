@@ -6,7 +6,7 @@ import {
   hoursMinsConverter,
   speedConverter,
 } from "../helpers/data/converters";
-import { Activity } from "../models/activities/Activity";
+import { Activity } from "../models/activities/Activity.model";
 
 export class ActivityViewModel {
   name: string;

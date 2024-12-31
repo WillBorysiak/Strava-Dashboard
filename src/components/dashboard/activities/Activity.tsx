@@ -8,9 +8,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 
-import { accordianVariants } from "../../../helpers/core/animationVariants";
-import { Activity as ActivityModel } from "../../../models/activities/Activity";
-import { ActivityViewModel } from "../../../viewmodels/ActivityViewModel";
+import { Activity as ActivityModel } from "../../../models/activities/Activity.model";
+import { ActivityViewModel } from "../../../viewmodels/Activity.viewmodel";
 import ActivityStat from "./ActivityStat";
 
 interface ActivityTypes {

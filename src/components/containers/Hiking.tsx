@@ -1,6 +1,6 @@
-import { ChartDataItem } from "../../models/charts/ChartDataItem";
-import { useCoreStore } from "../../store/coreStore";
-import { useHikingStore } from "../../store/hikingStore";
+import { ChartDataItem } from "../../models/charts/ChartDataItem.model";
+import { useCoreStore } from "../../store/core-store";
+import { useHikingStore } from "../../store/hiking-store";
 import Activities from "../dashboard/activities/Activities";
 import Charts from "../dashboard/charts/Charts";
 import StravaSelect, { StravaSelectEnum } from "../dashboard/home/StravaSelect";

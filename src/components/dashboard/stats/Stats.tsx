@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
-import { scrollVariants } from "../../../helpers/core/animationVariants";
-import { Stats as StatsModel } from "../../../models/stats/Stats";
+import { scrollVariants } from "../../../helpers/core/animation-variants";
+import { Stats as StatsModel } from "../../../models/stats/Stats.model";
 import Container from "../../layout/Container";
 import Heading from "../../typography/Heading";
 import { distanceIcon, elevationIcon, rideIcon, timeIcon } from "./StatsIcons";

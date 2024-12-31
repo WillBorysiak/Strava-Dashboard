@@ -1,15 +1,15 @@
-import { ChartDataItem } from "../../../models/charts/ChartDataItem";
-import { DatasetOptions } from "../../../models/charts/DatasetOptions";
-import { ChartData } from "../../../models/charts/ChartData";
+import { ChartDataItem } from "../../../models/charts/ChartDataItem.model";
+import { DatasetOptions } from "../../../models/charts/DatasetOptions.model";
+import { ChartData } from "../../../models/charts/ChartData.model";
 import Container from "../../layout/Container";
 import Heading from "../../typography/Heading";
 import MonthlyDistanceChart from "./MonthlyDistanceChart";
-import { chartMonths, chartWeeks } from "./config/chartAxis";
+import { chartMonths, chartWeeks } from "../../../helpers/charts/chart-axis";
 import {
   chartBackgroundColors,
   chartBorderColors,
   chartBorderWidth,
-} from "./config/chartStyling";
+} from "../../../helpers/charts/chart-styling";
 import WeeklyDistanceChart from "./WeeklyDistanceChart";
 
 interface ChartsProps {

@@ -1,5 +1,5 @@
-import { ITotals } from "../../interfaces/stats/ITotals";
-import { StatTotals } from "./StatTotal";
+import { ITotals } from "../../interfaces/stats/Totals.interface";
+import { StatTotals } from "./StatTotals.model";
 
 export class Stats {
   runningTotals: StatTotals;

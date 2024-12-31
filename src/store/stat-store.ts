@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
-import { Stats } from "../models/stats/Stats";
-import { IStats } from "../interfaces/stats/IStats";
+import { Stats } from "../models/stats/Stats.model";
+import { IStats } from "../interfaces/stats/Stats.interface";
 
 interface StatStore {
   stats: Stats | undefined;

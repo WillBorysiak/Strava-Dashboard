@@ -8,8 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Listbox, Transition } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
-import classNames from "../../../helpers/core/classNames";
-import { useCoreStore } from "../../../store/coreStore";
+import classNames from "../../../helpers/core/class-names";
+import { useCoreStore } from "../../../store/core-store";
 
 export enum StravaSelectEnum {
   sport = "Sport",

@@ -1,4 +1,4 @@
-import { Activity } from "../activities/Activity";
+import { Activity } from "../activities/Activity.model";
 
 export class ChartDataItem {
   distance: number;

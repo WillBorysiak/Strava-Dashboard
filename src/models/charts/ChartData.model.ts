@@ -1,6 +1,6 @@
-import { distanceReducer } from "../../helpers/data/distanceReducer";
-import { ChartDataItem } from "./ChartDataItem";
-import { DatasetOptions } from "./DatasetOptions";
+import { distanceReducer } from "../../helpers/data/distance-reducer";
+import { ChartDataItem } from "./ChartDataItem.model";
+import { DatasetOptions } from "./DatasetOptions.model";
 
 export class ChartData {
   labels: string[];

@@ -1,5 +1,5 @@
-import { IActivity } from "./IActivity";
-import { IStats } from "./stats/IStats";
+import { IActivity } from "./Activity.interface";
+import { IStats } from "./stats/Stats.interface";
 
 export interface IStravaData {
   stats: IStats;

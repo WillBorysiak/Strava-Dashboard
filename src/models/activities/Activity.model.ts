@@ -2,8 +2,8 @@ import {
   generateMonth,
   generateWeek,
   generateYear,
-} from "../../helpers/dates/generateDateValues";
-import { IActivity } from "../../interfaces/IActivity";
+} from "../../helpers/dates/generate-date-ranges";
+import { IActivity } from "../../interfaces/Activity.interface";
 
 export class Activity {
   name: string;
