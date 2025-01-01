@@ -1,9 +1,6 @@
 import { create } from "zustand";
 
-export enum SportEnum {
-  running = "Running",
-  hiking = "Hiking",
-}
+import { SportEnum } from "../enums/sport.enum";
 
 interface CoreStore {
   selectedSport: SportEnum;

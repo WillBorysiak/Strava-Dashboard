@@ -7,15 +7,15 @@ import Hiking from "../components/containers/Hiking";
 import Running from "../components/containers/Running";
 import Hero from "../components/dashboard/home/Hero";
 import Loading from "../components/dashboard/home/Loading";
-import StravaSelect, {
-  StravaSelectEnum,
-} from "../components/dashboard/home/StravaSelect";
+import StravaSelect from "../components/dashboard/home/StravaSelect";
 import Footer from "../components/layout/Footer";
 import Layout from "../components/layout/Layout";
 import SEO from "../components/layout/SEO";
+import { SportEnum } from "../enums/sport.enum";
+import { StravaSelectEnum } from "../enums/strava-select.enum";
 import { fetcher } from "../helpers/core/fetcher";
 import { IStravaData } from "../interfaces/StravaData.interface";
-import { SportEnum, useCoreStore } from "../store/core-store";
+import { useCoreStore } from "../store/core-store";
 import { useHikingStore } from "../store/hiking-store";
 import { useRunningStore } from "../store/running-store";
 import { useStatStore } from "../store/stat-store";
@@ -38,19 +38,19 @@ const Home: NextPage = () => {
   const hasRuns = useRunningStore((state) => state.hasRuns);
   const setRuns = useRunningStore((state) => state.setRuns);
   useEffect(() => {
-    if (data && !hasRuns) setRuns([data.activities, data.activities2]);
+    if (data && !hasRuns) setRuns(data.activities);
   }, [data, hasRuns, setRuns]);
 
   // hiking
   const hasHikes = useHikingStore((state) => state.hasHikes);
   const setHikes = useHikingStore((state) => state.setHikes);
   useEffect(() => {
-    if (data && !hasHikes) setHikes([data.activities, data.activities2]);
+    if (data && !hasHikes) setHikes(data.activities);
   }, [data, hasHikes, setHikes]);
 
   const hasData = hasStats && (hasRuns || hasHikes);
 
-  if (!data)
+  if (!hasData)
     return (
       <Layout>
         <SEO />
@@ -65,9 +65,8 @@ const Home: NextPage = () => {
       <SEO />
       <Hero />
       <StravaSelect
-        data={selectableSports}
+        selectOptions={selectableSports}
         type={StravaSelectEnum.sport}
-        text="Select Sport"
       />
       {hasData && selectedSport === SportEnum.running && <Running />}
       {hasData && selectedSport === SportEnum.hiking && <Hiking />}

@@ -5,25 +5,28 @@ import {
   faPersonRunningFast,
 } from "@fortawesome/pro-duotone-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Listbox, Transition } from "@headlessui/react";
+import {
+  Label,
+  Listbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+  Transition,
+} from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
+import { SportEnum } from "../../../enums/sport.enum";
+import { StravaSelectEnum } from "../../../enums/strava-select.enum";
 import classNames from "../../../helpers/core/class-names";
 import { useCoreStore } from "../../../store/core-store";
 
-export enum StravaSelectEnum {
-  sport = "Sport",
-  year = "Year",
-}
-
 interface SelectYearProps {
-  data: number[] | string[];
+  selectOptions: SportEnum[] | number[];
   type: StravaSelectEnum.sport | StravaSelectEnum.year;
-  text: string;
 }
 
 const StravaSelect = (props: SelectYearProps) => {
-  const { data, type, text } = props;
+  const { selectOptions, type } = props;
 
   const selectedYear = useCoreStore((state) => state.selectedYear);
   const { changeSelectedYear } = useCoreStore();
@@ -34,9 +37,14 @@ const StravaSelect = (props: SelectYearProps) => {
   const currentValue =
     type === StravaSelectEnum.sport ? selectedSport : selectedYear;
 
-  const onSelectValue = (value: any) => {
-    if (type === StravaSelectEnum.sport) changeSelectedSport(value);
-    if (type === StravaSelectEnum.year) changeSelectedYear(value);
+  const onSelectValue = (value: SportEnum | number) => {
+    if (type === StravaSelectEnum.sport) {
+      changeSelectedSport(value as SportEnum);
+    }
+
+    if (type === StravaSelectEnum.year) {
+      changeSelectedYear(value as number);
+    }
   };
 
   return (
@@ -46,11 +54,12 @@ const StravaSelect = (props: SelectYearProps) => {
           id="select-year"
           className="mx-auto mb-5 mt-5 flex w-fit flex-row items-center font-oswald"
         >
-          <Listbox.Label className="mr-2 block text-2xl font-medium text-zinc">
-            {text}:
-          </Listbox.Label>
+          <Label className="mr-2 block text-2xl font-medium text-zinc">
+            Select &nbsp;
+            {type === StravaSelectEnum.sport ? "Sport" : "Year"}:
+          </Label>
           <div className="relative mx-auto mt-1 flex">
-            <Listbox.Button className="relative cursor-default rounded-md border border-gray-300 bg-zinc py-2 pl-3 pr-10 text-left text-lg shadow-sm focus:outline-none focus:ring-1">
+            <ListboxButton className="relative cursor-default rounded-md border border-gray-300 bg-zinc py-2 pl-3 pr-10 text-left text-lg shadow-sm focus:outline-none focus:ring-1">
               <span className="block truncate">{currentValue}</span>
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <ChevronUpDownIcon
@@ -58,7 +67,7 @@ const StravaSelect = (props: SelectYearProps) => {
                   aria-hidden="true"
                 />
               </span>
-            </Listbox.Button>
+            </ListboxButton>
 
             {type === StravaSelectEnum.sport && selectedSport === "Running" && (
               <FontAwesomeIcon
@@ -86,9 +95,9 @@ const StravaSelect = (props: SelectYearProps) => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-fit overflow-auto rounded-md bg-zinc py-1 text-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                {data.map((value, index) => (
-                  <Listbox.Option
+              <ListboxOptions className="absolute z-10 mt-1 max-h-60 w-fit overflow-auto rounded-md bg-zinc py-1 text-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                {selectOptions.map((value, index) => (
+                  <ListboxOption
                     key={index}
                     className={({ active }) =>
                       classNames(
@@ -97,9 +106,7 @@ const StravaSelect = (props: SelectYearProps) => {
                       )
                     }
                     value={value}
-                    onClick={() => {
-                      onSelectValue(value);
-                    }}
+                    onClick={() => onSelectValue(value)}
                   >
                     {({ selected }) => (
                       <span
@@ -111,9 +118,9 @@ const StravaSelect = (props: SelectYearProps) => {
                         {value}
                       </span>
                     )}
-                  </Listbox.Option>
+                  </ListboxOption>
                 ))}
-              </Listbox.Options>
+              </ListboxOptions>
             </Transition>
           </div>
         </div>

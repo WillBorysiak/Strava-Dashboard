@@ -14,10 +14,10 @@ export const useStatStore = create<StatStore>((set, get) => ({
   stats: undefined,
   hasStats: false,
 
-  setStats: (payload: IStats) => {
-    const runningTotals = payload.all_run_totals;
-    const statsData: Stats = new Stats(runningTotals);
+  setStats: (iStats: IStats) => {
+    const runningTotals = iStats.all_run_totals;
+    const stats: Stats = new Stats(runningTotals);
 
-    set(() => ({ stats: statsData, hasStats: true }));
+    set(() => ({ stats, hasStats: true }));
   },
 }));

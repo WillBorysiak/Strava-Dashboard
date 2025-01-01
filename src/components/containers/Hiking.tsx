@@ -1,29 +1,30 @@
+import { StravaSelectEnum } from "../../enums/strava-select.enum";
 import { ChartDataItem } from "../../models/charts/ChartDataItem.model";
 import { useCoreStore } from "../../store/core-store";
 import { useHikingStore } from "../../store/hiking-store";
 import Activities from "../dashboard/activities/Activities";
 import Charts from "../dashboard/charts/Charts";
-import StravaSelect, { StravaSelectEnum } from "../dashboard/home/StravaSelect";
+import StravaSelect from "../dashboard/home/StravaSelect";
 
 const Hiking = () => {
   const { selectedYear } = useCoreStore();
 
   const getHikesByYear = useHikingStore((state) => state.getHikesByYear);
 
+  const chartData: ChartDataItem[] = [];
   const hikingData = getHikesByYear(selectedYear);
 
-  let chartData: ChartDataItem[] = [];
+  if (hikingData) {
+    hikingData.forEach((hike) => chartData.push(new ChartDataItem(hike)));
+  }
 
-  if (hikingData) chartData = hikingData.map((hike) => new ChartDataItem(hike));
-
-  const stravaSelectYears = [2023, 2024];
+  const stravaSelectYears: number[] = [2023, 2024, 2025];
 
   return (
     <section id="hiking">
       <StravaSelect
-        data={stravaSelectYears}
+        selectOptions={stravaSelectYears}
         type={StravaSelectEnum.year}
-        text={"Select Year"}
       />
 
       {chartData && <Charts chartData={chartData} />}

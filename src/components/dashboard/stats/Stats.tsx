@@ -7,11 +7,11 @@ import Heading from "../../typography/Heading";
 import { distanceIcon, elevationIcon, rideIcon, timeIcon } from "./StatsIcons";
 
 interface StatsProps {
-  data: StatsModel;
+  stats: StatsModel;
 }
 
 const Stats = (props: StatsProps) => {
-  const { runningTotals } = props.data;
+  const { runningTotals } = props.stats;
   const { count, distance, movingTime, elevationGain } = runningTotals;
 
   const stats = [

@@ -7,7 +7,7 @@ interface HikingStore {
   hikes: Activity[] | undefined;
   hasHikes: boolean;
 
-  setHikes: (payload: IActivity[][]) => void;
+  setHikes: (payload: IActivity[]) => void;
   getHikesByYear: (year: number) => Activity[] | undefined;
 }
 
@@ -15,16 +15,15 @@ export const useHikingStore = create<HikingStore>((set, get) => ({
   hikes: undefined,
   hasHikes: false,
 
-  setHikes: (payload: IActivity[][]) => {
-    const hikeArrays: IActivity[] = (
-      payload.flat(Infinity) as IActivity[]
-    ).filter((activity) => activity.sport_type === "Hike");
-
-    const hikeData: Activity[] = hikeArrays.map(
+  setHikes: (iActivities: IActivity[]) => {
+    const hikeArray: IActivity[] = iActivities.filter(
+      (activity) => activity.sport_type === "Hike",
+    );
+    const hikes: Activity[] = hikeArray.map(
       (activity) => new Activity(activity),
     );
 
-    set(() => ({ hikes: hikeData, hasHikes: true }));
+    set(() => ({ hikes, hasHikes: true }));
   },
 
   getHikesByYear: (year: number) =>

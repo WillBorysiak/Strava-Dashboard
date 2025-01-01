@@ -1,15 +1,16 @@
-import { ChartDataItem } from "../../../models/charts/ChartDataItem.model";
-import { DatasetOptions } from "../../../models/charts/DatasetOptions.model";
-import { ChartData } from "../../../models/charts/ChartData.model";
-import Container from "../../layout/Container";
-import Heading from "../../typography/Heading";
-import MonthlyDistanceChart from "./MonthlyDistanceChart";
 import { chartMonths, chartWeeks } from "../../../helpers/charts/chart-axis";
 import {
   chartBackgroundColors,
   chartBorderColors,
   chartBorderWidth,
+  chartDatasetLabel,
 } from "../../../helpers/charts/chart-styling";
+import { ChartData } from "../../../models/charts/ChartData.model";
+import { ChartDataItem } from "../../../models/charts/ChartDataItem.model";
+import { DatasetOptions } from "../../../models/charts/DatasetOptions.model";
+import Container from "../../layout/Container";
+import Heading from "../../typography/Heading";
+import MonthlyDistanceChart from "./MonthlyDistanceChart";
 import WeeklyDistanceChart from "./WeeklyDistanceChart";
 
 interface ChartsProps {
@@ -19,9 +20,8 @@ interface ChartsProps {
 const Charts = (props: ChartsProps) => {
   const { chartData } = props;
 
-  const datasetLabel = "Distance in Km";
   const datasetOptions = new DatasetOptions(
-    datasetLabel,
+    chartDatasetLabel,
     chartBackgroundColors,
     chartBorderColors,
     chartBorderWidth,
