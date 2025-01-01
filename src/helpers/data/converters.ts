@@ -15,8 +15,8 @@ export const distanceConverter = (
   decimalPlace: number,
   suffix?: string,
 ) => {
-  let distanceInKm = value / 1000;
-  let distanceToDecimal = distanceInKm.toFixed(decimalPlace);
+  const distanceInKm: number = value / 1000;
+  const distanceToDecimal: string = distanceInKm.toFixed(decimalPlace);
 
   if (suffix) {
     return distanceToDecimal + suffix;
@@ -28,8 +28,8 @@ export const distanceConverter = (
 // speed
 
 export const speedConverter = (value: number, suffix?: string) => {
-  const speedKmph = value * 3.6;
-  const speed = speedKmph.toFixed(1);
+  const speedKmph: number = value * 3.6;
+  const speed: string = speedKmph.toFixed(1);
 
   if (suffix) {
     return speed + suffix;
@@ -41,19 +41,19 @@ export const speedConverter = (value: number, suffix?: string) => {
 // elevation
 
 export const elevationConverter = (value: number, suffix?: string) => {
-  const formattedValue = value.toFixed(0);
+  const elevation: string = value.toFixed(0);
 
   if (suffix) {
-    return formattedValue + suffix;
+    return elevation + suffix;
   } else {
-    return formattedValue;
+    return elevation;
   }
 };
 
-// heartRate
+// heart rate
 
 export const heartRateConverter = (value: number, suffix?: string) => {
-  const heartRate = value.toFixed(0);
+  const heartRate: string = value.toFixed(0);
 
   if (suffix) {
     return heartRate + suffix;
@@ -62,22 +62,22 @@ export const heartRateConverter = (value: number, suffix?: string) => {
   }
 };
 
-// secondsMins
+// seconds mins
 
 export const secondsMinsConverter = (value: number) => {
-  let minutes = Math.floor(value / 60);
-  let seconds = value - minutes * 60;
+  const minutes: number = Math.floor(value / 60);
+  const seconds: number = value - minutes * 60;
 
-  const time = `${minutes}m ${seconds}s`;
+  const time: string = `${minutes}m ${seconds}s`;
 
   return time;
 };
 
-// hoursMins
+// hours mins
 
 export const hoursMinsConverter = (value: number, suffix?: string) => {
-  let hours = Math.floor(value / 3600);
-  let minutes = Math.floor((value - hours * 3600) / 60);
+  let hours: number = Math.floor(value / 3600);
+  let minutes: number = Math.floor((value - hours * 3600) / 60);
 
   if (hours < 10) {
     hours = 0 + hours;
@@ -86,7 +86,7 @@ export const hoursMinsConverter = (value: number, suffix?: string) => {
     minutes = 0 + minutes;
   }
 
-  const time = `${hours}:${minutes}`;
+  const time: string = `${hours}:${minutes}`;
 
   if (suffix) {
     return time + suffix;

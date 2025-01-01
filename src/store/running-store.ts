@@ -2,17 +2,19 @@ import { create } from "zustand";
 
 import { IActivity } from "../interfaces/Activity.interface";
 import { Activity } from "../models/activities/Activity.model";
+import { Stats } from "../models/stats/Stats.model";
 
 interface RunningStore {
-  runs: Activity[] | undefined;
+  runs: Activity[] | [];
   hasRuns: boolean;
 
   setRuns: (payload: IActivity[]) => void;
-  getRunsByYear: (year: number) => Activity[] | undefined;
+  getRunsByYear: (year: number) => Activity[] | [];
+  getStatsByYear: (year: number) => Stats;
 }
 
 export const useRunningStore = create<RunningStore>((set, get) => ({
-  runs: undefined,
+  runs: [],
   hasRuns: false,
 
   setRuns: (iActivities: IActivity[]) => {
@@ -23,7 +25,19 @@ export const useRunningStore = create<RunningStore>((set, get) => ({
 
     set(() => ({ runs, hasRuns: true }));
   },
+  getRunsByYear: (year: number) => {
+    const runs = get().runs;
 
-  getRunsByYear: (year: number) =>
-    get().runs?.filter((run) => run.year === year),
+    if (!runs) return [];
+
+    const runsByYear = runs?.filter((run) => run.year === year);
+
+    return runsByYear;
+  },
+  getStatsByYear: (year: number) => {
+    const runsByYear = get().getRunsByYear(year);
+    const stats = new Stats(runsByYear);
+
+    return stats;
+  },
 }));

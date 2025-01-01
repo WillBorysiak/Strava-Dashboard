@@ -2,17 +2,19 @@ import { create } from "zustand";
 
 import { IActivity } from "../interfaces/Activity.interface";
 import { Activity } from "../models/activities/Activity.model";
+import { Stats } from "../models/stats/Stats.model";
 
 interface HikingStore {
-  hikes: Activity[] | undefined;
+  hikes: Activity[] | [];
   hasHikes: boolean;
 
   setHikes: (payload: IActivity[]) => void;
-  getHikesByYear: (year: number) => Activity[] | undefined;
+  getHikesByYear: (year: number) => Activity[] | [];
+  getStatsByYear: (year: number) => Stats;
 }
 
 export const useHikingStore = create<HikingStore>((set, get) => ({
-  hikes: undefined,
+  hikes: [],
   hasHikes: false,
 
   setHikes: (iActivities: IActivity[]) => {
@@ -25,7 +27,19 @@ export const useHikingStore = create<HikingStore>((set, get) => ({
 
     set(() => ({ hikes, hasHikes: true }));
   },
+  getHikesByYear: (year: number) => {
+    const hikes = get().hikes;
 
-  getHikesByYear: (year: number) =>
-    get().hikes?.filter((hike) => hike.year === year),
+    if (!hikes) return [];
+
+    const hikesByYear = hikes?.filter((hike) => hike.year === year);
+
+    return hikesByYear;
+  },
+  getStatsByYear: (year: number) => {
+    const hikesByYear = get().getHikesByYear(year);
+    const stats = new Stats(hikesByYear);
+
+    return stats;
+  },
 }));

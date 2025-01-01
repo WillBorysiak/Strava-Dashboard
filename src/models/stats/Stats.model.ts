@@ -1,15 +1,21 @@
-import { ITotals } from "../../interfaces/stats/Totals.interface";
-import { StatTotals } from "./StatTotals.model";
+import {
+  generateStatsCount,
+  generateStatsDistance,
+  generateStatsElevation,
+  generateStatsMovingTime,
+} from "../../helpers/data/generate-stats";
+import { Activity } from "../activities/Activity.model";
 
 export class Stats {
-  runningTotals: StatTotals;
+  count: number;
+  distance: string;
+  movingTime: string;
+  elevationGain: string;
 
-  constructor(runningTotals: ITotals) {
-    this.runningTotals = new StatTotals(
-      runningTotals.count,
-      runningTotals.distance,
-      runningTotals.moving_time,
-      runningTotals.elevation_gain,
-    );
+  constructor(activities: Activity[] | []) {
+    this.count = generateStatsCount(activities);
+    this.distance = generateStatsDistance(activities);
+    this.movingTime = generateStatsMovingTime(activities);
+    this.elevationGain = generateStatsElevation(activities);
   }
 }

@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 
+import { SportEnum } from "../../../enums/sport.enum";
 import { scrollVariants } from "../../../helpers/core/animation-variants";
+import { generateStatsTitle } from "../../../helpers/data/generate-stats";
 import { Stats as StatsModel } from "../../../models/stats/Stats.model";
 import Container from "../../layout/Container";
 import Heading from "../../typography/Heading";
@@ -8,14 +10,15 @@ import { distanceIcon, elevationIcon, rideIcon, timeIcon } from "./StatsIcons";
 
 interface StatsProps {
   stats: StatsModel;
+  sport: SportEnum;
 }
 
 const Stats = (props: StatsProps) => {
-  const { runningTotals } = props.stats;
-  const { count, distance, movingTime, elevationGain } = runningTotals;
+  const { sport } = props;
+  const { count, distance, movingTime, elevationGain } = props.stats;
 
   const stats = [
-    { id: 1, name: "Total Runs", stat: count, icon: rideIcon },
+    { id: 1, name: generateStatsTitle(sport), stat: count, icon: rideIcon },
     { id: 2, name: "Total Distance", stat: distance, icon: distanceIcon },
     { id: 3, name: "Total Time", stat: movingTime, icon: timeIcon },
     {

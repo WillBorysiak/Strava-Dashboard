@@ -21,16 +21,6 @@ const stravaAPI = async (req: NextApiRequest, res: NextApiResponse) => {
   const accessJson = await refreshAccess.json();
   const accessToken = accessJson.access_token;
 
-  // stats
-  const athleteId = process.env.STRAVA_ATHLETE_ID;
-  const statsUrl = `https://www.strava.com/api/v3/athletes/${athleteId}/stats`;
-  const statParams = new URLSearchParams({
-    access_token: accessToken,
-  });
-
-  const statsRequest = await fetch(`${statsUrl}?${statParams}`);
-  const stats = await statsRequest.json();
-
   // activities
   const activityUrl = "https://www.strava.com/api/v3/athlete/activities";
 
@@ -93,7 +83,6 @@ const stravaAPI = async (req: NextApiRequest, res: NextApiResponse) => {
   ];
 
   return res.status(200).json({
-    stats,
     activities,
   });
 };

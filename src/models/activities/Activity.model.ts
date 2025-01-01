@@ -11,7 +11,7 @@ export class Activity {
   startDate: string;
   distance: number;
   movingTime: number;
-  elevationHigh: number;
+  elevationGain: number;
   averageSpeed: number;
   averageHeartRate: number;
   week: number;
@@ -24,7 +24,7 @@ export class Activity {
     this.startDate = activity.start_date;
     this.distance = activity.distance;
     this.movingTime = activity.moving_time;
-    this.elevationHigh = activity.elev_high;
+    this.elevationGain = activity.total_elevation_gain;
     this.averageSpeed = activity.average_speed;
     this.averageHeartRate = activity.average_heartrate;
     this.week = generateWeek(activity.start_date);

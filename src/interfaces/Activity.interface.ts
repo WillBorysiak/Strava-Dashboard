@@ -5,7 +5,7 @@ export interface IActivity {
   start_date: string;
   distance: number;
   moving_time: number;
-  elev_high: number;
+  total_elevation_gain: number;
   average_speed: number;
   average_heartrate: number;
 }

@@ -24,7 +24,7 @@ export class ActivityViewModel {
     this.distance = distanceConverter(activity.distance, 2, "km");
     this.date = dateConverter(activity.startDate);
     this.duration = hoursMinsConverter(activity.movingTime, "h");
-    this.elevation = elevationConverter(activity.elevationHigh, "m");
+    this.elevation = elevationConverter(activity.elevationGain, "m");
     this.speed = speedConverter(activity.averageSpeed, "km/h");
     this.heartRate = heartRateConverter(activity.averageHeartRate, "bpm");
   }
