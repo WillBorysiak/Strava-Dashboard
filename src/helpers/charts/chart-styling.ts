@@ -1,21 +1,21 @@
 export const chartDatasetLabel = "Distance in Km";
 
 export const chartBackgroundColors = [
-  "rgba(255, 99, 132, 0.2)",
-  "rgba(54, 162, 235, 0.2)",
-  "rgba(255, 206, 86, 0.2)",
-  "rgba(75, 192, 192, 0.2)",
-  "rgba(153, 102, 255, 0.2)",
-  "rgba(255, 159, 64, 0.2)",
+  "rgba(255, 165, 0, 0.2)", // Orange
+  "rgba(255, 140, 0, 0.2)", // DarkOrange
+  "rgba(210, 105, 30, 0.2)", // Chocolate
+  "rgba(244, 164, 96, 0.2)", // SandyBrown
+  "rgba(218, 165, 32, 0.2)", // GoldenRod
+  "rgba(205, 133, 63, 0.2)", // Peru
 ];
 
 export const chartBorderColors = [
-  "rgba(255, 99, 132, 1)",
-  "rgba(54, 162, 235, 1)",
-  "rgba(255, 206, 86, 1)",
-  "rgba(75, 192, 192, 1)",
-  "rgba(153, 102, 255, 1)",
-  "rgba(255, 159, 64, 1)",
+  "rgba(255, 165, 0, 1)", // Orange
+  "rgba(255, 140, 0, 1)", // DarkOrange
+  "rgba(210, 105, 30, 1)", // Chocolate
+  "rgba(244, 164, 96, 1)", // SandyBrown
+  "rgba(218, 165, 32, 1)", // GoldenRod
+  "rgba(205, 133, 63, 1)", // Peru
 ];
 
 export const chartBorderWidth = 5;

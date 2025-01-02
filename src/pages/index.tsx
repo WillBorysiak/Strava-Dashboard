@@ -60,8 +60,8 @@ const Home: NextPage = () => {
         selectOptions={selectableSports}
         type={StravaSelectEnum.sport}
       />
-      {hasData && selectedSport === SportEnum.running && <Running />}
-      {hasData && selectedSport === SportEnum.hiking && <Hiking />}
+      {selectedSport === SportEnum.running && <Running />}
+      {selectedSport === SportEnum.hiking && <Hiking />}
       <Footer />
     </Layout>
   );

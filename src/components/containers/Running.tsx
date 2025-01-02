@@ -26,13 +26,13 @@ const Running = () => {
 
   return (
     <section id="running">
-      {runningStats && <Stats stats={runningStats} sport={SportEnum.running} />}
+      <Stats stats={runningStats} sport={SportEnum.running} />
       <StravaSelect
         selectOptions={stravaSelectYears}
         type={StravaSelectEnum.year}
       />
-      {chartData && <Charts chartData={chartData} />}
-      {runningData && <Activities activities={runningData} />}
+      <Charts chartData={chartData} />
+      <Activities activities={runningData} />
     </section>
   );
 };
