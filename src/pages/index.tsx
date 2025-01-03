@@ -14,13 +14,13 @@ import SEO from "../components/layout/SEO";
 import { SportEnum } from "../enums/sport.enum";
 import { StravaSelectEnum } from "../enums/strava-select.enum";
 import { fetcher } from "../helpers/core/fetcher";
-import { IStravaData } from "../interfaces/StravaData.interface";
+import { IActivity } from "../interfaces/Activity.interface";
 import { useCoreStore } from "../store/core-store";
 import { useHikingStore } from "../store/hiking-store";
 import { useRunningStore } from "../store/running-store";
 
 const Home: NextPage = () => {
-  const { data } = useSWR<IStravaData>("/api/strava", fetcher);
+  const { data } = useSWR<IActivity[]>("/api/strava", fetcher);
 
   const { selectedSport } = useCoreStore();
 
@@ -30,14 +30,14 @@ const Home: NextPage = () => {
   const hasRuns = useRunningStore((state) => state.hasRuns);
   const setRuns = useRunningStore((state) => state.setRuns);
   useEffect(() => {
-    if (data && !hasRuns) setRuns(data.activities);
+    if (data && !hasRuns) setRuns(data);
   }, [data, hasRuns, setRuns]);
 
   // hiking
   const hasHikes = useHikingStore((state) => state.hasHikes);
   const setHikes = useHikingStore((state) => state.setHikes);
   useEffect(() => {
-    if (data && !hasHikes) setHikes(data.activities);
+    if (data && !hasHikes) setHikes(data);
   }, [data, hasHikes, setHikes]);
 
   const hasData = hasRuns || hasHikes;
