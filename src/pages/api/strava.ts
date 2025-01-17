@@ -4,7 +4,7 @@ import { RedisService } from "../../services/redis-service";
 import { StravaService } from "../../services/strava-service";
 
 const STRAVA_DATA_KEY = "stravaData";
-const CACHE_EXPIRY = 2 * 60 * 60;
+const CACHE_EXPIRY = 600; // 1 hour
 
 export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {

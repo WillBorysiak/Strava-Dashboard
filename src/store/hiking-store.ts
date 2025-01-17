@@ -9,6 +9,7 @@ interface HikingStore {
   hasHikes: boolean;
 
   setHikes: (payload: IActivity[]) => void;
+  getHikesByWeek: (week: number, year: number) => Activity[] | [];
   getHikesByYear: (year: number) => Activity[] | [];
   getStatsByYear: (year: number) => Stats;
 }
@@ -21,11 +22,23 @@ export const useHikingStore = create<HikingStore>((set, get) => ({
     const hikeArray: IActivity[] = iActivities.filter(
       (activity) => activity.sport_type === "Hike",
     );
+
     const hikes: Activity[] = hikeArray.map(
       (activity) => new Activity(activity),
     );
 
     set(() => ({ hikes, hasHikes: true }));
+  },
+  getHikesByWeek: (week: number, year: number) => {
+    const hikes = get().hikes;
+
+    if (!hikes) return [];
+
+    const hikesByWeek = hikes?.filter(
+      (hike) => hike.week === week && hike.year === year,
+    );
+
+    return hikesByWeek;
   },
   getHikesByYear: (year: number) => {
     const hikes = get().hikes;

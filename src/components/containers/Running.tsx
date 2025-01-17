@@ -6,7 +6,7 @@ import { useRunningStore } from "../../store/running-store";
 import Activities from "../dashboard/activities/Activities";
 import Charts from "../dashboard/charts/Charts";
 import StravaSelect from "../dashboard/home/StravaSelect";
-import Stats from "../dashboard/stats/Stats";
+import YearlyStats from "../dashboard/stats/YearlyStats";
 
 const Running = () => {
   const { selectedYear } = useCoreStore();
@@ -14,7 +14,7 @@ const Running = () => {
   const getStatsByYear = useRunningStore((state) => state.getStatsByYear);
   const getRunsByYear = useRunningStore((state) => state.getRunsByYear);
 
-  const runningStats = getStatsByYear(selectedYear);
+  const yearlyRunningStats = getStatsByYear(selectedYear);
   const chartData: ChartDataItem[] = [];
   const runningData = getRunsByYear(selectedYear);
 
@@ -26,7 +26,7 @@ const Running = () => {
 
   return (
     <section id="running">
-      <Stats stats={runningStats} sport={SportEnum.running} />
+      <YearlyStats stats={yearlyRunningStats} sport={SportEnum.running} />
       <StravaSelect
         selectOptions={stravaSelectYears}
         type={StravaSelectEnum.year}

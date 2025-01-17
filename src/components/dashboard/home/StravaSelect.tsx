@@ -58,6 +58,7 @@ const StravaSelect = (props: SelectYearProps) => {
             Select &nbsp;
             {type === StravaSelectEnum.sport ? "Sport" : "Year"}:
           </Label>
+
           <div className="relative mx-auto mt-1 flex">
             <ListboxButton className="relative cursor-default rounded-md border border-gray-300 bg-zinc py-2 pl-3 pr-10 text-left text-lg shadow-sm focus:outline-none focus:ring-1">
               <span className="block truncate">{currentValue}</span>

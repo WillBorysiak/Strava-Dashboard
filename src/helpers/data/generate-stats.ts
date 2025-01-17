@@ -50,6 +50,8 @@ export const generateStatsElevation = (activities: Activity[]): string => {
   return elevationInM;
 };
 
+// title
+
 export const generateStatsTitle = (sport: SportEnum): string => {
   let title: string = "";
 

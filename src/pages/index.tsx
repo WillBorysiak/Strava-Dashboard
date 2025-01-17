@@ -8,6 +8,7 @@ import Running from "../components/containers/Running";
 import Hero from "../components/dashboard/home/Hero";
 import Loading from "../components/dashboard/home/Loading";
 import StravaSelect from "../components/dashboard/home/StravaSelect";
+import WeeklyStats from "../components/dashboard/stats/WeeklyStats";
 import Footer from "../components/layout/Footer";
 import Layout from "../components/layout/Layout";
 import SEO from "../components/layout/SEO";
@@ -56,6 +57,7 @@ const Home: NextPage = () => {
     <Layout>
       <SEO />
       <Hero />
+      <WeeklyStats />
       <StravaSelect
         selectOptions={selectableSports}
         type={StravaSelectEnum.sport}
