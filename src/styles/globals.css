@@ -1,15 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@plugin '@tailwindcss/forms';
 
-html {
-  overflow-x: hidden;
+@theme {
+  --font-oswald: Oswald, san-serif;
+
+  --color-orange: #ea580c;
+  --color-zinc: #e4e4e7;
+  --color-light-background: rgba(0, 0, 0, 0.25);
+  --color-dark-background: rgba(0, 0, 0, 0.5);
 }
 
-@layer components {
-  .default-transition {
-    @apply transition-all duration-500 ease-in-out;
+@layer utilities {
+  html {
+    overflow-x: hidden;
   }
 }

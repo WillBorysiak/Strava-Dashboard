@@ -14,8 +14,8 @@ const Hero = () => {
         priority={true}
       />
       <h1
-        id="hero-title"
-        className="mb-5 mt-3 text-center font-oswald text-7xl font-extrabold text-zinc sm:text-8xl"
+        id="hero"
+        className="font-oswald text-zinc mt-3 mb-5 text-center text-7xl font-extrabold sm:text-8xl"
       >
         Strava Dashboard
       </h1>

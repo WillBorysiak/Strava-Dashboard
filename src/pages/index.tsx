@@ -1,5 +1,6 @@
-import type { NextPage } from "next";
 import { useEffect } from "react";
+
+import type { NextPage } from "next";
 
 import useSWR from "swr";
 
@@ -43,27 +44,22 @@ const Home: NextPage = () => {
 
   const hasData = hasRuns || hasHikes;
 
-  if (!hasData)
-    return (
-      <Layout>
-        <SEO />
-        <Hero />
-        <Loading />
-        <Footer />
-      </Layout>
-    );
-
   return (
     <Layout>
       <SEO />
       <Hero />
-      <WeeklyStats />
-      <StravaSelect
-        selectOptions={selectableSports}
-        type={StravaSelectEnum.sport}
-      />
-      {selectedSport === SportEnum.running && <Running />}
-      {selectedSport === SportEnum.hiking && <Hiking />}
+      {!hasData && <Loading />}
+      {hasData && (
+        <>
+          <WeeklyStats />
+          <StravaSelect
+            selectOptions={selectableSports}
+            type={StravaSelectEnum.sport}
+          />
+          {selectedSport === SportEnum.running && <Running />}
+          {selectedSport === SportEnum.hiking && <Hiking />}
+        </>
+      )}
       <Footer />
     </Layout>
   );

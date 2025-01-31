@@ -43,7 +43,7 @@ const Activities = (props: ActivitiesProps) => {
   }, [activityData, resultsCount, sortType]);
 
   return (
-    <section id="activities" className="mx-5 overflow-hidden shadow">
+    <section id="activities" className="mx-5 overflow-hidden shadow-sm">
       <Heading text="Workouts" />
       <motion.div
         initial="hidden"
@@ -51,14 +51,14 @@ const Activities = (props: ActivitiesProps) => {
         viewport={{ once: true }}
         variants={scrollVariants}
       >
-        <div className="mb-5 mt-5 flex w-full flex-row justify-around">
+        <div className="mt-5 mb-5 flex w-full flex-row justify-around">
           <ActivityFilter
             resultSelection={setResultsCount}
             sortSelection={setSortType}
           />
         </div>
 
-        <motion.ul layout={true} role="list" className="mt-3 rounded-sm">
+        <motion.ul layout={true} role="list" className="mt-3 rounded-xs">
           {activities.map((activity) => (
             <Activity key={activity.id} activity={activity} />
           ))}

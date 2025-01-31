@@ -39,7 +39,7 @@ const YearlyStats = (props: StatsProps) => {
             initial="hidden"
             animate="visible"
             variants={scrollVariants}
-            className="flex flex-row rounded-sm bg-zinc p-5 font-oswald shadow"
+            className="bg-zinc font-oswald flex flex-row rounded-xs p-5 shadow-sm"
           >
             <Stat stats={stat} />
           </motion.div>

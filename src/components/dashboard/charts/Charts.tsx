@@ -45,13 +45,19 @@ const Charts = (props: ChartsProps) => {
 
   return (
     <Container>
-      <div id="charts" className="mb-5 mt-5 flex flex-col">
+      <div id="charts" className="mt-5 mb-5 flex flex-col">
         <Heading text="Weekly Distances" />
-        <div className="mb-5 mt-5 flex-col justify-center">
+        <div
+          id="weekly-distance-chart"
+          className="mt-5 mb-5 flex-col justify-center"
+        >
           <WeeklyDistanceChart chartData={weeklyChartData} />
         </div>
         <Heading text="Monthly Distances" />
-        <div className="mb-5 mt-5 flex flex-col justify-center">
+        <div
+          id="monthly-distance-chart"
+          className="mt-5 mb-5 flex flex-col justify-center"
+        >
           <MonthlyDistanceChart chartData={monthlyChartData} />
         </div>
       </div>

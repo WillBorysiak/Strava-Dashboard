@@ -8,25 +8,24 @@
         "groups": [
           ["builtin", "external"],
           "internal",
-          ["parent", "sibling"],
-          "index"
+          ["index", "sibling", "parent"],
+          "unknown"
         ],
         "pathGroups": [
           {
-            "pattern": "{react,next,next/*,next-*}",
+            "pattern": "react",
             "group": "external",
             "position": "before"
           },
           {
-            "pattern": "{*}",
+            "pattern": "{next,next/**,next-*}",
             "group": "external",
-            "position": "after"
+            "position": "before"
           },
-
           {
-            "pattern": "{*}",
-            "group": "internal",
-            "position": "after"
+            "pattern": "@{*}",
+            "group": "external",
+            "position": "before"
           }
         ],
         "pathGroupsExcludedImportTypes": ["builtin"],

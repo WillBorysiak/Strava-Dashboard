@@ -5,14 +5,14 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 import classNames from "../../../helpers/core/class-names";
 
-const results = [
+const resultOptions = [
   { label: "5 results", value: 5 },
   { label: "10 results", value: 10 },
   { label: "15 results", value: 15 },
   { label: "20 results", value: 20 },
   { label: "All results", value: 100 },
 ];
-const sorting = [
+const sortingOptions = [
   { label: "Most Recent", value: "recent" },
   { label: "Oldest", value: "oldest" },
   { label: "Longest (distance)", value: "longest" },
@@ -27,17 +27,21 @@ interface ActivityFilterTypes {
 const ActivityFilter = (props: ActivityFilterTypes) => {
   return (
     <section
+      id="activity-filter"
       aria-labelledby="filter-heading"
-      className="z-10 w-full bg-darkBackground px-4 py-3 font-oswald"
+      className="bg-dark-background font-oswald z-10 w-full px-4 py-3"
     >
       <div className="flex items-center justify-between">
-        {/* Sort Menu */}
-        <Menu as="div" className="relative z-10 inline-block text-left">
+        {/* Results */}
+        <Menu
+          as="div"
+          className="relative z-10 inline-block cursor-pointer text-left"
+        >
           <div>
-            <Menu.Button className="text-md group flex items-center justify-center font-medium text-zinc md:text-lg">
+            <Menu.Button className="text-md group text-zinc flex cursor-pointer items-center justify-center font-medium md:text-lg">
               # of Results
               <ChevronDownIcon
-                className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-zinc"
+                className="text-zinc -mr-1 ml-1 h-5 w-5 shrink-0"
                 aria-hidden="true"
               />
             </Menu.Button>
@@ -52,10 +56,9 @@ const ActivityFilter = (props: ActivityFilterTypes) => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            {/* Sort Menu Items */}
-            <Menu.Items className="absolute left-0 z-10 mt-2 w-40 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-opacity-5 focus:outline-none">
+            <Menu.Items className="ring-opacity-5 absolute left-0 z-10 mt-2 w-40 origin-top-left rounded-md bg-white ring-1 shadow-2xl focus:outline-hidden">
               <div className="py-1">
-                {results.map((option, index) => (
+                {resultOptions.map((option, index) => (
                   <Menu.Item key={index}>
                     {({ active }) => (
                       <a
@@ -77,13 +80,16 @@ const ActivityFilter = (props: ActivityFilterTypes) => {
           </Transition>
         </Menu>
 
-        {/* Filters */}
-        <Menu as="div" className="relative z-10 inline-block text-left">
+        {/* Sort */}
+        <Menu
+          as="div"
+          className="relative z-10 inline-block cursor-pointer text-left"
+        >
           <div>
-            <Menu.Button className="text-md group flex items-center justify-center font-medium text-zinc md:text-lg">
+            <Menu.Button className="text-md group text-zinc flex cursor-pointer items-center justify-center font-medium md:text-lg">
               Sort
               <ChevronDownIcon
-                className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-zinc"
+                className="text-zinc -mr-1 ml-1 h-5 w-5 shrink-0"
                 aria-hidden="true"
               />
             </Menu.Button>
@@ -98,9 +104,9 @@ const ActivityFilter = (props: ActivityFilterTypes) => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-opacity-5 focus:outline-none">
+            <Menu.Items className="ring-opacity-5 absolute right-0 z-10 mt-2 w-40 origin-top-left rounded-md bg-white ring-1 shadow-2xl focus:outline-hidden">
               <div className="py-1">
-                {sorting.map((option, index) => (
+                {sortingOptions.map((option, index) => (
                   <Menu.Item key={index}>
                     {({ active }) => (
                       <a

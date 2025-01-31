@@ -17,9 +17,9 @@ const ActivityStat = (props: ActivityStatProps) => {
       <FontAwesomeIcon
         icon={icon}
         size="1x"
-        className={"ml-2 mr-2 " + iconColour}
+        className={"mr-2 ml-2 " + iconColour}
       />
-      <span className="ml-2 mr-2">-</span>
+      <span className="mr-2 ml-2">-</span>
       <span>{value}</span>
     </p>
   );

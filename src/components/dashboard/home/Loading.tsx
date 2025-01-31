@@ -20,9 +20,9 @@ const Loading = () => {
   }, [currentIcon]);
 
   return (
-    <div id="loading" className="mb-28 mt-14 flex h-screen flex-col">
+    <div id="loading" className="mt-14 mb-28 flex h-screen flex-col">
       <FontAwesomeIcon
-        className="mt-14 animate-bounce text-zinc"
+        className="text-zinc mt-14 animate-bounce"
         icon={currentIcon}
         size="5x"
       />

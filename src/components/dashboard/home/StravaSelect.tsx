@@ -52,15 +52,15 @@ const StravaSelect = (props: SelectYearProps) => {
       {({ open }) => (
         <div
           id="select-year"
-          className="mx-auto mb-5 mt-5 flex w-fit flex-row items-center font-oswald"
+          className="font-oswald mx-auto mt-5 mb-5 flex w-fit flex-row items-center"
         >
-          <Label className="mr-2 block text-2xl font-medium text-zinc">
+          <Label className="text-zinc mr-2 block text-2xl font-medium">
             Select &nbsp;
             {type === StravaSelectEnum.sport ? "Sport" : "Year"}:
           </Label>
 
           <div className="relative mx-auto mt-1 flex">
-            <ListboxButton className="relative cursor-default rounded-md border border-gray-300 bg-zinc py-2 pl-3 pr-10 text-left text-lg shadow-sm focus:outline-none focus:ring-1">
+            <ListboxButton className="bg-zinc relative cursor-pointer rounded-md border border-gray-300 py-2 pr-10 pl-3 text-left text-lg shadow-xs">
               <span className="block truncate">{currentValue}</span>
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <ChevronUpDownIcon
@@ -72,7 +72,7 @@ const StravaSelect = (props: SelectYearProps) => {
 
             {type === StravaSelectEnum.sport && selectedSport === "Running" && (
               <FontAwesomeIcon
-                className="ml-3 text-zinc"
+                className="text-zinc ml-3"
                 icon={faPersonRunningFast}
                 size="3x"
               />
@@ -80,7 +80,7 @@ const StravaSelect = (props: SelectYearProps) => {
 
             {type === StravaSelectEnum.sport && selectedSport === "Hiking" && (
               <FontAwesomeIcon
-                className="ml-3 text-zinc"
+                className="text-zinc ml-3"
                 icon={faHiking}
                 size="3x"
               />
@@ -96,14 +96,14 @@ const StravaSelect = (props: SelectYearProps) => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <ListboxOptions className="absolute z-10 mt-1 max-h-60 w-fit overflow-auto rounded-md bg-zinc py-1 text-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <ListboxOptions className="bg-zinc absolute z-10 mt-1 max-h-60 w-fit overflow-auto rounded-md py-1 text-lg shadow-lg ring-black">
                 {selectOptions.map((value, index) => (
                   <ListboxOption
                     key={index}
                     className={({ active }) =>
                       classNames(
                         active ? "bg-zinc text-orange" : "text-gray-900",
-                        "relative cursor-default select-none py-2 pl-3 pr-9",
+                        "relative cursor-pointer py-2 pr-9 pl-3 select-none",
                       )
                     }
                     value={value}

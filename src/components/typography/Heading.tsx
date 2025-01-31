@@ -6,7 +6,7 @@ const Heading = (props: HeadingPropTypes) => {
   return (
     <h2
       id="heading"
-      className="px-5 text-center font-oswald text-4xl font-extrabold text-zinc sm:text-5xl"
+      className="font-oswald text-zinc px-5 text-center text-4xl font-extrabold sm:text-5xl"
     >
       {props.text}
     </h2>
