@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 import { faMap, faMountain } from "@fortawesome/pro-duotone-svg-icons";
 import {
   faRabbitRunning,

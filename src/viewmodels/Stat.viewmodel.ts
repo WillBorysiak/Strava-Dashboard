@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export class StatViewModel {
   id: number;
   name: string;
