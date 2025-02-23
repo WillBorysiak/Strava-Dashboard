@@ -10,11 +10,7 @@ export class RedisService {
         url: process.env.REDIS_URL,
       });
 
-      try {
-        await RedisService.client.connect();
-      } catch (error) {
-        throw error;
-      }
+      await RedisService.client.connect();
     }
 
     return RedisService.client;

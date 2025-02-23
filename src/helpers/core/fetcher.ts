@@ -1,8 +1,8 @@
-type Fetcher<T> = (...args: [RequestInfo, RequestInit?]) => Promise<T>;
+export const fetcher = async (url: string) => {
+  const response = await fetch(url);
 
-export const fetcher: Fetcher<any> = async (...args: [RequestInfo, RequestInit?]) => {
-	const response = await fetch(...args);
-	if (!response.ok) throw new Error('Failed to fetch data');
+  if (!response.ok)
+    throw new Error(`Fetch error: ${response.status} ${response.statusText}`);
 
-	return response.json();
+  return response.json();
 };

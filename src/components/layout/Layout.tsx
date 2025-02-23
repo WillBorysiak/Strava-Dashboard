@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
+
 interface LayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const Layout = (props: LayoutProps) => {
