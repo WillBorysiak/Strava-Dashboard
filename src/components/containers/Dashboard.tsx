@@ -27,15 +27,15 @@ const Dashboard = (props: DashboardProps) => {
   const hasRuns = useRunningStore((state) => state.hasRuns);
   const setRuns = useRunningStore((state) => state.setRuns);
   useEffect(() => {
-    if (data && !hasRuns) setRuns(data);
-  }, [data, hasRuns, setRuns]);
+    if (data) setRuns(data);
+  }, [data, setRuns]);
 
   // hiking
   const hasHikes = useHikingStore((state) => state.hasHikes);
   const setHikes = useHikingStore((state) => state.setHikes);
   useEffect(() => {
-    if (data && !hasHikes) setHikes(data);
-  }, [data, hasHikes, setHikes]);
+    if (data) setHikes(data);
+  }, [data, setHikes]);
 
   const hasData = hasRuns || hasHikes;
 

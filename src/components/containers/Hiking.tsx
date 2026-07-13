@@ -22,7 +22,7 @@ const Hiking = () => {
     hikingData.forEach((hike) => chartData.push(new ChartDataItem(hike)));
   }
 
-  const stravaSelectYears: number[] = [2023, 2024, 2025];
+  const stravaSelectYears: number[] = [2023, 2024, 2025, 2026];
 
   return (
     <section id="hiking">

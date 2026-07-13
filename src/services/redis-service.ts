@@ -1,18 +1,35 @@
 import { createClient } from "redis";
 import type { RedisClientType } from "redis";
 
+interface RedisServiceConfig {
+  url?: string;
+  client?: RedisClientType;
+}
+
 export class RedisService {
-  private static client: RedisClientType | null = null;
+  private static sharedClient: RedisClientType | null = null;
 
-  static async getClient(): Promise<RedisClientType> {
-    if (!RedisService.client) {
-      RedisService.client = createClient({
-        url: process.env.REDIS_URL,
-      });
+  private readonly url?: string;
+  private readonly client?: RedisClientType;
 
-      await RedisService.client.connect();
+  constructor(config: RedisServiceConfig) {
+    this.url = config.url;
+    this.client = config.client;
+  }
+
+  getClient = async (): Promise<RedisClientType> => {
+    if (this.client) {
+      return this.client;
     }
 
-    return RedisService.client;
-  }
+    if (!RedisService.sharedClient) {
+      RedisService.sharedClient = createClient({
+        url: this.url,
+      });
+
+      await RedisService.sharedClient.connect();
+    }
+
+    return RedisService.sharedClient;
+  };
 }

@@ -1,110 +1,104 @@
 import { IActivity } from "../interfaces/Activity.interface";
+import { mapActivities } from "../mappers/activity.mapper";
+
+interface StravaServiceConfig {
+  clientId?: string;
+  clientSecret?: string;
+  refreshToken?: string;
+  fetchImpl?: typeof fetch;
+}
 
 export class StravaService {
-  static generateAccessToken = async () => {
-    const headers = {
-      Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json",
-    };
+  private static readonly BASE_URL = "https://www.strava.com";
+  private static readonly API_BASE_URL = `${StravaService.BASE_URL}/api/v3`;
 
-    const body = JSON.stringify({
-      client_id: process.env.STRAVA_CLIENT_ID,
-      client_secret: process.env.STRAVA_SECRET,
-      refresh_token: process.env.STRAVA_REFRESH_TOKEN,
-      grant_type: "refresh_token",
-    });
+  private readonly clientId?: string;
+  private readonly clientSecret?: string;
+  private readonly refreshToken?: string;
+  private readonly fetchImpl: typeof fetch;
 
-    const refreshAccess = await fetch("https://www.strava.com/oauth/token", {
-      method: "post",
-      headers: headers,
-      body: body,
-    });
-    const accessJson = await refreshAccess.json();
-    const accessToken = accessJson.access_token;
+  private readonly authUrl = `${StravaService.BASE_URL}/oauth/token`;
+  private readonly activityUrl = `${StravaService.API_BASE_URL}/athlete/activities`;
 
-    return accessToken;
+  constructor(config: StravaServiceConfig) {
+    this.clientId = config.clientId;
+    this.clientSecret = config.clientSecret;
+    this.refreshToken = config.refreshToken;
+    this.fetchImpl = config.fetchImpl ?? fetch;
+  }
+
+  fetchJson = async <T>(
+    url: string,
+    options?: Parameters<typeof fetch>[1],
+  ): Promise<T> => {
+    const response = await this.fetchImpl(url, options);
+    const responseJson = await response.json();
+
+    if (!response.ok) {
+      throw new Error(
+        `Strava request failed (${response.status}): ${JSON.stringify(responseJson)}`,
+      );
+    }
+
+    return responseJson as T;
   };
 
-  static fetchFromStrava = async () => {
-    const accessToken = await StravaService.generateAccessToken();
-
-    const activityUrl = "https://www.strava.com/api/v3/athlete/activities";
-
-    // (2021)
-    const params2021 = new URLSearchParams({
-      after: "1609459200", // 2021-01-01 00:00:00 UTC
-      before: "1640995199", // 2021-12-31 23:59:59 UTC
-      per_page: "200",
-      access_token: accessToken,
+  generateAccessToken = async () => {
+    const accessJson = await this.fetchJson<{
+      access_token?: string;
+      scope?: string;
+    }>(this.authUrl, {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        client_id: this.clientId,
+        client_secret: this.clientSecret,
+        refresh_token: this.refreshToken,
+        grant_type: "refresh_token",
+      }),
     });
-    const response2021 = await fetch(`${activityUrl}?${params2021}`);
-    const activities2021 = await response2021.json();
 
-    // (2022)
-    const params2022 = new URLSearchParams({
-      after: "1640995200", // 2022-01-01 00:00:00 UTC
-      before: "1672531199", // 2022-12-31 23:59:59 UTC
-      per_page: "200",
-      access_token: accessToken,
-    });
-    const response2022 = await fetch(`${activityUrl}?${params2022}`);
-    const activities2022 = await response2022.json();
+    if (!accessJson.access_token) {
+      throw new Error(
+        `Strava token response did not include an access token. Scope: ${accessJson.scope ?? "unknown"}`,
+      );
+    }
 
-    // (2023)
-    const params2023 = new URLSearchParams({
-      after: "1672531200", // 2023-01-01 00:00:00 UTC
-      before: "1704067199", // 2023-12-31 23:59:59 UTC
-      per_page: "200",
-      access_token: accessToken,
-    });
-    const response2023 = await fetch(`${activityUrl}?${params2023}`);
-    const activities2023 = await response2023.json();
+    return accessJson.access_token;
+  };
 
-    // (2024)
-    const params2024 = new URLSearchParams({
-      after: "1704067200", // 2024-01-01 00:00:00 UTC
-      before: "1735689599", // 2024-12-31 23:59:59 UTC
-      per_page: "200",
-      access_token: accessToken,
-    });
-    const response2024 = await fetch(`${activityUrl}?${params2024}`);
-    const activities2024 = await response2024.json();
+  fetchFromStrava = async () => {
+    const accessToken = await this.generateAccessToken();
 
-    // (2025)
-    const params2025 = new URLSearchParams({
-      after: "1735689600", // 2025-01-01 00:00:00 UTC
-      before: "1767225599", // 2025-12-31 23:59:59 UTC
-      per_page: "200",
-      access_token: accessToken,
-    });
-    const response2025 = await fetch(`${activityUrl}?${params2025}`);
-    const activities2025 = await response2025.json();
-
-    const activitiesArray: IActivity[] = [
-      ...activities2021,
-      ...activities2022,
-      ...activities2023,
-      ...activities2024,
-      ...activities2025,
+    const activityDateRanges = [
+      { after: "1609459200", before: "1640995199" }, // 2021
+      { after: "1640995200", before: "1672531199" }, // 2022
+      { after: "1672531200", before: "1704067199" }, // 2023
+      { after: "1704067200", before: "1735689599" }, // 2024
+      { after: "1735689600", before: "1767225599" }, // 2025
+      { after: "1767225600", before: "1798761599" }, // 2026
     ];
 
-    const activities = StravaService.createActivities(activitiesArray);
+    const activitiesByYear: IActivity[][] = await Promise.all(
+      activityDateRanges.map(({ after, before }) => {
+        const params = new URLSearchParams({
+          after,
+          before,
+          per_page: "200",
+        });
 
-    return activities;
-  };
+        return this.fetchJson<IActivity[]>(`${this.activityUrl}?${params}`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+      }),
+    );
 
-  static createActivities = (activitiesArray: IActivity[]): IActivity[] => {
-    const activities: IActivity[] = activitiesArray.map((activity) => ({
-      name: activity.name,
-      id: activity.id,
-      sport_type: activity.sport_type,
-      start_date: activity.start_date,
-      distance: activity.distance,
-      moving_time: activity.moving_time,
-      total_elevation_gain: activity.total_elevation_gain,
-      average_speed: activity.average_speed,
-      average_heartrate: activity.average_heartrate,
-    }));
+    const activities = mapActivities(activitiesByYear);
 
     return activities;
   };
