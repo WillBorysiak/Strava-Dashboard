@@ -1,11 +1,8 @@
 import { JSX } from "react";
 
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { faMap, faMountain } from "@fortawesome/pro-duotone-svg-icons";
-import {
-  faRabbitRunning,
-  faStopwatch,
-  IconDefinition,
-} from "@fortawesome/pro-solid-svg-icons";
+import { faRabbitRunning, faStopwatch } from "@fortawesome/pro-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const createStatsIcon = (icon: IconDefinition): JSX.Element => (

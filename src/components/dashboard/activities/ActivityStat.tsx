@@ -1,4 +1,4 @@
-import { IconDefinition } from "@fortawesome/pro-duotone-svg-icons";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface ActivityStatProps {
